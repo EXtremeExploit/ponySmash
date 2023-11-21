@@ -21,6 +21,7 @@ img {
     max-width: 80vw;
     width: auto;
     margin: 30px;
+    max-height: 75vh;
 }
 
 a {
