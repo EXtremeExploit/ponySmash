@@ -52,6 +52,8 @@ a:visited {
     cursor: pointer;
     flex: 1;
     border-bottom: 10px solid white;
+    height: 7.5vh;
+    padding: 1.5vh;
 }
 
 
