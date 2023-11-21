@@ -318,7 +318,7 @@ function setCharacter(number) {
         let finishedParagrah = document.createElement('p');
         finishedParagrah.textContent = finishedText;
         finishedParagrah.classList.add('pony-name');
-        let e = document.getElementById('everything');
+        let e = document.getElementsByClassName('page-inner')[0];
         e.appendChild(finishedParagrah);
     } else {
         name.textContent = list[number].name;
