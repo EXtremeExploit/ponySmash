@@ -226,6 +226,7 @@ const ORDERED_LIST = [
     { name: 'Roma', img: 'unsorted/Roma' },
     { name: 'Rumble', img: 'unsorted/Rumble' },
     { name: 'Saffron Masala', img: 'unsorted/Saffron_Masala' },
+    { name: 'Sandbar', img: 'unsorted/Sandbar' },
     { name: 'Sapphire Shores', img: 'unsorted/Sapphire_Shores' },
     { name: 'Sassy Saddles', img: 'unsorted/Sassy_Saddles' },
     { name: 'Scootaloo', img: 'unsorted/Scootaloo' },
