@@ -1,5 +1,3 @@
-console.log('hi');
-
 const ORDERED_LIST = [
     // Mane 6 
     { name: 'Applejack', img: 'mane6/Applejack' },
@@ -304,6 +302,30 @@ const list = ORDERED_LIST.sort((a, b) => 0.5 - Math.random());
 let i = 0;
 
 let smashCount = 0;
+let lastSmashName = '';
+
+function getShameText() {
+    if (smashCount == 0) return 'Damn, not a single one.';
+
+    if (smashCount == 1 && (lastSmashName == 'Tom' || lastSmashName == 'Boulder')) return 'A ROCK. A FUCKING ROCK. HOW?!?!';
+
+    if (smashCount == 1) return `You are loyal to ${lastSmashName}... I like it.`;
+    if (smashCount == 2) return `So you want a threesome?`;
+    if (smashCount == 69) return `Nice.`;
+
+    const percentage = Math.floor((smashCount / list.length) * 100);
+
+    if (percentage < 10) return 'Thats very few ponies, you have super high standards.';
+    if (percentage < 33) return 'Not even one third, quality taste.';
+    if (percentage < 50) return 'Thats decent. I guess...';
+    if (percentage < 60) return 'Mares. Am I right?.';
+    if (percentage < 75) return 'Thats a lot of smashing.';
+    if (percentage < 90) return 'I\'m pretty sure you would be at it for days with this many smashes.';
+    if (percentage < 100) return 'You are incredibly desperate for some smashing. You have absolutely no shame...';
+    if (percentage == 100) return 'You are a true smasher. You would smash everything, including two rocks and a tree. I can\'t even begin to comprehend how mentally insane you are. You are definitely desperate for some smashing. Seek help';
+
+    return '';
+}
 
 function setCharacter(number) {
     let img = document.getElementById('pony-img');
@@ -314,12 +336,18 @@ function setCharacter(number) {
         let buttonsHolder = document.getElementById('buttons-holder');
         buttonsHolder.remove();
 
-        let finishedText = `Its over!, You would smash ${smashCount} out of ${list.length} ponies`;
+        let finishedText = `Its over!, You would smash ${smashCount} out of ${list.length} ponies.`;
+        let shameText = getShameText();
+
         let finishedParagrah = document.createElement('p');
+        let shameParagraph = document.createElement('p');
         finishedParagrah.textContent = finishedText;
+        shameParagraph.textContent = shameText;
         finishedParagrah.classList.add('pony-name');
+        shameParagraph.classList.add('pony-name');
         let e = document.getElementsByClassName('page-inner')[0];
         e.appendChild(finishedParagrah);
+        e.appendChild(shameParagraph);
     } else {
         name.textContent = list[number].name;
         img.src = `characters/${list[number].img}.png`;
@@ -331,11 +359,10 @@ function smashClick() {
     const b = document.getElementById('smash');
     b.classList.remove('smash-button-anim');
     requestAnimationFrame((time) => {
-        requestAnimationFrame((time) => {
-            b.classList.add('smash-button-anim');
-        });
+        b.classList.add('smash-button-anim');
     });
 
+    lastSmashName = list[i].name;
 
     i++;
     smashCount++;
@@ -348,11 +375,8 @@ function passClick() {
     const b = document.getElementById('pass');
     b.classList.remove('pass-button-anim');
     requestAnimationFrame((time) => {
-        requestAnimationFrame((time) => {
-            b.classList.add('pass-button-anim');
-        });
+        b.classList.add('pass-button-anim');
     });
-
 
     i++;
     console.log(`Char: ${i}/${list.length} SMASHES #${smashCount}`);
@@ -365,7 +389,6 @@ function passClick() {
  * @returns
  */
 function keyDownHandler(e) {
-
     if (e.repeat)
         return;
 
@@ -376,7 +399,6 @@ function keyDownHandler(e) {
 
     if (i >= list.length)
         document.removeEventListener('keydown', keyDownHandler);
-
 }
 
 const smashButton = document.getElementById('smash');
@@ -385,7 +407,6 @@ const passButton = document.getElementById('pass');
 smashButton.addEventListener('click', smashClick);
 passButton.addEventListener('click', passClick);
 document.addEventListener('keydown', keyDownHandler);
-
 
 // Initialize everything
 setCharacter(0);
