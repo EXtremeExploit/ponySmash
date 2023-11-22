@@ -308,7 +308,7 @@ let smashCount = 0;
 function setCharacter(number) {
     let img = document.getElementById('pony-img');
     let name = document.getElementById('pony-name');
-    if (number == list.length) {
+    if (number >= list.length) {
         img.remove();
         name.remove();
         let buttonsHolder = document.getElementById('buttons-holder');
@@ -355,14 +355,36 @@ function passClick() {
 
 
     i++;
-    console.log(`Char: ${i}/${list.length} SMASH #${smashCount}`);
+    console.log(`Char: ${i}/${list.length} SMASHES #${smashCount}`);
     setCharacter(i);
 }
+
+/**
+ *
+ * @param {KeyboardEvent} e
+ * @returns
+ */
+function keyDownHandler(e) {
+
+    if (e.repeat)
+        return;
+
+    switch (e.key) {
+        case 'ArrowLeft': smashClick(); break;
+        case 'ArrowRight': passClick(); break;
+    }
+
+    if (i >= list.length)
+        document.removeEventListener('keydown', keyDownHandler);
+
+}
+
 const smashButton = document.getElementById('smash');
 const passButton = document.getElementById('pass');
 
 smashButton.addEventListener('click', smashClick);
 passButton.addEventListener('click', passClick);
+document.addEventListener('keydown', keyDownHandler);
 
 
 // Initialize everything
