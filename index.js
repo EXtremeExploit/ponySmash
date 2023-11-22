@@ -419,9 +419,9 @@ document.addEventListener('keydown', keyDownHandler);
     let cachedImgIndex = 0;
     let cachedImg = new Image();
     cachedImg.addEventListener('load', () => {
-        cachedImg.src = list[++cachedImg];
+        cachedImg.src = `characters/${list[++cachedImgIndex].img}.png`;
     })
-    cachedImg.src = list[cachedImgIndex];
+    cachedImg.src = `characters/${list[cachedImgIndex].img}.png`;
 }
 
 // Initialize everything
