@@ -78,7 +78,7 @@ const ORDERED_LIST = [
     { name: 'Apple Rose', img: 'unsorted/Apple_Rose' },
     { name: 'Apple Strudel', img: 'unsorted/Apple_Strudel' },
     { name: 'Applesauce', img: 'unsorted/Applesauce' },
-    { name: 'AriaBlaze', img: 'unsorted/Aria_Blaze' },
+    { name: 'Aria Blaze', img: 'unsorted/Aria_Blaze' },
     { name: 'Aunt Holiday', img: 'unsorted/Aunt_Holiday' },
     { name: 'Aunt Orange', img: 'unsorted/Aunt_Orange' },
     { name: 'Aunt Lofty', img: 'unsorted/Auntie_Lofty' },
