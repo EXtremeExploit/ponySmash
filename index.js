@@ -237,6 +237,7 @@ const ORDERED_LIST = [
     { name: 'Silver Shill', img: 'unsorted/Silver_Shill' },
     { name: 'Silver Spoon', img: 'unsorted/Silver_Spoon' },
     { name: 'Silver Zoom', img: 'unsorted/Silver_Zoom' },
+    { name: 'Silverstream', img: 'unsorted/Silverstream' },
     { name: 'Sky Beak', img: 'unsorted/Sky_Beak' },
     { name: 'Sky Stinger', img: 'unsorted/Sky_Stinger' },
     { name: 'Sludge', img: 'unsorted/Sludge' },
