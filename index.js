@@ -328,6 +328,15 @@ function setCharacter(number) {
 }
 
 function smashClick() {
+    const b = document.getElementById('smash');
+    b.classList.remove('smash-button-anim');
+    requestAnimationFrame((time) => {
+        requestAnimationFrame((time) => {
+            b.classList.add('smash-button-anim');
+        });
+    });
+
+
     i++;
     smashCount++;
     console.log(`Char: ${i}/${list.length} SMASH #${smashCount}`);
@@ -336,6 +345,15 @@ function smashClick() {
 }
 
 function passClick() {
+    const b = document.getElementById('pass');
+    b.classList.remove('pass-button-anim');
+    requestAnimationFrame((time) => {
+        requestAnimationFrame((time) => {
+            b.classList.add('pass-button-anim');
+        });
+    });
+
+
     i++;
     console.log(`Char: ${i}/${list.length} SMASH #${smashCount}`);
     setCharacter(i);
