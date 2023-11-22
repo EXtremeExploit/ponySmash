@@ -1,3 +1,7 @@
+---
+
+---
+{% assign version = site.data.version %}
 <html>
 
 <head>
@@ -11,7 +15,7 @@
     <!-- TODO: need logo for <meta content="https://ponysmash.pedro.moe/" property="og:image" /> -->
     <meta content="#d367f5" data-react-helmet="true" name="theme-color" />
 
-    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="stylesheet" href="style.css?v={{version.version}}">
 </head>
 
 <body>
@@ -31,13 +35,13 @@
 
     <footer>
         <p>
-            <a href="https://github.com/EXtremeExploit/ponySmash/releases">v1.4</a> /
+            <a href="https://github.com/EXtremeExploit/ponySmash/releases">{{version.version}}</a> /
             Site by <a href="https://github.com/EXtremeExploit/">EXtremeExploit</a> /
             Give me a star on <a href="https://github.com/EXtremeExploit/ponySmash">GitHub</a>
         </p>
     </footer>
 
-    <script src="index.js?v=1.4"></script>
+    <script src="index.js?v={{version.version}}"></script>
 </body>
 
 </html>
