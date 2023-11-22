@@ -192,7 +192,7 @@ const ORDERED_LIST = [
     { name: 'Mulia Mild', img: 'unsorted/Mulia_Mild' },
     { name: 'Night Glider', img: 'unsorted/Night_Glider' },
     { name: 'Night Light', img: 'unsorted/Night_Light' },
-    { name: 'Night Mare Moon', img: 'unsorted/Nightmare_Moon' },
+    { name: 'Nightmare Moon', img: 'unsorted/Nightmare_Moon' },
     { name: 'Nurse Redheart', img: 'unsorted/Nurse_Redheart' },
     { name: 'Nurse Snowheart', img: 'unsorted/Nurse_Snowheart' },
     { name: 'Ocean Flow', img: 'unsorted/Ocean_Flow' },
