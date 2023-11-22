@@ -136,6 +136,7 @@ const ORDERED_LIST = [
     { name: 'Flitter', img: 'unsorted/Flitter' },
     { name: 'Flurry Heart', img: 'unsorted/Flurry_Heart' },
     { name: 'Gabby', img: 'unsorted/Gabby' },
+    { name: 'Gallus', img: 'unsorted/Gallus' },
     { name: 'Garble', img: 'unsorted/Garble' },
     { name: 'Gilda', img: 'unsorted/Gilda' },
     { name: 'Gizmo', img: 'unsorted/Gizmo' },
@@ -407,6 +408,16 @@ const passButton = document.getElementById('pass');
 smashButton.addEventListener('click', smashClick);
 passButton.addEventListener('click', passClick);
 document.addEventListener('keydown', keyDownHandler);
+
+
+{
+    let cachedImgIndex = 0;
+    let cachedImg = new Image();
+    cachedImg.addEventListener('load', () => {
+        cachedImg.src = list[++cachedImg];
+    })
+    cachedImg.src = list[cachedImgIndex];
+}
 
 // Initialize everything
 setCharacter(0);
