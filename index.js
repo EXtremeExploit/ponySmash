@@ -196,6 +196,7 @@ const ORDERED_LIST = [
     { name: 'Nurse Redheart', img: 'unsorted/Nurse_Redheart' },
     { name: 'Nurse Snowheart', img: 'unsorted/Nurse_Snowheart' },
     { name: 'Ocean Flow', img: 'unsorted/Ocean_Flow' },
+    { name: 'Ocellus', img: 'unsorted/Ocellus' },
     { name: 'Party Favor', img: 'unsorted/Party_Favor' },
     { name: 'Peachy Pie', img: 'unsorted/Peachy_Pie' },
     { name: 'Pear Butter', img: 'unsorted/Pear_Butter' },
