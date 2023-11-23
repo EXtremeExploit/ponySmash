@@ -279,6 +279,7 @@ const ORDERED_LIST = [
     { name: 'Sweetie Belle', img: 'unsorted/Sweetie_Belle' },
     { name: 'Sweetie Drops (Bon Bon)', img: 'unsorted/Sweetie_Drops' },
     { name: 'Tag-A-Long', img: 'unsorted/Tag-A-Long' },
+    { name: 'Tank', img: 'unsorted/Tank' },
     { name: 'Teddie Safari', img: 'unsorted/Teddie_Safari' },
     { name: 'Tender Taps', img: 'unsorted/Tender_Taps' },
     { name: 'Terramar', img: 'unsorted/Terramar' },
