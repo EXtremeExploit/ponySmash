@@ -162,6 +162,7 @@ const ORDERED_LIST = [
     { name: 'Junebug', img: 'unsorted/Junebug' },
     { name: 'Kerfuffle', img: 'unsorted/Kerfuffle' },
     { name: 'King Sombra', img: 'unsorted/King_Sombra' },
+    { name: 'Lemon Hearts', img: 'unsorted/Lemon_Hearts' },
     { name: 'Lightning Dust', img: 'unsorted/Lightning_Dust' },
     { name: 'Limestone Pie', img: 'unsorted/Limestone_Pie' },
     { name: 'Little Strongheart', img: 'unsorted/Little_Strongheart' },
