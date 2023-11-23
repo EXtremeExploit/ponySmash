@@ -25,16 +25,23 @@
 
 <body>
     <div id="buttons-holder">
-        <div class="button smash-button" id="smash">
-            SMASH! (←)
-        </div>
-        <div class="button pass-button" id="pass">
-            Pass (→)
-        </div>
     </div>
     <div class="page-inner">
-        <p class="pony-name" id="pony-name">Loading...</p>
-        <img class="img-div" id="pony-img" alt="Loading..." />
+
+        <p class="pony-name">MLP: FiM Smash or Pass</p>
+        <br>
+        <p class="menu-option">Show EQG<input type="checkbox" id="show-eqg" class="menu-checkbox"></input></p>
+        <br>
+        <p class="menu-option">Show underage<input type="checkbox" id="show-underage" class="menu-checkbox"></input></p>
+        <br>
+        <p class="menu-option">Show males<input type="checkbox" id="show-males" checked="true"
+                class="menu-checkbox"></input></p>
+        <br>
+        <br>
+        <p id="characters-preview-count">Characters: ???/???</p>
+        <br>
+        <br>
+        <button id="start" class="start-button">Start</button>
     </div>
 
     <footer>
