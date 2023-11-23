@@ -20,6 +20,12 @@ I was bored tbh
 * First you want to fork this repository
 * Create a new branch with the name you want
 * Add the **PNG** to the characters folder, you are free to put it in the respective folder it should go to, but i you are unsure put it in `unsorted`
-* Add the character to the list inside `index.js` (you will know its the list), in alphabetical order, the `name` property is what appears above the image, and the `img` property is the path to the image ignoring the `characters` folder and no file extension, **ITS CASE SENSITIVE**
+* Add the character to the list inside `index.js` (you will know its the list), in alphabetical order
+   *  `name`: This is what appears above the image
+   *  `img`: The path to the image ignoring the `characters` folder and no file extension, **ITS CASE SENSITIVE**
+   *  `filly`: Is the character underage?
+   *  `eqg`: Is the character/image from Equestria Girls?
+   *  `gender`: `"male"`/`"female"`
+   *  `community`: Is the character not officially made by hasbro/Made from the community?
 * Make a PR (Pull Request) to the branch **`master`**, if you do it to any other branch i will close your PR
 * Now your request is for everyone to see, including me :D, so now i can comment on your changes if something is needed, or merge them if everything is fine
