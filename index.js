@@ -71,6 +71,7 @@ const ORDERED_LIST = [
     { name: 'Adagio Dazzle', img: 'unsorted/Adagio_Dazzle' },
     { name: 'Ahuizotl', img: 'unsorted/Ahuizotl' },
     { name: 'Aloe Vera', img: 'unsorted/Aloe_Vera' },
+    { name: 'Angel', img: 'unsorted/Angel' },
     { name: 'Angel Wings', img: 'unsorted/Angel_Wings' },
     { name: 'Apple Bloom', img: 'unsorted/Apple_Bloom' },
     { name: 'Apple Rose', img: 'unsorted/Apple_Rose' },
