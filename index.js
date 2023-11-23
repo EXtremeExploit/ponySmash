@@ -288,6 +288,7 @@ const ORDERED_LIST = [
     { name: 'Tag-A-Long', img: 'unsorted/Tag-A-Long' },
     { name: 'Tank', img: 'unsorted/Tank' },
     { name: 'Teddie Safari', img: 'unsorted/Teddie_Safari' },
+    { name: 'Tempest Shadow', img: 'unsorted/Tempest_Shadow' },
     { name: 'Tender Taps', img: 'unsorted/Tender_Taps' },
     { name: 'Terramar', img: 'unsorted/Terramar' },
     { name: 'The Storm King', img: 'unsorted/The_Storm_King' },
