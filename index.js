@@ -120,6 +120,7 @@ const ORDERED_LIST = [
     { name: 'Derpy', img: 'unsorted/Derpy' },
     { name: 'Diamond Tiara', img: 'unsorted/Diamond_Tiara' },
     { name: 'Discord', img: 'unsorted/Discord' },
+    { name: 'DJ Pon-3', img: 'unsorted/DJ_Pon-3' },
     { name: 'Doc Top', img: 'unsorted/Doc_Top' },
     { name: 'Doctor Horse', img: 'unsorted/Doctor_Horse' },
     { name: 'Double Diamond', img: 'unsorted/Double_Diamond' },
