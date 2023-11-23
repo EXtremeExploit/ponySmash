@@ -148,6 +148,7 @@ const ORDERED_LIST = [
     { name: 'Granny Smith', img: 'unsorted/Granny_Smith' },
     { name: 'Greta', img: 'unsorted/Greta' },
     { name: 'Grogar', img: 'unsorted/Grogar' },
+    { name: 'Gummy', img: 'unsorted/Gummy' },
     { name: 'Gustave', img: 'unsorted/Gustave' },
     { name: 'Hayseed Turnip Truck', img: 'unsorted/Hayseed_Turnip_Truck' },
     { name: 'High Winds', img: 'unsorted/High_Winds' },
