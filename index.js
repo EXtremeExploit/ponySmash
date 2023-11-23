@@ -200,6 +200,7 @@ const ORDERED_LIST = [
     { name: 'Ocean Flow', img: 'unsorted/Ocean_Flow' },
     { name: 'Ocellus', img: 'unsorted/Ocellus' },
     { name: 'Opalescence', img: 'unsorted/Opalescence' },
+    { name: 'Owlowiscious', img: 'unsorted/Owlowiscious' },
     { name: 'Party Favor', img: 'unsorted/Party_Favor' },
     { name: 'Peachy Pie', img: 'unsorted/Peachy_Pie' },
     { name: 'Pear Butter', img: 'unsorted/Pear_Butter' },
