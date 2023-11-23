@@ -302,6 +302,7 @@ const ORDERED_LIST = [
     { name: 'Wind Rider', img: 'unsorted/Wind_Rider' },
     { name: 'Wind Sprint', img: 'unsorted/Wind_Sprint' },
     { name: 'Windy Whistles', img: 'unsorted/Windy_Whistles' },
+    { name: 'Winona', img: 'unsorted/Winona' },
     { name: 'Yona', img: 'unsorted/Yona' },
     { name: 'Yona (Pony)', img: 'unsorted/Yona_pony' },
     { name: 'Zecora', img: 'unsorted/Zecora' },
