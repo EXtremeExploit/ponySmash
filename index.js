@@ -347,13 +347,18 @@ function setCharacter(number) {
 
         let finishedParagrah = document.createElement('p');
         let shameParagraph = document.createElement('p');
+        let githubParagraph = document.createElement('p');
         finishedParagrah.textContent = finishedText;
         shameParagraph.textContent = shameText;
+        githubParagraph.textContent = `If you want to a character or contribute, read the README on GitHub (its at the bottom of the page)`;
         finishedParagrah.classList.add('pony-name');
         shameParagraph.classList.add('pony-name');
+        githubParagraph.classList.add('pony-name');
         let e = document.getElementsByClassName('page-inner')[0];
         e.appendChild(finishedParagrah);
         e.appendChild(shameParagraph);
+        e.appendChild(document.createElement('br'));
+        e.appendChild(githubParagraph);
     } else {
         name.textContent = list[number].name;
         img.src = `characters/${list[number].img}.png`;
@@ -423,6 +428,7 @@ document.addEventListener('keydown', keyDownHandler);
     let cachedImgIndex = 0;
     let cachedImg = new Image();
     cachedImg.addEventListener('load', () => {
+        if (cachedImgIndex == list.length - 1) return;
         cachedImg.src = `characters/${list[++cachedImgIndex].img}.png`;
     })
     cachedImg.src = `characters/${list[cachedImgIndex].img}.png`;
