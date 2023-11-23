@@ -207,6 +207,7 @@ const ORDERED_LIST = [
     { name: 'Petunia Petals', img: 'unsorted/Petunia_Petals' },
     { name: 'Pharynx (Changeling)', img: 'unsorted/Pharynx' },
     { name: 'Pharynx (Metamorphosed)', img: 'unsorted/Metamorphosed_Pharynx' },
+    { name: 'Philomena', img: 'unsorted/Philomena' },
     { name: 'Photo Finish', img: 'unsorted/Photo_Finish' },
     { name: 'Pickle Barrel', img: 'unsorted/Pickle_Barrel' },
     { name: 'Pipsqueak', img: 'unsorted/Pipsqueak' },
