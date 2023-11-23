@@ -145,6 +145,7 @@ const ORDERED_LIST = [
     { name: 'Gilda', img: 'unsorted/Gilda' },
     { name: 'Gizmo', img: 'unsorted/Gizmo' },
     { name: 'Gladmane', img: 'unsorted/Gladmane' },
+    { name: 'Golden Harvest', img: 'unsorted/Golden_Harvest' },
     { name: 'Goldie Delicious', img: 'unsorted/Goldie_Delicious' },
     { name: 'Grampa Gruff', img: 'unsorted/Grampa_Gruff' },
     { name: 'Grand Pear', img: 'unsorted/Grand_Pear' },
