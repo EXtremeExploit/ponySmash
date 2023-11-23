@@ -128,6 +128,7 @@ const ORDERED_LIST = [
     { name: 'Fancy Pants', img: 'unsorted/Fancy_Pants', filly: false, eqg: false, gender: 'male' },
     { name: 'Feather Bangs', img: 'unsorted/Feather_Bangs', filly: false, eqg: false, gender: 'male' },
     { name: 'Featherweight', img: 'unsorted/Featherweight', filly: true, eqg: false, gender: 'male' },
+    { name: 'Fernando', img: 'unsorted/Fernando', filly: false, eqg: false, gender: 'male' },
     { name: 'Filthy Rich', img: 'unsorted/Filthy_Rich', filly: false, eqg: false, gender: 'male' },
     { name: 'Firelight', img: 'unsorted/Firelight', filly: false, eqg: false, gender: 'male' },
     { name: 'Fire Streak', img: 'unsorted/Fire_Streak', filly: false, eqg: false, gender: 'male' },
