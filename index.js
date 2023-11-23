@@ -124,6 +124,7 @@ const ORDERED_LIST = [
     { name: 'Doc Top', img: 'unsorted/Doc_Top' },
     { name: 'Doctor Horse', img: 'unsorted/Doctor_Horse' },
     { name: 'Double Diamond', img: 'unsorted/Double_Diamond' },
+    { name: 'Dr. Hooves', img: 'unsorted/Dr._Hooves' },
     { name: 'Fancy Pants', img: 'unsorted/Fancy_Pants' },
     { name: 'Feather Bangs', img: 'unsorted/Feather_Bangs' },
     { name: 'Featherweight', img: 'unsorted/Featherweight' },
