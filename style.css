@@ -74,7 +74,7 @@ button.start-button {
 
 .button {
     background-color: rgb(70, 70, 70);
-    font-size: 30px;
+    font-size: 3vh;
     padding: 5px;
     font-weight: 700;
     text-align: center;
