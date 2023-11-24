@@ -135,6 +135,7 @@ const ORDERED_LIST = [
     { name: 'DJ Pon-3', img: 'unsorted/DJ_Pon-3', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Doc Top', img: 'unsorted/Doc_Top', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Doctor Horse', img: 'unsorted/Doctor_Horse', filly: false, eqg: false, gender: 'male', community: false },
+    { name: 'Doroty', img: 'unsorted/Doroty', filly: true, eqg: false, gender: 'female', community: false },
     { name: 'Double Diamond', img: 'unsorted/Double_Diamond', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Dr. Hooves', img: 'unsorted/Dr._Hooves', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Fancy Pants', img: 'unsorted/Fancy_Pants', filly: false, eqg: false, gender: 'male', community: false },
