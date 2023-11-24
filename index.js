@@ -1,3 +1,8 @@
+window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
+
+
 const ORDERED_LIST = [
     // Mane 6 
     { name: 'Applejack', img: 'mane6/Applejack', filly: false, eqg: false, gender: 'female', community: false },
