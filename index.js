@@ -129,6 +129,7 @@ const ORDERED_LIST = [
     { name: 'Daisy', img: 'unsorted/Daisy', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Daring Do', img: 'unsorted/Daring_Do', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Davenport', img: 'unsorted/Davenport', filly: false, eqg: false, gender: 'male', community: false },
+    { name: 'Daybreaker', img: 'unsorted/Daybreaker', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Derpy', img: 'unsorted/Derpy', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Diamond Tiara', img: 'unsorted/Diamond_Tiara', filly: true, eqg: false, gender: 'female', community: false },
     { name: 'Discord', img: 'unsorted/Discord', filly: false, eqg: false, gender: 'male', community: false },
