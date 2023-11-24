@@ -160,6 +160,7 @@ const ORDERED_LIST = [
     { name: 'Gladmane', img: 'unsorted/Gladmane', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Golden Harvest', img: 'unsorted/Golden_Harvest', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Goldie Delicious', img: 'unsorted/Goldie_Delicious', filly: false, eqg: false, gender: 'female', community: false },
+    { name: 'Gordon Ramsay', img: 'unsorted/Gordon_Ramsay', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Grampa Gruff', img: 'unsorted/Grampa_Gruff', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Grand Pear', img: 'unsorted/Grand_Pear', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Granny Smith', img: 'unsorted/Granny_Smith', filly: false, eqg: false, gender: 'female', community: false },
