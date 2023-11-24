@@ -224,6 +224,7 @@ const ORDERED_LIST = [
     { name: 'Nurse Snowheart', img: 'unsorted/Nurse_Snowheart', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Ocean Flow', img: 'unsorted/Ocean_Flow', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Ocellus', img: 'unsorted/Ocellus', filly: true, eqg: false, gender: 'female', community: false },
+    { name: 'Octavia Melody', img: 'unsorted/Octavia_Melody', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Opalescence', img: 'unsorted/Opalescence', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Orange Swirl', img: 'unsorted/Orange_Swirl', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Owlowiscious', img: 'unsorted/Owlowiscious', filly: false, eqg: false, gender: 'female', community: false },
