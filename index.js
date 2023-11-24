@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     new FastClick(document.body);
 }, false);
 
@@ -459,19 +459,20 @@ let list;
 
 let i = 0;
 
-let smashCount = 0;
+let smashes = [];
+
 let lastSmashName = '';
 
 function getShameText() {
-    if (smashCount == 0) return 'Damn, not a single one.';
+    if (smashes.length == 0) return 'Damn, not a single one.';
 
-    if (smashCount == 1 && (lastSmashName == 'Tom' || lastSmashName == 'Boulder')) return 'A ROCK. A FUCKING ROCK. HOW?!?!';
+    if (smashes.length == 1 && (lastSmashName == 'Tom' || lastSmashName == 'Boulder')) return 'A ROCK. A FUCKING ROCK. HOW?!?!';
 
-    if (smashCount == 1) return `You are loyal to ${lastSmashName}... I like it.`;
-    if (smashCount == 2) return `So you want a threesome?`;
-    if (smashCount == 69) return `Nice.`;
+    if (smashes.length == 1) return `You are loyal to ${lastSmashName}... I like it.`;
+    if (smashes.length == 2 && smashes.filter((e) => e.filly == true).length == 0) return `So you want a threesome?`;
+    if (smashes.length == 69) return `Nice.`;
 
-    const percentage = Math.floor((smashCount / list.length) * 100);
+    const percentage = Math.floor((smashes.length / list.length) * 100);
 
     if (percentage < 10) return 'Thats very few ponies, you have super high standards.';
     if (percentage < 33) return 'Not even one third, quality taste.';
@@ -494,7 +495,9 @@ function setCharacter(number) {
         let buttonsHolder = document.getElementById('buttons-holder');
         buttonsHolder.remove();
 
-        let finishedText = `Its over!, You would smash ${smashCount} out of ${list.length} ponies.`;
+        let filliesOptText = smashes.filter((e) => e.filly == true).length > 0 ? ' or call cute' : '';
+
+        let finishedText = `Its over!, You would smash${filliesOptText} ${smashes.length} out of ${list.length} characters.`;
         let shameText = getShameText();
 
         let finishedParagrah = document.createElement('p');
@@ -538,8 +541,8 @@ function smashClick() {
     lastSmashName = list[i].name;
 
     i++;
-    smashCount++;
-    console.log(`Char: ${i}/${list.length} SMASH #${smashCount}`);
+    smashes.push(list[i]);
+    console.log(`Char: ${i}/${list.length} SMASH #${smashes.length}`);
     setCharacter(i);
 }
 
@@ -553,7 +556,7 @@ function passClick() {
     });
 
     i++;
-    console.log(`Char: ${i}/${list.length} SMASHES #${smashCount}`);
+    console.log(`Char: ${i}/${list.length} SMASHES #${smashes.length}`);
     setCharacter(i);
 }
 
@@ -592,7 +595,6 @@ function keyDownHandler(e) {
 
         const charsPreview = document.getElementById('characters-preview-count');
         charsPreview.textContent = `Characters: ${filteredOrderedList.length}/${ORDERED_LIST.length}`;
-
     }
     const checkboxes = document.getElementsByClassName('menu-checkbox');
     for (const checkbox of checkboxes) {
