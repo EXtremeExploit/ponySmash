@@ -32,27 +32,32 @@ a:visited {
     color: pink;
 }
 
+.title {
+    font-size: 7vh;
+    /* margin-top: 0vh; */
+    text-align: center;
+}
+
 .pony-name {
-    font-size: 60px;
-    margin-top: 30px;
+    font-size: 5vh;
+    margin-top: 5vh;
     text-align: center;
 }
 
 
 .menu-option {
-    font-size: 60px;
-    margin-top: 30px;
+    font-size: 5vh;
+    margin-top: 5vh;
     text-align: center;
 }
 
 input.menu-checkbox {
-    width: 60px;
-    height: 60px;
+    width: 5vh;
+    height: 5vh;
 }
 
 p#characters-preview-count {
-    font-size: 50px;
-
+    font-size: 4vh;
 }
 
 
