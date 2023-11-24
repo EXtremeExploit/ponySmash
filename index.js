@@ -484,7 +484,6 @@ function keyDownHandler(e) {
             return true;
         });
 
-
         const charsPreview = document.getElementById('characters-preview-count');
         charsPreview.textContent = `Characters: ${filteredOrderedList.length}/${ORDERED_LIST.length}`;
 
