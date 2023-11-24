@@ -70,6 +70,7 @@ const ORDERED_LIST = [
     // Community
     { name: 'Cream Heart (Community)', img: 'community/Cream_Heart', filly: false, eqg: false, gender: 'female', community: true },
     { name: 'Fluffle Puff (Community)', img: 'community/Fluffle_Puff', filly: false, eqg: false, gender: 'female', community: true },
+    { name: 'Littlepip (Community)', img: 'community/Littlepip', filly: false, eqg: false, gender: 'female', community: true },
     { name: 'Littleshy (Community)', img: 'community/Littleshy', filly: false, eqg: false, gender: 'male', community: true },
     { name: 'Surprise (Community)', img: 'community/Surprise', filly: false, eqg: false, gender: 'female', community: true },
 
@@ -147,7 +148,7 @@ const ORDERED_LIST = [
     { name: 'Flash Magnus', img: 'unsorted/Flash_Magnus', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Flash Sentry', img: 'unsorted/Flash_Sentry', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Fleetfoot', img: 'unsorted/Fleetfoot', filly: false, eqg: false, gender: 'female', community: false },
-    { name: 'Fleur Dis Lee', img: 'unsorted/Fleur_Dis_Lee', filly: false, eqg: false, gender: 'female', community: false },
+    { name: 'Fleur De Lis', img: 'unsorted/Fleur_De_Lis', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Flim', img: 'unsorted/Flim', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Flitter', img: 'unsorted/Flitter', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Flurry Heart', img: 'unsorted/Flurry_Heart', filly: true, eqg: false, gender: 'female', community: false },
