@@ -15,7 +15,7 @@ body {
     max-height: 100vh;
 }
 
-img {
+.game-img {
     flex: 1;
     object-fit: contain;
     max-width: 80vw;

@@ -540,8 +540,8 @@ function smashClick() {
 
     lastSmashName = list[i].name;
 
-    i++;
     smashes.push(list[i]);
+    i++;
     console.log(`Char: ${i}/${list.length} SMASH #${smashes.length}`);
     setCharacter(i);
 }
@@ -655,7 +655,7 @@ function startGame() {
 
 
         let ponyImgParagraph = document.createElement('img');
-        ponyImgParagraph.classList.add('img-div');
+        ponyImgParagraph.classList.add('game-img');
         ponyImgParagraph.id = 'pony-img';
 
         pageInner.appendChild(ponyNameParagraph);
