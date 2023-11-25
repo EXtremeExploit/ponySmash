@@ -510,10 +510,29 @@ function setCharacter(number) {
         shameParagraph.classList.add('pony-name');
         githubParagraph.classList.add('pony-name');
         let e = document.getElementsByClassName('page-inner')[0];
+        e.style.overflowY = 'scroll';
+        e.style.display = 'inline-grid';
+        e.style.justifyItems = 'center';
         e.appendChild(finishedParagrah);
         e.appendChild(shameParagraph);
         e.appendChild(document.createElement('br'));
         e.appendChild(githubParagraph);
+
+        // Ponies container
+        let ponyContainer = document.createElement('div');
+        ponyContainer.classList.add('pony-container');
+
+        smashes.forEach((character) => {
+            let charImg = document.createElement('img');
+            charImg.classList.add('pony-list-img');
+            charImg.src = `characters/${character.img}.png`
+            charImg.alt = character.name;
+            charImg.title = character.name;
+
+            ponyContainer.appendChild(charImg);
+        });
+
+        e.appendChild(ponyContainer)
     } else {
         name.textContent = list[number].name;
         img.src = `characters/${list[number].img}.png`;

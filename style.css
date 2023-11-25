@@ -47,7 +47,7 @@ a:visited {
 
 .menu-option {
     font-size: 5vh;
-    margin-top: 5vh;
+    margin-top: 3vh;
     text-align: center;
 }
 
@@ -58,11 +58,12 @@ input.menu-checkbox {
 
 p#characters-preview-count {
     font-size: 4vh;
+    text-align: center;
 }
 
 
 button.start-button {
-    width: 40vw;
+    width: 60vw;
     height: 10vh;
     font-size: 200%;
 }
@@ -84,6 +85,7 @@ button.start-button {
     border-bottom: 10px solid white;
     height: 7.5vh;
     padding: 1.5vh;
+    touch-action: manipulation;
 }
 
 
@@ -136,4 +138,27 @@ button.start-button {
     max-height: 100%;
     flex: 1;
     overflow: hidden;
+}
+
+.pony-container {
+    display: grid;
+    overflow-y: scroll;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1rem));
+    width: 90vw;
+    grid-gap: 1rem;
+    align-items: stretch;
+    height: 100vh;
+    justify-content: center;
+    background-color: rgb(50, 50, 50);
+    text-align: center;
+}
+
+.pony-list-img {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 256px;
+    max-height: 256px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
