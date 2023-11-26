@@ -162,3 +162,7 @@ button.start-button {
     height: auto;
     object-fit: contain;
 }
+
+#menu-options {
+    text-align: center;
+}

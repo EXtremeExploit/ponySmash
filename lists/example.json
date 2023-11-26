@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Applejack",
+        "img": "characters/mane6/Applejack.png"
+    },
+    {
+        "name": "Fluttershy",
+        "img": "characters/mane6/Fluttershy.png"
+    },
+    {
+        "name": "Pinkie Pie",
+        "img": "characters/mane6/Pinkie_Pie.png"
+    },
+    {
+        "name": "Rainbow Dash",
+        "img": "characters/mane6/Rainbow_Dash.png"
+    },
+    {
+        "name": "Rarity",
+        "img": "characters/mane6/Rarity.png"
+    },
+    {
+        "name": "Twilight Sparkle",
+        "img": "characters/mane6/Twilight_Sparkle.png"
+    }
+]

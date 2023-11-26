@@ -18,7 +18,8 @@
     <meta content="/logo.png" property="og:image" />
     <meta content="/logo.png" property="image" />
     <meta content="#d367f5" name="theme-color" />
-    <meta name="keywords" content="my,litte,pony,friendship,is,magic,smash,or,pass,ponies,game,minigame,hasbro,mlp,fim" />
+    <meta name="keywords"
+        content="my,litte,pony,friendship,is,magic,smash,or,pass,ponies,game,minigame,hasbro,mlp,fim" />
 
     <link rel="stylesheet" href="style.css?v={{version.version}}">
 </head>
@@ -28,18 +29,15 @@
     </div>
     <div class="page-inner">
         <p class="title">MLP: FiM Smash or Pass</p>
+        <p>List:
+            <select id="list-type">
+                <option value="default">Default</option>
+                <option value="custom">Custom...</option>
+            </select>
+        </p>
         <br>
-        <p class="menu-option">Show EQG<input type="checkbox" id="show-eqg" checked="true"
-                class="menu-checkbox"></input></p>
-        <br>
-        <p class="menu-option">Show underage<input type="checkbox" id="show-underage" class="menu-checkbox"></input></p>
-        <br>
-        <p class="menu-option">Show males<input type="checkbox" id="show-males" checked="true"
-                class="menu-checkbox"></input></p>
-        <br>
-        <p class="menu-option">Show community characters<input type="checkbox" id="show-community" checked="true"
-                class="menu-checkbox"></input></p>
-        <br>
+        <div id="menu-options">
+        </div>
         <br>
         <p id="characters-preview-count">Characters: ???/???</p>
         <br>
