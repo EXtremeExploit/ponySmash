@@ -196,7 +196,6 @@ const ORDERED_LIST = [
     { name: 'Bright Mac', img: 'unsorted/Bright_Mac', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Bulk Biceps', img: 'unsorted/Bulk_Biceps', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Caballeron', img: 'unsorted/Caballeron', filly: false, eqg: false, gender: 'male', community: false },
-    { name: 'Candy Mane', img: 'unsorted/Candy_Mane', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Capper', img: 'unsorted/Capper', filly: false, eqg: false, gender: 'male', community: false },
     { name: 'Captain Celaeno', img: 'unsorted/Captain_Celaeno', filly: false, eqg: false, gender: 'female', community: false },
     { name: 'Celestia', img: 'unsorted/Celestia', filly: false, eqg: false, gender: 'female', community: false },
