@@ -20,7 +20,7 @@ I was bored tbh
 * First you want to fork this repository
 * Create a new branch with the name you want
 * Add the **PNG** to the characters folder, you are free to put it in the respective folder it should go to, but i you are unsure put it in `unsorted`
-* Add the character to the list inside `index.js` (you will know its the list), in alphabetical order
+* Add the character to the list inside `lists/default.json` 
    *  `name`: This is what appears above the image
    *  `img`: The path to the image, **ITS CASE SENSITIVE**
    *  `filly`: Is the character underage?
