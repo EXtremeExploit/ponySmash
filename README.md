@@ -49,7 +49,7 @@ I was bored tbh
 ```
 #### Explanation
    1. The `"name"` property is the text that appears above the character
-   2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like imgur or the base64 of an image (not really recommended unless you 100% know what you are doing)
+   2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like imgur or the base64 of an image (not really friendly)
    3. Linebreaks (newlines), dont really matter as long as they dont change the values of things (they arent in the middle of a string)
    4. Comments are not allowed (lines that start with //)
    5. The list **CANNOT** end with a comma (,), else the load will fail.
