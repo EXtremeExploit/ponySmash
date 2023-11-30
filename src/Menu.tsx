@@ -1,18 +1,19 @@
 import React from "react";
-import { CharListAndNull, ListType, getJSON } from "./util.ts";
+import { CharListAndNull, List, getJSON } from "./util.ts";
 import CharactersPreviewCount from "./CharactersPreviewCount.tsx";
+import ListType from "./ListType.tsx";
 
 function Menu(props:
     {
         isLoadingList: boolean,
-        listType: ListType,
+        listType: List,
         OG_LIST: CharListAndNull,
         filteredOrderedList: CharListAndNull,
         setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
         startButtonClick: (ev: React.MouseEvent<HTMLButtonElement>) => void,
         setOG_LIST: React.Dispatch<React.SetStateAction<CharListAndNull>>,
         setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>
-        setType: React.Dispatch<React.SetStateAction<ListType>>,
+        setType: React.Dispatch<React.SetStateAction<List>>,
         filterList: (data: CharListAndNull) => void,
         showEqg, setShowEqg,
         showUnderage, setShowUnderage,
@@ -22,22 +23,6 @@ function Menu(props:
         customListURL, setCustomListURL
     }) {
 
-    function ListType() {
-        function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
-            props.setOG_LIST(null);
-            props.setFilteredOrderedList(null);
-            props.setType(ev.target.value as ListType);
-            ev.target.value = props.listType;
-        }
-
-        return (
-            <>
-                <select id="list-type" onChange={changedList} value={props.listType}>
-                    <option value="default">Default</option>
-                    <option value="custom">Custom...</option>
-                </select>
-            </>)
-    }
 
     function MenuOptions() {
         if (props.shouldReloadList) {
@@ -141,7 +126,7 @@ function Menu(props:
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
             <p>List:
-                <ListType />
+                <ListType setFilteredOrderedList={props.setFilteredOrderedList} setOG_LIST={props.setOG_LIST} setType={props.setType} listType={props.listType} />
             </p>
             <br />
             <MenuOptions />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Footer from './Footer.tsx';
-import { CharListAndNull, Character, GameState, ListType, getJSON } from './util.ts';
+import { CharListAndNull, Character, GameState, List, getJSON } from './util.ts';
 
 import Game from './Game.tsx';
 import Menu from './Menu.tsx';
@@ -23,7 +23,7 @@ function App() {
     const [shouldReloadList, setShouldReloadList] = useState(false);
 
 
-    const [listType, setType] = useState<ListType>('default');
+    const [listType, setType] = useState<List>('default');
     const [OG_LIST, setOG_LIST] = useState<CharListAndNull>(null);
     const [isLoadingList, setIsLoadingList] = useState(true);
 

@@ -23,5 +23,5 @@ export type Character = {
     community?: boolean;
 };
 export type CharListAndNull = Character[] | null;
-export type ListType = 'default' | 'custom';
+export type List = 'default' | 'custom';
 export type GameState = 'menu' | 'ingame' | 'end';
