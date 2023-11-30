@@ -1,12 +1,12 @@
 import React from 'react';
-import global from './global.tsx'
+import { version } from './constants.tsx'
 
 class Footer extends React.Component {
     render() {
         return (
             <footer>
                 <p>
-                    <a href="https://github.com/EXtremeExploit/ponySmash/releases">{global.version}</a> /
+                    <a href="https://github.com/EXtremeExploit/ponySmash/releases">{version}</a> /
                     Site by <a href="https://github.com/EXtremeExploit/">EXtremeExploit</a> /
                     Give me a star on <a href="https://github.com/EXtremeExploit/ponySmash">GitHub</a>
                 </p>
@@ -16,3 +16,4 @@ class Footer extends React.Component {
 }
 
 export default Footer;
+
