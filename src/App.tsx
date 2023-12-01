@@ -75,6 +75,7 @@ function App() {
             case 'default': {
                 if (OG_LIST !== null && filteredOrderedList !== null) break; // List is already loaded
                 if (OG_LIST == null) {
+                    setIsLoadingList(true);
                     getJSON('/lists/default.json', (err, data) => {
                         if (err !== null) {
                             alert('Something went wrong: ' + err);
@@ -95,30 +96,30 @@ function App() {
             }
         }
 
-        function startButtonClick(ev: React.MouseEvent<HTMLButtonElement>) {
-            if (filteredOrderedList != null) {
-                setList(filteredOrderedList.sort((a, b) => 0.5 - Math.random()));
-                setGameState('ingame');
-            }
+        const MenuProps = {
+            customListURL, setCustomListURL,
+            setGameState,
         }
 
-        const MenuProps = {
+        const ListsProps = {
             isLoadingList,
-            listType,
-            OG_LIST,
-            filteredOrderedList,
             setIsLoadingList,
-            startButtonClick,
-            setOG_LIST,
-            setFilteredOrderedList,
+            listType,
             setType,
+            OG_LIST,
+            setOG_LIST,
+            filteredOrderedList,
+            setFilteredOrderedList,
+            setList,
+            shouldReloadList, setShouldReloadList,
             filterList,
+        }
+
+        const FilterProps = {
             showEqg, setShowEqg,
             showUnderage, setShowUnderage,
             showMales, setShowMales,
             showCommunity, setShowCommunity,
-            shouldReloadList, setShouldReloadList,
-            customListURL, setCustomListURL
         }
 
         return (
@@ -126,7 +127,7 @@ function App() {
                 {
                     (() => {
                         switch (gameState) {
-                            case 'menu': return (<Menu {...MenuProps} />);
+                            case 'menu': return (<Menu {...MenuProps} ListProps={ListsProps} FilterProps={FilterProps} />);
                             case 'ingame': return (<Game i={i} list={list} />)
                             case 'end': return (<EndScreen smashes={smashes} list={list} listType={listType} />)
                         }

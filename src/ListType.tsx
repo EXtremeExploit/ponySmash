@@ -15,10 +15,12 @@ function ListType(props: {
 
     return (
         <>
-            <select id="list-type" onChange={changedList} value={props.listType}>
+            <p>List: <select id="list-type" onChange={changedList} value={props.listType}>
                 <option value="default">Default</option>
                 <option value="custom">Custom...</option>
             </select>
+            </p>
+            <br />
         </>)
 }
 
