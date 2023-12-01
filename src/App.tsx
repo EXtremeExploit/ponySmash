@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
 import Footer from './Footer.tsx';
-import { CharListAndNull, Character, GameState, List, getJSON } from './util.ts';
+import { CharListAndNull, Character, GameState, List } from './util.ts';
 
 import Game from './Game.tsx';
 import Menu from './Menu.tsx';
 import ButtonsHolder from './ButtonsHolder.tsx';
 import EndScreen from './EndScreen.tsx';
+
+import DefaultList from './lists/default.json';
 
 function App() {
     const [i, setI] = useState(0);
@@ -27,7 +29,7 @@ function App() {
     const [OG_LIST, setOG_LIST] = useState<CharListAndNull>(null);
     const [isLoadingList, setIsLoadingList] = useState(true);
 
-    const [customListURL, setCustomListURL] = useState('');
+    const [gcustomListURL, setGCustomListURL] = useState('');
 
 
     function filterList(data: CharListAndNull) {
@@ -76,17 +78,9 @@ function App() {
                 if (OG_LIST !== null && filteredOrderedList !== null) break; // List is already loaded
                 if (OG_LIST == null) {
                     setIsLoadingList(true);
-                    getJSON('/lists/default.json', (err, data) => {
-                        if (err !== null) {
-                            alert('Something went wrong: ' + err);
-                        } else {
-                            setOG_LIST(data as CharListAndNull);
-                        }
-                        if (data != null && filteredOrderedList == null) {
-                            filterList(data as CharListAndNull);
-                        }
-                        setIsLoadingList(false);
-                    });
+                    setOG_LIST(DefaultList);
+                    setShouldReloadList(true);
+                    setIsLoadingList(false);
                 }
                 break;
             }
@@ -97,7 +91,7 @@ function App() {
         }
 
         const MenuProps = {
-            customListURL, setCustomListURL,
+            gcustomListURL, setGCustomListURL,
             setGameState,
         }
 
@@ -123,11 +117,11 @@ function App() {
         }
 
         return (
-            <div className="page-inner" style={gameState === 'end' ? { overflowY: 'scroll', display: 'inline-grid', justifyItems: 'center' } : {}}>
+            <div key='page-inner' className="page-inner" style={gameState === 'end' ? { overflowY: 'scroll', display: 'inline-grid', justifyItems: 'center' } : {}}>
                 {
                     (() => {
                         switch (gameState) {
-                            case 'menu': return (<Menu {...MenuProps} ListProps={ListsProps} FilterProps={FilterProps} />);
+                            case 'menu': return (<Menu key='menu' {...MenuProps} ListProps={ListsProps} FilterProps={FilterProps} />);
                             case 'ingame': return (<Game i={i} list={list} />)
                             case 'end': return (<EndScreen smashes={smashes} list={list} listType={listType} />)
                         }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CharListAndNull, Character, GameState, List, getJSON } from "./util.ts";
 import CharactersPreviewCount from "./CharactersPreviewCount.tsx";
 import ListType from "./ListType.tsx";
@@ -25,7 +25,7 @@ function Menu(props:
             showCommunity, setShowCommunity,
         }
         setGameState: React.Dispatch<React.SetStateAction<GameState>>,
-        customListURL, setCustomListURL
+        gcustomListURL, setGCustomListURL
     }) {
 
 
@@ -86,11 +86,16 @@ function Menu(props:
         };
 
         function CustomOptions() {
+            const [customListURL, setCustomListURL] = useState(props.gcustomListURL);
+
             function loadCustomList(ev: React.MouseEvent<HTMLButtonElement>) {
                 props.ListProps.setIsLoadingList(true);
+                props.ListProps.setOG_LIST(null);
+                props.ListProps.setFilteredOrderedList(null);
+                props.setGCustomListURL(customListURL);
                 if (props.ListProps.isLoadingList === true) return; // Load the first list first
-                getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(props.customListURL)}`, (err, data) => {
-                    if (err !== null) {
+                getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (err, data) => {
+                    if (!err?.toString().startsWith('2')) {
                         let errorStr = `CORS Proxy code: ${err}\n`;
                         alert('Something went wrong... \n' + errorStr);
                     } else {
@@ -108,12 +113,8 @@ function Menu(props:
                 });
             }
 
-            const customUrlChangeHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
-                props.setCustomListURL(ev.target.value)
-            }
-
             return (<>
-                <input placeholder="URL to JSON list" id='input' value={props.customListURL} onChange={customUrlChangeHandler} />
+                <input key='input' placeholder="URL to JSON list" id='input' defaultValue={customListURL} onChange={(ev) => setCustomListURL(ev.target.value)} />
                 <button onClick={loadCustomList}>Load</button>
                 <br />
                 <a href="https://github.com/EXtremeExploit/ponySmash#custom-lists">What is this?</a>
@@ -124,7 +125,7 @@ function Menu(props:
             <>
                 <div id="menu-options">
                     {
-                        props.ListProps.listType === 'default' ? (<DefaultOptions />) : (<CustomOptions />)
+                        props.ListProps.listType === 'default' ? (<DefaultOptions />) : (<CustomOptions key='customOptions' />)
                     }
                 </div>
                 <br />
@@ -136,7 +137,7 @@ function Menu(props:
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType setFilteredOrderedList={props.ListProps.setFilteredOrderedList} setOG_LIST={props.ListProps.setOG_LIST} setType={props.ListProps.setType} listType={props.ListProps.listType} />
+            <ListType key='listType' setFilteredOrderedList={props.ListProps.setFilteredOrderedList} setOG_LIST={props.ListProps.setOG_LIST} setType={props.ListProps.setType} listType={props.ListProps.listType} />
             <MenuOptions />
             <CharactersPreviewCount isLoadingList={props.ListProps.isLoadingList} listType={props.ListProps.listType} OG_LIST={props.ListProps.OG_LIST} filteredOrderedList={props.ListProps.filteredOrderedList} />
             <br />
