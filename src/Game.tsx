@@ -3,14 +3,14 @@ import { Character } from "./util";
 
 function Game(props: { i: number, list: Character[] }) {
     useEffect(() => {
-        let cachedImgIndex = 0;
+        let cachedImgIndex = props.i;
         let cachedImg = new Image();
         cachedImg.addEventListener('load', () => {
             if (cachedImgIndex === props.list.length - 1) return;
             cachedImg.src = props.list[++cachedImgIndex].img;
         });
         cachedImg.src = props.list[cachedImgIndex].img;
-    }, [props.list]);
+    }, [props.i, props.list]);
 
     return (<>
         <p className='pony-name'>{props.list[props.i].name}</p>
