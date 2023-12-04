@@ -7,6 +7,9 @@ export function getJSON(url: string, callback: (err: number | null, data: any) =
         var status = xhr.status;
         callback(status, xhr.response);
     };
+    xhr.onerror = (ev) => {
+        callback(0, "");
+    };
     xhr.send();
 };
 

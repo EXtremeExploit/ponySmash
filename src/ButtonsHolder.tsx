@@ -29,9 +29,8 @@ function ButtonsHolder(props: {
         }
     }
 
-
     useEffect(() => {
-        function handleKeyDown(e) {
+        function handleKeyDown(e: KeyboardEvent) {
             if (e.repeat)
                 return;
 
