@@ -1,0 +1,9 @@
+.page-inner {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: auto;
+    max-height: 100%;
+    flex: 1;
+    overflow: hidden;
+}

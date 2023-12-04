@@ -50,10 +50,11 @@ I was bored tbh
 #### Explanation
    1. The `"name"` property is the text that appears above the character
    2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like gyazo or the base64 of an image (not really friendly)
-   3. Linebreaks (newlines), dont really matter as long as they dont change the values of things (they arent in the middle of a string)
-   4. Comments are not allowed (lines that start with //)
-   5. The list **CANNOT** end with a comma (,), else the load will fail.
+   3. The `"filly"` property (optional) sets if the character is underage (`true`/`false`), this will make it so that the buttons say "Cute!" and "Not cute" in the case this property is `true`,
+   4. Linebreaks (newlines), dont really matter as long as they dont change the values of things (they arent in the middle of a string)
+   5. Comments are not allowed (lines that start with //)
+   6. The list **CANNOT** end with a comma (,), else the load will fail.
 * You can name the json file whatever you want, place it somewhere on the internet, like on a gist or pastebin
 * Once its uploaded you need to get the raw URL of the list, usually in the service you have the list you have a "raw" button at the top, if you click it you should only see the list **and nothing else, not even a UI of any sort** (it should look something like: `https://pastebin.com/raw/0gHxT256`)
 * Now you can try to load that URL into the game and see if it works, if it didn't work, you will get an alert telling you what could be the problem.
-* IF you still have problems figuring out how this works, you can check the example list [here](/lists/example.json) or make a [new issue](https://github.com/EXtremeExploit/ponySmash/issues/new) explaining your problem
+* IF you still have problems figuring out how this works, you can check the example list [here](/src/lists/example.json) or make a [new issue](https://github.com/EXtremeExploit/ponySmash/issues/new) explaining your problem

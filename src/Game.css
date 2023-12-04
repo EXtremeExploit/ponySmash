@@ -1,0 +1,14 @@
+.game-img {
+    flex: 1;
+    object-fit: contain;
+    max-width: 80vw;
+    width: auto;
+    margin: 30px;
+    max-height: 75vh;
+}
+
+.pony-name {
+    font-size: 5vh;
+    margin-top: 5vh;
+    text-align: center;
+}
