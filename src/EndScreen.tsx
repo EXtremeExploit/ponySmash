@@ -1,5 +1,5 @@
 import React from "react";
-import { Character, List } from "./util.tsx";
+import { Character, List } from "./util.ts";
 import PonyContainer from "./SmashesContainer.tsx";
 import ShameText from "./ShameText.tsx";
 

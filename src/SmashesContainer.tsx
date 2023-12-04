@@ -1,5 +1,5 @@
 import React from "react";
-import { Character } from "./util";
+import { Character } from "./util.ts";
 
 function PonyContainer(props: { smashes: Character[] }) {
     return (<div className='pony-container'>{

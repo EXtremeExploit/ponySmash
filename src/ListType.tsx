@@ -1,5 +1,5 @@
 import React from "react";
-import { CharListAndNull, List } from "./util";
+import { CharListAndNull, List } from "./util.ts";
 
 function ListType(props: {
     setOG_LIST: React.Dispatch<React.SetStateAction<CharListAndNull>>,

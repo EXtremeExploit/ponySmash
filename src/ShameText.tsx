@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Character } from "./util";
+import { Character } from "./util.ts";
 
 
 function getShameText(smashes: Character[], list: Character[]) {

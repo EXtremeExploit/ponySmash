@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-import { CharListAndNull, Character, GameState, List, getJSON } from "./util.ts";
+import { CharListAndNull, Character, GameState, List, filterList } from "./util.ts";
 import CharactersPreviewCount from "./CharactersPreviewCount.tsx";
 import ListType from "./ListType.tsx";
+import MenuOptions from "./MenuOptions.tsx";
+import DefaultList from './lists/default.json';
 
 function Menu(props:
     {
         ListProps: {
-            isLoadingList: boolean,
-            setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
             listType: List,
             setType: React.Dispatch<React.SetStateAction<List>>,
-            OG_LIST: CharListAndNull,
-            setOG_LIST: React.Dispatch<React.SetStateAction<CharListAndNull>>,
-            filteredOrderedList: CharListAndNull,
-            setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
             setList: React.Dispatch<React.SetStateAction<Character[]>>,
-            shouldReloadList, setShouldReloadList,
-            filterList: (data: CharListAndNull) => void,
         },
         FilterProps: {
             showEqg, setShowEqg,
@@ -25,124 +19,42 @@ function Menu(props:
             showCommunity, setShowCommunity,
         }
         setGameState: React.Dispatch<React.SetStateAction<GameState>>,
-        gcustomListURL, setGCustomListURL
     }) {
-
+    const [isLoadingList, setIsLoadingList] = useState(false);
+    const [OG_LIST, setOG_LIST] = useState<CharListAndNull>(null);
+    const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
 
     function startButtonClick(ev: React.MouseEvent<HTMLButtonElement>) {
-        if (props.ListProps.filteredOrderedList != null) {
-            props.ListProps.setList(props.ListProps.filteredOrderedList.sort((a, b) => 0.5 - Math.random()));
+        if (filteredOrderedList != null) {
+            props.ListProps.setList(filteredOrderedList.sort((a, b) => 0.5 - Math.random()));
             props.setGameState('ingame');
         }
     }
 
-    function MenuOptions() {
-        if (props.ListProps.shouldReloadList) {
-            props.ListProps.filterList(props.ListProps.OG_LIST);
-            props.ListProps.setShouldReloadList(false);
-        }
-
-        function MenuOptionChange(ev: React.ChangeEvent<HTMLInputElement>) {
-            switch (ev.target.id) {
-                case 'show-eqg': {
-                    props.FilterProps.setShowEqg(!props.FilterProps.showEqg);
-                    break;
-                }
-                case 'show-underage': {
-                    props.FilterProps.setShowUnderage(!props.FilterProps.showUnderage);
-                    break;
-                }
-                case 'show-males': {
-                    props.FilterProps.setShowMales(!props.FilterProps.showMales);
-                    break;
-                }
-                case 'show-community': {
-                    props.FilterProps.setShowCommunity(!props.FilterProps.showCommunity);
-                    break;
-                }
+    switch (props.ListProps.listType) {
+        case 'default': {
+            if (OG_LIST !== null && filteredOrderedList !== null) break; // List is already loaded
+            if (OG_LIST == null) {
+                setOG_LIST(DefaultList);
             }
-            props.ListProps.setShouldReloadList(true);
+            filterList(DefaultList, setFilteredOrderedList, props.FilterProps);
+            break;
         }
-
-        function DefaultOptions() {
-            return (<>
-                <p className='menu-option'>
-                    Show EQG
-                    <input type='checkbox' className='menu-checkbox' id='show-eqg' checked={props.FilterProps.showEqg} onChange={MenuOptionChange} />
-                </p>
-                <p className='menu-option'>
-                    Show underage
-                    <input type='checkbox' className='menu-checkbox' id='show-underage' checked={props.FilterProps.showUnderage} onChange={MenuOptionChange} />
-                </p>
-                <p className='menu-option'>
-                    Show males
-                    <input type='checkbox' className='menu-checkbox' id='show-males' checked={props.FilterProps.showMales} onChange={MenuOptionChange} />
-                </p>
-                <p className='menu-option'>
-                    Show community characters
-                    <input type='checkbox' className='menu-checkbox' id='show-community' checked={props.FilterProps.showCommunity} onChange={MenuOptionChange} />
-                </p>
-            </>)
-        };
-
-        function CustomOptions() {
-            const [customListURL, setCustomListURL] = useState(props.gcustomListURL);
-
-            function loadCustomList(ev: React.MouseEvent<HTMLButtonElement>) {
-                props.ListProps.setIsLoadingList(true);
-                props.ListProps.setOG_LIST(null);
-                props.ListProps.setFilteredOrderedList(null);
-                props.setGCustomListURL(customListURL);
-                if (props.ListProps.isLoadingList === true) return; // Load the first list first
-                getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (err, data) => {
-                    if (!err?.toString().startsWith('2')) {
-                        let errorStr = `CORS Proxy code: ${err}\n`;
-                        alert('Something went wrong... \n' + errorStr);
-                    } else {
-                        try {
-                            props.ListProps.setOG_LIST(JSON.parse(data.contents as string) as CharListAndNull);
-                        } catch {
-                            alert('Request returned invalid JSON');
-                            data = null;
-                        }
-                    }
-                    if (data != null && data.contents != null && props.ListProps.filteredOrderedList == null) {
-                        props.ListProps.setFilteredOrderedList(JSON.parse(data.contents as string) as CharListAndNull);
-                    }
-                    props.ListProps.setIsLoadingList(false);
-                });
-            }
-
-            return (<>
-                <input key='input' placeholder="URL to JSON list" id='input' defaultValue={customListURL} onChange={(ev) => setCustomListURL(ev.target.value)} />
-                <button onClick={loadCustomList}>Load</button>
-                <br />
-                <a href="https://github.com/EXtremeExploit/ponySmash#custom-lists">What is this?</a>
-            </>);
-        };
-
-        return (
-            <>
-                <div id="menu-options">
-                    {
-                        props.ListProps.listType === 'default' ? (<DefaultOptions />) : (<CustomOptions key='customOptions' />)
-                    }
-                </div>
-                <br />
-            </>
-        );
+        // If more lists get added, this is where they should go
+        case 'custom': {
+            break;
+        }
     }
 
     return (
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType key='listType' setFilteredOrderedList={props.ListProps.setFilteredOrderedList} setOG_LIST={props.ListProps.setOG_LIST} setType={props.ListProps.setType} listType={props.ListProps.listType} />
-            <MenuOptions />
-            <CharactersPreviewCount isLoadingList={props.ListProps.isLoadingList} listType={props.ListProps.listType} OG_LIST={props.ListProps.OG_LIST} filteredOrderedList={props.ListProps.filteredOrderedList} />
+            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setOG_LIST={setOG_LIST} setType={props.ListProps.setType} listType={props.ListProps.listType} />
+            <MenuOptions ListProps={props.ListProps} FilterProps={props.FilterProps} isLoadingList={isLoadingList} setIsLoadingList={setIsLoadingList} OG_LIST={OG_LIST} filteredOrderedList={filteredOrderedList} setFilteredOrderedList={setFilteredOrderedList} setOG_LIST={setOG_LIST} />
+            <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType} OG_LIST={OG_LIST} filteredOrderedList={filteredOrderedList} />
             <br />
-            <br />
-            <button id="start" className="start-button" disabled={props.ListProps.filteredOrderedList == null || props.ListProps.filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>
+            <button id="start" className="start-button" disabled={filteredOrderedList == null || filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>
         </>
     );
 }

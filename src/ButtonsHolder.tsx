@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Character } from "./util";
 
-function ButtonsHolder(props: { isFilly: boolean | undefined, smashClick: (ev?: React.MouseEvent<HTMLElement>) => boolean, passClick: (ev?: React.MouseEvent<HTMLElement>) => boolean }) {
+function ButtonsHolder(props: {
+    Character: Character,
+    smashClick: (ev?: React.MouseEvent<HTMLElement>) => boolean,
+    passClick: (ev?: React.MouseEvent<HTMLElement>) => boolean,
+}) {
     const [smashButtonAnimated, setSmashButtonAnimated] = useState(false);
     const [passButtonAnimated, setPassButtonAnimated] = useState(false);
 
@@ -47,10 +52,10 @@ function ButtonsHolder(props: { isFilly: boolean | undefined, smashClick: (ev?: 
     return (
         <div id="buttons-holder">
             <div className={'button smash-button ' + (smashButtonAnimated ? 'smash-button-anim' : '')} onClick={smashClick}>
-                {props.isFilly ? 'Cute!' : 'SMASH!'} (←)
+                {props.Character.filly ? 'Cute!' : 'SMASH!'} (←)
             </div>
             <div className={'button pass-button ' + (passButtonAnimated ? 'pass-button-anim' : '')} onClick={passClick}>
-                {props.isFilly ? 'Not cute' : 'Pass'} (→)
+                {props.Character.filly ? 'Not cute' : 'Pass'} (→)
             </div>
         </div>
     );
