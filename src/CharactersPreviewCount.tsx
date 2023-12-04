@@ -1,5 +1,6 @@
 import React from "react";
 import { CharListAndNull, List } from "./util.ts";
+import './CharactersPreviewCount.css';
 
 function getCharsCount(isLoadingList: boolean, listType: List, OG_LIST: CharListAndNull, filteredOrderedList: CharListAndNull) {
     if (isLoadingList) return 'Loading...';

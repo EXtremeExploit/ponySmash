@@ -3,29 +3,15 @@ import EndScreen from "./EndScreen.tsx";
 import Game from "./Game.tsx";
 import Menu from "./Menu.tsx";
 import { Character, GameState, List } from "./util.ts";
+import './PageInner.css';
 
 function PageInner() {
     const [smashes, setSmashes] = useState<Character[]>([]);
-
-    // Options
-    const [showEqg, setShowEqg] = useState(true);
-    const [showUnderage, setShowUnderage] = useState(false);
-    const [showMales, setShowMales] = useState(true);
-    const [showCommunity, setShowCommunity] = useState(true);
-
-    const FilterProps = {
-        showEqg: showEqg, setShowEqg: setShowEqg,
-        showUnderage: showUnderage, setShowUnderage: setShowUnderage,
-        showMales: showMales, setShowMales: setShowMales,
-        showCommunity: showCommunity, setShowCommunity: setShowCommunity,
-    }
+    const [gameState, setGameState] = useState<GameState>('menu');
 
     // Lists
     const [listType, setType] = useState<List>('default');
-
     const [list, setList] = useState<Character[]>([]);
-
-    const [gameState, setGameState] = useState<GameState>('menu');
 
     const ListsProps = {
         listType: listType,
@@ -39,13 +25,9 @@ function PageInner() {
             {
                 (() => {
                     switch (gameState) {
-                        case 'menu': return (<Menu key='menu' setGameState={setGameState} FilterProps={FilterProps} ListProps={ListsProps} />);
-                        case 'ingame': return (
-                            <>
-                                <Game key='game' list={list} setGameState={setGameState} smashes={smashes} setSmashes={setSmashes} />
-                            </>
-                        )
-                        case 'end': return (<EndScreen smashes={smashes} list={list} listType={listType} />)
+                        case 'menu': return (<Menu key='menu' setGameState={setGameState} ListProps={ListsProps} />);
+                        case 'ingame': return (<Game key='game' list={list} setGameState={setGameState} smashes={smashes} setSmashes={setSmashes} />)
+                        case 'end': return (<EndScreen key='endscreen' smashes={smashes} list={list} listType={listType} />)
                     }
                 })()
             }

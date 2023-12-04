@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Character } from "./util";
+import './ButtonsHolder.css';
 
 function ButtonsHolder(props: {
     Character: Character,

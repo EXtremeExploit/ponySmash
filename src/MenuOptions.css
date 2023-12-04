@@ -1,0 +1,21 @@
+.menu-option {
+    font-size: 5vh;
+    margin-top: 2vh;
+    text-align: center;
+}
+
+input.menu-checkbox {
+    width: 5vh;
+    height: 5vh;
+}
+
+
+button.start-button {
+    width: 60vw;
+    height: 10vh;
+    font-size: 200%;
+}
+
+#menu-options {
+    text-align: center;
+}

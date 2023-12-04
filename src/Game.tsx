@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Character, GameState } from "./util.ts";
 import ButtonsHolder from "./ButtonsHolder.tsx";
+import './Game.css';
 
 function Game(props: {
     list: Character[],

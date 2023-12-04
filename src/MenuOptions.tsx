@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { List, filterList } from "./util.ts";
 import DefaultOptions from "./DefaultOptions.tsx";
 import CustomOptions from "./CustomOptions.tsx";
+import './MenuOptions.css';
 
 function MenuOptions(props: {
-    ListProps: {
-        listType: List,
-    },
     FilterProps: {
         showEqg, setShowEqg,
         showUnderage, setShowUnderage,
         showMales, setShowMales,
         showCommunity, setShowCommunity,
     },
+    listType: List,
     isLoadingList: boolean,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
     OG_LIST, setOG_LIST,
@@ -31,7 +30,7 @@ function MenuOptions(props: {
             <div id="menu-options">
                 {
                     (() => {
-                        switch (props.ListProps.listType) {
+                        switch (props.listType) {
                             case 'default': return (<DefaultOptions FilterProps={props.FilterProps} setShouldReloadList={setShouldReloadList} />);
                             case 'custom': return (<CustomOptions key='customOptions' {...props} />);
                         }

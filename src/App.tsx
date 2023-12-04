@@ -5,8 +5,8 @@ import Footer from './Footer.tsx';
 function App() {
     return (
         <>
-            <PageInner />
-            <Footer />
+            <PageInner key='page-inner' />
+            <Footer key='footer' />
         </>
     );
 }

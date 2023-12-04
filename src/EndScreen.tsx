@@ -1,6 +1,6 @@
 import React from "react";
 import { Character, List } from "./util.ts";
-import PonyContainer from "./SmashesContainer.tsx";
+import PonyContainer from "./PonyContainer.tsx";
 import ShameText from "./ShameText.tsx";
 
 function EndScreen(props: { smashes: Character[], list: Character[], listType: List }) {
