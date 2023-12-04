@@ -49,14 +49,13 @@ function ButtonsHolder(props: {
         }
     });
 
-
     return (
         <div id="buttons-holder">
             <div className={'button smash-button ' + (smashButtonAnimated ? 'smash-button-anim' : '')} onClick={smashClick}>
-                {props.Character.filly ? 'Cute!' : 'SMASH!'} (←)
+                {props.Character.smashText ?? (props.Character.filly ? 'Cute!' : 'SMASH!')} (←)
             </div>
             <div className={'button pass-button ' + (passButtonAnimated ? 'pass-button-anim' : '')} onClick={passClick}>
-                {props.Character.filly ? 'Not cute' : 'Pass'} (→)
+                {props.Character.passText ?? (props.Character.filly ? 'Not cute' : 'Pass')} (→)
             </div>
         </div>
     );

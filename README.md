@@ -20,7 +20,7 @@ I was bored tbh
 * First you want to fork this repository
 * Create a new branch with the name you want
 * Add the **PNG** to the characters folder, you are free to put it in the respective folder it should go to, but i you are unsure put it in `unsorted`
-* Add the character to the list inside `lists/default.json` 
+* Add the character to the list inside `src/lists/default.json`
    *  `name`: This is what appears above the image
    *  `img`: The path to the image, **ITS CASE SENSITIVE**
    *  `filly`: Is the character underage?
@@ -51,6 +51,8 @@ I was bored tbh
    1. The `"name"` property is the text that appears above the character
    2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like gyazo or the base64 of an image (not really friendly)
    3. The `"filly"` property (optional) sets if the character is underage (`true`/`false`), this will make it so that the buttons say "Cute!" and "Not cute" in the case this property is `true`,
+   3. The `"smashText"` property (optional) sets the text for the smash button. Example : `"smashText": "Smash head with hammer"`,
+   3. The `"passText"` property (optional) sets the text for the pass button. Example : `"passText": "Not even if equestria depended on it"`,
    4. Linebreaks (newlines), dont really matter as long as they dont change the values of things (they arent in the middle of a string)
    5. Comments are not allowed (lines that start with //)
    6. The list **CANNOT** end with a comma (,), else the load will fail.

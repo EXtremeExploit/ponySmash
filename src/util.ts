@@ -34,6 +34,8 @@ export type Character = {
     eqg?: boolean
     gender?: string
     community?: boolean;
+    smashText?: string;
+    passText?: string;
 };
 export type CharListAndNull = Character[] | null;
 export type List = 'default' | 'custom';
