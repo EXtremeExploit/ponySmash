@@ -92,6 +92,7 @@
     { "name": "Candy Apples", "img": "characters/background/Candy_Apples.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Candy Mane", "img": "characters/background/Candy_Mane.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Caramel", "img": "characters/background/Caramel.png", "filly": false, "eqg": false, "gender": "male", "community": false },
+    { "name": "Cayenne", "img": "characters/background/Cayenne.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Caramel Apple", "img": "characters/background/Caramel_Apple.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Cherry Fizzy", "img": "characters/background/Cherry_Fizzy.png", "filly": false, "eqg": false, "gender": "male", "community": false },
     { "name": "Cherry Gold", "img": "characters/background/Cherry_Gold.png", "filly": false, "eqg": false, "gender": "male", "community": false },
