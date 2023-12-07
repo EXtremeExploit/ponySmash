@@ -11,6 +11,11 @@ function getShameText(smashes: Character[], list: Character[]) {
     if (smashes.length === 2 && smashes.filter((e) => e.filly === true).length === 0) return `So you want a threesome?`;
     if (smashes.length === 69) return `Nice.`;
 
+    if (smashes.length === list.length - 1) {
+        const missingCharacter = list.find((l) => typeof smashes.find((s) => s.name === l.name) == 'undefined');
+        return `All of them. Except for ${missingCharacter?.name}... What did ${missingCharacter?.name} even do?`;
+    }
+
     const percentage = Math.floor((smashes.length / list.length) * 100);
 
     if (percentage < 10) return 'Thats very few ponies, you have super high standards.';
