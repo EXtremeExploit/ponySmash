@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Character, GameState } from "./util.ts";
 import ButtonsHolder from "./ButtonsHolder.tsx";
 import './Game.css';
@@ -35,21 +35,19 @@ function Game(props: {
         return true;
     }
 
-    useEffect(() => {
-        let cachedImgIndex = i;
-        let cachedImg = new Image();
-        cachedImg.addEventListener('load', () => {
-            if (cachedImgIndex === props.list.length - 1) return;
-            cachedImg.src = props.list[++cachedImgIndex].img;
-        });
-        cachedImg.src = props.list[cachedImgIndex].img;
-    }, [i, props.list]);
-
     return (<>
         <ButtonsHolder Character={props.list[i]} smashClick={smashClick} passClick={passClick} />
 
         <p className='pony-name'>{props.list[i].name}</p>
         <img className='game-img' alt={props.list[i].name} src={props.list[i].img}></img>
+        {
+            props.list.slice(i, i + 20).map((c) => (
+                <img key={c.name} src={c.img} alt="" style={
+                    { visibility: 'hidden', display: 'flex', width: '1px', height: '1px' }
+                }></img>
+            ))
+        }
     </>);
 }
+
 export default Game;
