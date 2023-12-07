@@ -17,6 +17,7 @@ export function getJSON(url: string, callback: (err: number | null, data: any) =
 export function filterList(data: CharListAndNull, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, filterProps: {
     showEqg, setShowEqg,
     showUnderage, setShowUnderage,
+    showFemales, setShowFemales,
     showMales, setShowMales,
     showCommunity, setShowCommunity,
 }) {
@@ -24,6 +25,7 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: React.
     setFilteredOrderedList((data as Character[]).filter((e) => {
         if (e.eqg && !filterProps.showEqg) return false;
         if (e.filly && !filterProps.showUnderage) return false;
+        if (e.gender === 'female' && !filterProps.showFemales) return false;
         if (e.gender === 'male' && !filterProps.showMales) return false;
         if (e.community && !filterProps.showCommunity) return false;
         return true;
@@ -34,8 +36,8 @@ export type Character = {
     name: string;
     img: string;
     filly?: boolean;
-    eqg?: boolean
-    gender?: string
+    eqg?: boolean;
+    gender?: 'female' | 'male' | null;
     community?: boolean;
     smashText?: string;
     passText?: string;

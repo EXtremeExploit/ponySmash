@@ -6,10 +6,11 @@ import './MenuOptions.css';
 
 function MenuOptions(props: {
     FilterProps: {
-        showEqg, setShowEqg,
-        showUnderage, setShowUnderage,
-        showMales, setShowMales,
-        showCommunity, setShowCommunity,
+        showEqg: boolean, setShowEqg: React.Dispatch<React.SetStateAction<boolean>>,
+        showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
+        showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
+        showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
+        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
     },
     listType: List,
     isLoadingList: boolean,

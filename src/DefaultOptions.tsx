@@ -2,10 +2,11 @@ import React from "react";
 
 function MenuOptionChange(ev: React.ChangeEvent<HTMLInputElement>, props: {
     FilterProps: {
-        showEqg, setShowEqg,
-        showUnderage, setShowUnderage,
-        showMales, setShowMales,
-        showCommunity, setShowCommunity,
+        showEqg: boolean, setShowEqg: React.Dispatch<React.SetStateAction<boolean>>,
+        showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
+        showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
+        showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
+        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
     },
     setShouldReloadList: React.Dispatch<React.SetStateAction<boolean>>
 }) {
@@ -16,6 +17,10 @@ function MenuOptionChange(ev: React.ChangeEvent<HTMLInputElement>, props: {
         }
         case 'show-underage': {
             props.FilterProps.setShowUnderage(!props.FilterProps.showUnderage);
+            break;
+        }
+        case 'show-females': {
+            props.FilterProps.setShowFemales(!props.FilterProps.showFemales);
             break;
         }
         case 'show-males': {
@@ -34,6 +39,7 @@ function DefaultOptions(props: {
     FilterProps: {
         showEqg: boolean, setShowEqg: React.Dispatch<React.SetStateAction<boolean>>,
         showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
+        showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
         showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
         showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
     },
@@ -47,6 +53,10 @@ function DefaultOptions(props: {
         <p className='menu-option'>
             Show underage
             <input type='checkbox' className='menu-checkbox' id='show-underage' checked={props.FilterProps.showUnderage} onChange={(ev) => MenuOptionChange(ev, props)} />
+        </p>
+        <p className='menu-option'>
+            Show females
+            <input type='checkbox' className='menu-checkbox' id='show-females' checked={props.FilterProps.showFemales} onChange={(ev) => MenuOptionChange(ev, props)} />
         </p>
         <p className='menu-option'>
             Show males

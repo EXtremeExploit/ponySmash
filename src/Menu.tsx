@@ -23,12 +23,14 @@ function Menu(props:
     // Options
     const [showEqg, setShowEqg] = useState(true);
     const [showUnderage, setShowUnderage] = useState(false);
+    const [showFemales, setShowFemales] = useState(true);
     const [showMales, setShowMales] = useState(true);
     const [showCommunity, setShowCommunity] = useState(true);
 
     const FilterProps = {
         showEqg: showEqg, setShowEqg: setShowEqg,
         showUnderage: showUnderage, setShowUnderage: setShowUnderage,
+        showFemales: showFemales, setShowFemales: setShowFemales,
         showMales: showMales, setShowMales: setShowMales,
         showCommunity: showCommunity, setShowCommunity: setShowCommunity,
     }
@@ -45,9 +47,9 @@ function Menu(props:
         case 'default': {
             if (OG_LIST !== null && filteredOrderedList !== null) break; // List is already loaded
             if (OG_LIST == null) {
-                setOG_LIST(DefaultList);
+                setOG_LIST(DefaultList as Character[]);
             }
-            filterList(DefaultList, setFilteredOrderedList, FilterProps);
+            filterList(DefaultList as Character[], setFilteredOrderedList, FilterProps);
             break;
         }
         // If more lists get added, this is where they should go
