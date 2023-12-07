@@ -387,6 +387,7 @@
     { "name": "Spoiled Rich", "img": "characters/unsorted/Spoiled_Rich.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Sprinkle Medley", "img": "characters/unsorted/Sprinkle_Medley.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Starlight Glimmer", "img": "characters/unsorted/Starlight_Glimmer.png", "filly": false, "eqg": false, "gender": "female", "community": false },
+    { "name": "Starlight Glimmer (Evil)", "img": "characters/unsorted/Starlight_Glimmer_evil.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Star Swirl the Bearded", "img": "characters/unsorted/Star_Swirl_the_Bearded.png", "filly": false, "eqg": false, "gender": "male", "community": false },
     { "name": "Stellar Eclipse", "img": "characters/unsorted/Stellar_Eclipse.png", "filly": false, "eqg": false, "gender": "male", "community": false },
     { "name": "Stellar Flare", "img": "characters/unsorted/Stellar_Flare.png", "filly": false, "eqg": false, "gender": "female", "community": false },
