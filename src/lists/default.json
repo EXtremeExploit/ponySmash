@@ -70,6 +70,7 @@
     { "name": "Littlepip (Community)", "img": "characters/community/Littlepip.png", "filly": false, "eqg": false, "gender": "female", "community": true },
     { "name": "Littleshy (Community)", "img": "characters/community/Littleshy.png", "filly": false, "eqg": false, "gender": "male", "community": true },
     { "name": "Surprise (Community)", "img": "characters/community/Surprise.png", "filly": false, "eqg": false, "gender": "female", "community": true },
+    { "name": "Sweetie Bot (Community)", "img": "characters/community/Sweetie_Bot.png", "filly": true, "eqg": false, "gender": "female", "community": true },
 
     { "name": "Ace Point", "img": "characters/background/Ace_Point.png", "filly": false, "eqg": false, "gender": "male", "community": false },
     { "name": "Apple Bumpkin", "img": "characters/background/Apple_Bumpkin.png", "filly": false, "eqg": false, "gender": "female", "community": false },
