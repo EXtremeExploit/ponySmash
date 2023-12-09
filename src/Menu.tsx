@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { CharListAndNull, Character, GameState, List, filterList } from "./util.ts";
 import CharactersPreviewCount from "./CharactersPreviewCount.tsx";
 import ListType from "./ListType.tsx";
@@ -11,12 +11,12 @@ function Menu(props:
         ListProps: {
             listType: List,
             setType: React.Dispatch<React.SetStateAction<List>>,
-            setList: React.Dispatch<React.SetStateAction<Character[]>>,
+            list: React.MutableRefObject<Character[]>,
         },
         setGameState: React.Dispatch<React.SetStateAction<GameState>>,
     }) {
     const [isLoadingList, setIsLoadingList] = useState(false);
-    const [OG_LIST, setOG_LIST] = useState<CharListAndNull>(null);
+    const OG_LIST = useRef<CharListAndNull>(null);
     const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
 
 
@@ -38,16 +38,16 @@ function Menu(props:
 
     function startButtonClick(ev: React.MouseEvent<HTMLButtonElement>) {
         if (filteredOrderedList != null) {
-            props.ListProps.setList(filteredOrderedList.sort((a, b) => 0.5 - Math.random()));
+            props.ListProps.list.current = filteredOrderedList.sort((a, b) => 0.5 - Math.random());
             props.setGameState('ingame');
         }
     }
 
     switch (props.ListProps.listType) {
         case 'default': {
-            if (OG_LIST !== null && filteredOrderedList !== null) break; // List is already loaded
-            if (OG_LIST == null) {
-                setOG_LIST(DefaultList as Character[]);
+            if (OG_LIST.current !== null && filteredOrderedList !== null) break; // List is already loaded
+            if (OG_LIST.current == null) {
+                OG_LIST.current = DefaultList as Character[];
             }
             filterList(DefaultList as Character[], setFilteredOrderedList, FilterProps);
             break;
@@ -63,7 +63,6 @@ function Menu(props:
         isLoadingList: isLoadingList,
         setIsLoadingList: setIsLoadingList,
         OG_LIST: OG_LIST,
-        setOG_LIST: setOG_LIST,
         filteredOrderedList: filteredOrderedList,
         setFilteredOrderedList: setFilteredOrderedList,
     }
@@ -72,9 +71,9 @@ function Menu(props:
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setOG_LIST={setOG_LIST} setType={props.ListProps.setType} listType={props.ListProps.listType} />
+            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setType={props.ListProps.setType} listType={props.ListProps.listType} OG_LIST={OG_LIST} />
             <MenuOptions key='menu-options' FilterProps={FilterProps} {...MenuOptionsProps} />
-            <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType} OG_LIST={OG_LIST} filteredOrderedList={filteredOrderedList} />
+            <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType} OG_LIST={OG_LIST.current} filteredOrderedList={filteredOrderedList} />
             <br />
             <button id="start" className="start-button" disabled={filteredOrderedList == null || filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>
         </>

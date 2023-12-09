@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import EndScreen from "./EndScreen.tsx";
 import Game from "./Game.tsx";
 import Menu from "./Menu.tsx";
@@ -6,19 +6,19 @@ import { Character, GameState, List } from "./util.ts";
 import './PageInner.css';
 
 function PageInner() {
-    const [smashes, setSmashes] = useState<Character[]>([]);
+    // const [smashes, setSmashes] = useState<Character[]>([]);
+    const smashes = useRef<Character[]>([]);
     const [gameState, setGameState] = useState<GameState>('menu');
 
     // Lists
     const [listType, setType] = useState<List>('default');
-    const [list, setList] = useState<Character[]>([]);
+    const list = useRef<Character[]>([]);
 
     const ListsProps = {
         listType: listType,
         setType: setType,
-        setList: setList,
+        list,
     }
-
 
     return (
         <div key='page-inner' className="page-inner" style={gameState === 'end' ? { overflowY: 'scroll', display: 'inline-grid', justifyItems: 'center' } : {}}>
@@ -26,7 +26,7 @@ function PageInner() {
                 (() => {
                     switch (gameState) {
                         case 'menu': return (<Menu key='menu' setGameState={setGameState} ListProps={ListsProps} />);
-                        case 'ingame': return (<Game key='game' list={list} setGameState={setGameState} smashes={smashes} setSmashes={setSmashes} />)
+                        case 'ingame': return (<Game key='game' list={list} setGameState={setGameState} smashes={smashes} />)
                         case 'end': return (<EndScreen key='endscreen' smashes={smashes} list={list} listType={listType} />)
                     }
                 })()

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, filterList } from "./util.ts";
+import { CharListAndNull, List, filterList } from "./util.ts";
 import DefaultOptions from "./DefaultOptions.tsx";
 import CustomOptions from "./CustomOptions.tsx";
 import './MenuOptions.css';
@@ -15,14 +15,14 @@ function MenuOptions(props: {
     listType: List,
     isLoadingList: boolean,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
-    OG_LIST, setOG_LIST,
+    OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList,
     setFilteredOrderedList
 }) {
     const [shouldReloadList, setShouldReloadList] = useState(false);
 
     if (shouldReloadList) {
-        filterList(props.OG_LIST, props.setFilteredOrderedList, props.FilterProps);
+        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.FilterProps);
         setShouldReloadList(false);
     }
 

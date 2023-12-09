@@ -3,7 +3,7 @@ import { CharListAndNull, getJSON } from "./util.ts";
 
 
 function loadCustomList(props: {
-    setOG_LIST: React.Dispatch<React.SetStateAction<CharListAndNull>>,
+    OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
     setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>
@@ -12,18 +12,18 @@ function loadCustomList(props: {
     customListURL: string,
     useCORSProxy: boolean
 ) {
-    console.log(`Loading custom list "${customListURL}"`);
-    props.setOG_LIST(null);
+    props.OG_LIST.current = null;
     props.setFilteredOrderedList(null);
     if (props.isLoadingList === true) return; // Load the first list first
     if (useCORSProxy) {
+        console.log(`Loading custom list "${customListURL}" with CORS proxy`);
         getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (err, data) => {
             if (!err?.toString().startsWith('2')) {
                 let errorStr = `CORS Proxy code: ${err}\n`;
                 alert('Something went wrong... \n' + errorStr);
             } else {
                 try {
-                    props.setOG_LIST(JSON.parse(data.contents as string) as CharListAndNull);
+                    props.OG_LIST.current = JSON.parse(data.contents as string) as CharListAndNull;
                 } catch {
                     alert('Request returned invalid JSON');
                     data = null;
@@ -35,6 +35,7 @@ function loadCustomList(props: {
             props.setIsLoadingList(false);
         });
     } else {
+        console.log(`Loading custom list "${customListURL}" without CORS proxy`);
         getJSON(customListURL, (err, data) => {
             if (err === 0 && data === '') {
                 alert('Request failed (probably blocked by CORS)\nEnable CORS Proxy just in case');
@@ -45,7 +46,7 @@ function loadCustomList(props: {
                 let errorStr = `HTTP status code: ${err}\n`;
                 alert('Something went wrong... \n' + errorStr);
             } else {
-                props.setOG_LIST(data as CharListAndNull);
+                props.OG_LIST.current = data as CharListAndNull;
             }
             if (data != null && props.filteredOrderedList == null) {
                 props.setFilteredOrderedList(data as CharListAndNull);
@@ -58,7 +59,7 @@ function loadCustomList(props: {
 
 
 function CustomOptions(props: {
-    setOG_LIST: React.Dispatch<React.SetStateAction<CharListAndNull>>,
+    OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
     setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
@@ -79,7 +80,8 @@ function CustomOptions(props: {
         <input key='input' placeholder="URL to JSON list" id='input' defaultValue={customListURL} onChange={(ev) => setCustomListURL(ev.target.value)} onKeyUp={customListURLKeyUp} />
         <button onClick={(ev) => loadCustomList(props, customListURL, useCORSProxy)}>Load</button>
         <br />
-        <p>Use CORS Proxy?
+        <p title="CORS Proxy is needed for sites that dont allow other sites accessing their data (eg: pastebin). However it comes at the cost of relying on the proxy of actually working">
+            <u>Use CORS Proxy?</u>
             <input key='use-cors' checked={useCORSProxy} type="checkbox" onChange={(ev) => setUseCORSProxy(ev.target.checked)}></input>
         </p>
         <br />
