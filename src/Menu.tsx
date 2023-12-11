@@ -1,19 +1,19 @@
-import React, { useRef, useState } from "react";
-import { CharListAndNull, Character, GameState, List, filterList } from "./util.ts";
-import CharactersPreviewCount from "./CharactersPreviewCount.tsx";
-import ListType from "./ListType.tsx";
-import MenuOptions from "./MenuOptions.tsx";
+import React, { useRef, useState } from 'react';
+import { CharListAndNull, Character, GameState, List, filterList } from './util.ts';
+import CharactersPreviewCount from './CharactersPreviewCount.tsx';
+import ListType from './ListType.tsx';
+import MenuOptions from './MenuOptions.tsx';
 import DefaultList from './lists/default.json';
-import './Menu.css';
+import './css/Menu.css';
 
 function Menu(props:
     {
         ListProps: {
             listType: List,
             setType: React.Dispatch<React.SetStateAction<List>>,
-            list: React.MutableRefObject<Character[]>,
+            list: React.MutableRefObject<Character[]>
         },
-        setGameState: React.Dispatch<React.SetStateAction<GameState>>,
+        setGameState: React.Dispatch<React.SetStateAction<GameState>>
     }) {
     const [isLoadingList, setIsLoadingList] = useState(false);
     const OG_LIST = useRef<CharListAndNull>(null);
@@ -32,13 +32,13 @@ function Menu(props:
         showUnderage: showUnderage, setShowUnderage: setShowUnderage,
         showFemales: showFemales, setShowFemales: setShowFemales,
         showMales: showMales, setShowMales: setShowMales,
-        showCommunity: showCommunity, setShowCommunity: setShowCommunity,
-    }
+        showCommunity: showCommunity, setShowCommunity: setShowCommunity
+    };
 
 
-    function startButtonClick(ev: React.MouseEvent<HTMLButtonElement>) {
+    function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
         if (filteredOrderedList != null) {
-            props.ListProps.list.current = filteredOrderedList.sort((a, b) => 0.5 - Math.random());
+            props.ListProps.list.current = filteredOrderedList.sort((_a, _b) => 0.5 - Math.random());
             props.setGameState('ingame');
         }
     }
@@ -64,8 +64,8 @@ function Menu(props:
         setIsLoadingList: setIsLoadingList,
         OG_LIST: OG_LIST,
         filteredOrderedList: filteredOrderedList,
-        setFilteredOrderedList: setFilteredOrderedList,
-    }
+        setFilteredOrderedList: setFilteredOrderedList
+    };
 
     return (
         <>

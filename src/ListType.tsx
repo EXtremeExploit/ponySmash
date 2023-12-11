@@ -1,11 +1,11 @@
-import React from "react";
-import { CharListAndNull, List } from "./util.ts";
+import React from 'react';
+import { CharListAndNull, List } from './util.ts';
 
 function ListType(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>
-    setType: React.Dispatch<React.SetStateAction<List>>
-    listType: List,
+    setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
+    setType: React.Dispatch<React.SetStateAction<List>>,
+    listType: List
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
         props.OG_LIST.current = null;
@@ -21,7 +21,7 @@ function ListType(props: {
             </select>
             </p>
             <br />
-        </>)
+        </>);
 }
 
 export default ListType;

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Character, GameState } from "./util.ts";
-import ButtonsHolder from "./ButtonsHolder.tsx";
-import './Game.css';
+import React, { useState } from 'react';
+import { Character, GameState } from './util.ts';
+import ButtonsHolder from './ButtonsHolder.tsx';
+import './css/Game.css';
 
 function Game(props: {
     list: React.MutableRefObject<Character[]>,
     setGameState: React.Dispatch<React.SetStateAction<GameState>>,
-    smashes: React.MutableRefObject<Character[]>,
-    // setSmashes: React.Dispatch<React.SetStateAction<Character[]>>
+    smashes: React.MutableRefObject<Character[]>
 }) {
     const [i, setI] = useState(0);
 
@@ -20,7 +19,7 @@ function Game(props: {
         return false;
     }
 
-    function smashClick(ev?: React.MouseEvent<HTMLElement>): boolean {
+    function smashClick(_ev?: React.MouseEvent<HTMLElement>): boolean {
         props.smashes.current.push(props.list.current[i]);
         // props.setSmashes(props.smashes);
 
@@ -29,7 +28,7 @@ function Game(props: {
         return true;
     }
 
-    function passClick(ev?: React.MouseEvent<HTMLElement>) {
+    function passClick(_ev?: React.MouseEvent<HTMLElement>) {
         if (endingHandler()) return false;
         setI(i + 1);
         return true;

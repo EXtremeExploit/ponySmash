@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function MenuOptionChange(ev: React.ChangeEvent<HTMLInputElement>, props: {
     FilterProps: {
@@ -6,7 +6,7 @@ function MenuOptionChange(ev: React.ChangeEvent<HTMLInputElement>, props: {
         showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
         showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
         showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
-        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
+        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>
     },
     setShouldReloadList: React.Dispatch<React.SetStateAction<boolean>>
 }) {
@@ -41,7 +41,7 @@ function DefaultOptions(props: {
         showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
         showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
         showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
-        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
+        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>
     },
     setShouldReloadList: React.Dispatch<React.SetStateAction<boolean>>
 }) {
@@ -66,8 +66,8 @@ function DefaultOptions(props: {
             Show community characters
             <input type='checkbox' className='menu-checkbox' id='show-community' checked={props.FilterProps.showCommunity} onChange={(ev) => MenuOptionChange(ev, props)} />
         </p>
-    </>)
-};
+    </>);
+}
 
 
 export default DefaultOptions;

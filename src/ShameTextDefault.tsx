@@ -1,5 +1,5 @@
-import React from "react";
-import { Character } from "./util.ts";
+import React from 'react';
+import { Character } from './util.ts';
 
 function getShameText(smashes: Character[], list: Character[]): string {
     const hasTom = typeof smashes.find((c) => c.name === 'Tom') !== 'undefined';
@@ -31,7 +31,7 @@ function getShameText(smashes: Character[], list: Character[]): string {
         'Cozy Glow',
         'Queen Chrysalis',
         'Nightmare Moon',
-        'Daybreaker',
+        'Daybreaker'
     ];
 
     if (smashes.length === 0) return 'Damn, not a single one. They are all sad :(';
@@ -62,12 +62,12 @@ function getShameText(smashes: Character[], list: Character[]): string {
         if (smashes[0].name === 'Ember') return 'Who knew that the queen of the dragons would be the biggest sub in the world? Too bad her father heard you. Where did he even get a battle axe that large?';
         if (smashes[0].name === 'Starlight Glimmer (Evil)') return `Damn, she really did make everything equal. You ${Math.random() >= 0.5 ? 'gained' : 'lost'} ${(Math.floor(Math.random() * 6) + 1)} inches last night. Is this the equestrian average?`;
         if (smashes[0].name === 'Starlight Glimmer') return `This was the first time she and you experienced REAL love. It wasn't just a smash, it was the smash where you discovered she is wife material and you actually marry her the next day, she says yes`;
-        if (smashes[0].name === 'King Sombra') return `Last night he treated you like you were made of crystal. This morning, you were his prince.`;
+        if (smashes[0].name === 'King Sombra') return 'Last night he treated you like you were made of crystal. This morning, you were his prince.';
         if (smashes[0].name === 'Autumn Blaze') return `She doesn't shut up. it was a good smash, but you finished with your ears ringing and with a headache, you still can hear her voice in your head`;
-        if (smashes[0].name === 'Sweetie Bot (Community)') return `You approach her, she makes a lot of sounds that resemble of her CPU scanning you, you pet her and you call her cute, she replies with 01010100 01101000 01100001 01101110 01101011 00100000 01111001 01101111 01110101 00100000 01100110 01101111 01110010 00100000 01100011 01100001 01101100 01101100 01101001 01101110 01100111 00100000 01101101 01100101 00100000 01100011 01110101 01110100 01100101 00100000 00111010 01000100 while overheating`;
-        if (smashes[0].name === 'Fluffle Puff (Community)') return `For some reason you had to wear a Chrysalis costume just forher to even notice you. It was the softest creature you ever touched`;
+        if (smashes[0].name === 'Sweetie Bot (Community)') return 'You approach her, she makes a lot of sounds that resemble of her CPU scanning you, you pet her and you call her cute, she replies with 01010100 01101000 01100001 01101110 01101011 00100000 01111001 01101111 01110101 00100000 01100110 01101111 01110010 00100000 01100011 01100001 01101100 01101100 01101001 01101110 01100111 00100000 01101101 01100101 00100000 01100011 01110101 01110100 01100101 00100000 00111010 01000100 while overheating';
+        if (smashes[0].name === 'Fluffle Puff (Community)') return 'For some reason you had to wear a Chrysalis costume just forher to even notice you. It was the softest creature you ever touched';
         if (hasCadance) return `You didn't think you'd ever see anyone literally get heart-eyes. You now stand corrected.`;
-        if (smashes[0].name === 'Lord Tirek') return `Not only he drained your magic but he drained your balls better than a succubus would. He also left you to rot on the ground without any magic, you died some hours later tho`;
+        if (smashes[0].name === 'Lord Tirek') return 'Not only he drained your magic but he drained your balls better than a succubus would. He also left you to rot on the ground without any magic, you died some hours later tho';
         return `You are loyal to ${smashes[0].name}... I like it.`;
     }
 
@@ -109,7 +109,7 @@ function getShameText(smashes: Character[], list: Character[]): string {
 
     if (smashes.length === 6) {
         if (hasApplejack && hasFluttershy && hasPinkiePie && hasRainbowDash && hasRarity && hasTwilightSparkle) {
-            return `ONLY the mane 6. Classic`;
+            return 'ONLY the mane 6. Classic';
         }
     }
 
@@ -119,7 +119,7 @@ function getShameText(smashes: Character[], list: Character[]): string {
     }
 
     const smashesOnlyWonderbolts = smashes.filter((c) => c.img.startsWith('characters/wonderbolts/'));
-    if (smashes.length === smashesOnlyWonderbolts.length) return `Only the wonderbolts, you are definitely Rainbow Dash`;
+    if (smashes.length === smashesOnlyWonderbolts.length) return 'Only the wonderbolts, you are definitely Rainbow Dash';
 
     if (smashes.length === list.length - 1) {
         const missingCharacter = list.find((l) => typeof smashes.find((s) => s.name === l.name) == 'undefined');
@@ -132,8 +132,8 @@ function getShameText(smashes: Character[], list: Character[]): string {
     const smashesFillies = smashes.filter((c) => c.filly === true);
     if (smashes.length === smashesFillies.length) return `Only underage, ${listFillies.length} of them... wtf?`;
 
-    if (smashes.length === 69) return `Nice.`;
-    if (smashes.length === 420) return `Blaze it`;
+    if (smashes.length === 69) return 'Nice.';
+    if (smashes.length === 420) return 'Blaze it';
 
     const percentage = Math.floor((smashes.length / list.length) * 100);
     if (percentage < 10) return 'Thats very few ponies, you have super high standards.';

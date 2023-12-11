@@ -1,7 +1,7 @@
-import React from "react";
-import { Character, List } from "./util.ts";
-import PonyContainer from "./PonyContainer.tsx";
-import ShameTextDefault from "./ShameTextDefault.tsx";
+import React from 'react';
+import { Character, List } from './util.ts';
+import PonyContainer from './PonyContainer.tsx';
+import ShameTextDefault from './ShameTextDefault.tsx';
 
 function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: React.MutableRefObject<Character[]>, listType: List }) {
     return (
@@ -16,14 +16,14 @@ function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: 
                                 <br />
                                 <p>If you want to add a character or contribute, read the README on GitHub (its at the bottom of the page)</p>
                             </>
-                        )
+                        );
                         case 'custom': return null;
                     }
                 })()
             }
             <PonyContainer smashes={props.smashes} />
         </>
-    )
+    );
 }
 
 export default EndScreen;

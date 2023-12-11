@@ -1,6 +1,6 @@
-import React from "react";
-import { CharListAndNull, List } from "./util.ts";
-import './CharactersPreviewCount.css';
+import React from 'react';
+import { CharListAndNull, List } from './util.ts';
+import './css/CharactersPreviewCount.css';
 
 function getCharsCount(isLoadingList: boolean, listType: List, OG_LIST: CharListAndNull, filteredOrderedList: CharListAndNull) {
     if (isLoadingList) return 'Loading...';
@@ -25,6 +25,6 @@ export function CharactersPreviewCount(props: { isLoadingList: boolean, listType
             <p id="characters-preview-count">Characters: {getCharsCount(props.isLoadingList, props.listType, props.OG_LIST, props.filteredOrderedList)}</p>
             <br />
         </>
-    )
+    );
 }
 export default CharactersPreviewCount;
