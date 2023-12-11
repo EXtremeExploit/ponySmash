@@ -1,5 +1,5 @@
 import React from 'react';
-import { version } from './constants.tsx'
+import { version } from './constants.tsx';
 
 class Footer extends React.Component {
     render() {

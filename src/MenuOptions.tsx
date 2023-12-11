@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { CharListAndNull, List, filterList } from "./util.ts";
-import DefaultOptions from "./DefaultOptions.tsx";
-import CustomOptions from "./CustomOptions.tsx";
-import './MenuOptions.css';
+import React, { useState } from 'react';
+import { CharListAndNull, List, filterList } from './util.ts';
+import DefaultOptions from './DefaultOptions.tsx';
+import CustomOptions from './CustomOptions.tsx';
+import './css/MenuOptions.css';
 
 function MenuOptions(props: {
     FilterProps: {
@@ -10,7 +10,7 @@ function MenuOptions(props: {
         showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
         showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
         showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
-        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>,
+        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>
     },
     listType: List,
     isLoadingList: boolean,

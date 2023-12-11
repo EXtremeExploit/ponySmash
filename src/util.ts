@@ -1,25 +1,39 @@
+import React from 'react';
 
-export function getJSON(url: string, callback: (err: number | null, data: any) => void) {
-    var xhr = new XMLHttpRequest();
+
+export interface CORSProxyResponse {
+    contents: string | null;
+    status: {
+        url: string,
+        content_type: string,
+        http_code: number,
+        response_time: number,
+        content_length: number
+    };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getJSON(url: string, callback: (err: number | null, data: CORSProxyResponse | any) => void) {
+    const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
-    xhr.onload = function () {
-        var status = xhr.status;
+    xhr.onload = () => {
+        const status = xhr.status;
         callback(status, xhr.response);
     };
-    xhr.onerror = (ev) => {
-        callback(0, "");
+    xhr.onerror = () => {
+        callback(0, '');
     };
     xhr.send();
-};
+}
 
 
 export function filterList(data: CharListAndNull, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, filterProps: {
-    showEqg, setShowEqg,
-    showUnderage, setShowUnderage,
-    showFemales, setShowFemales,
-    showMales, setShowMales,
-    showCommunity, setShowCommunity,
+    showEqg: boolean, setShowEqg: React.Dispatch<React.SetStateAction<boolean>>,
+    showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
+    showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
+    showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
+    showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>
 }) {
     if (data == null) return;
     setFilteredOrderedList((data as Character[]).filter((e) => {
@@ -32,7 +46,7 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: React.
     }));
 }
 
-export type Character = {
+export interface Character {
     name: string;
     img: string;
     filly?: boolean;
@@ -41,7 +55,8 @@ export type Character = {
     community?: boolean;
     smashText?: string;
     passText?: string;
-};
+}
+
 export type CharListAndNull = Character[] | null;
 export type List = 'default' | 'custom';
 export type GameState = 'menu' | 'ingame' | 'end';

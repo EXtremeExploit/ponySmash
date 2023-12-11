@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Character } from "./util";
-import './ButtonsHolder.css';
+import React, { useEffect, useState } from 'react';
+import { Character } from './util';
+import './css/ButtonsHolder.css';
 
 function ButtonsHolder(props: {
     Character: Character,
     smashClick: (ev?: React.MouseEvent<HTMLElement>) => boolean,
-    passClick: (ev?: React.MouseEvent<HTMLElement>) => boolean,
+    passClick: (ev?: React.MouseEvent<HTMLElement>) => boolean
 }) {
     const [smashButtonAnimated, setSmashButtonAnimated] = useState(false);
     const [passButtonAnimated, setPassButtonAnimated] = useState(false);
@@ -45,7 +45,7 @@ function ButtonsHolder(props: {
         // Don't forget to clean up
         return function cleanup() {
             document.removeEventListener('keydown', handleKeyDown);
-        }
+        };
     });
 
     return (
