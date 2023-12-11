@@ -6,7 +6,7 @@ Pretty sure you know smash or pass, well this is that but with every character i
 I was bored tbh
 
 ## How do i add a character?
-### :warning: Rules :warning:
+### Rules
 * **No NSFW images**
 * **Image has to clearly indicate the character its refering to**
 * **OCs are generally not allowed unless its somewhat known (The living tombstone's OC, Discord human form, Cream Heart, etc)**
