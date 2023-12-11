@@ -8,7 +8,7 @@ function getCharsCount(isLoadingList: boolean, listType: List, OG_LIST: CharList
         case 'default': {
             if (OG_LIST == null) return '???/???';
             if (filteredOrderedList == null) return '???/???';
-            return `${filteredOrderedList.length}/${OG_LIST.length}`
+            return `${filteredOrderedList.length}/${OG_LIST.length}`;
         }
         case 'custom': {
             if (OG_LIST == null || OG_LIST.length === 0)
