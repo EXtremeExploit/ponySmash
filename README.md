@@ -18,8 +18,9 @@ I was bored tbh
 ### Instructions
 * EASY! :D
 * First you want to fork this repository
+* Clone your fork (you can do this an the rest of the steps easily with [GitHub Desktop](https://desktop.github.com/) if you dont know much about git)
 * Create a new branch with the name you want
-* Add the **PNG** to the characters folder, you are free to put it in the respective folder it should go to, but i you are unsure put it in `unsorted`
+* Add the **PNG** to `public/characters` folder, you are free to put it in the respective folder it should go to, but if you are unsure put it in `unsorted`
 * Add the character to the list inside `src/lists/default.json`
    *  `name`: This is what appears above the image
    *  `img`: The path to the image, **ITS CASE SENSITIVE**
@@ -27,6 +28,7 @@ I was bored tbh
    *  `eqg`: Is the character/image from Equestria Girls?
    *  `gender`: `"male"`/`"female"`/`null`
    *  `community`: Is the character not officially made by hasbro/Made from the community?
+* Add, commit, and push the files
 * Make a PR (Pull Request) to the branch **`master`**, if you do it to any other branch i will close your PR
 * Now your request is for everyone to see, including me :D, so now i can comment on your changes if something is needed, or merge them if everything is fine
 
