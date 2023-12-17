@@ -159,10 +159,10 @@
     { "name": "Wisp", "img": "characters/background/Wisp.png", "filly": false, "eqg": false, "gender": "male", "community": false },
 
     { "name": "Autumn Blaze", "img": "characters/kirin/Autumn_Blaze.png", "filly": false, "eqg": false, "gender": "female", "community": false },
-    { "name": "Rain Shine", "img": "characters/kirin/Rain_Shine.png", "filly": false, "eqg": false, "gender": "female", "community": false },
-    { "name": "Fern Flare", "img": "characters/kirin/Fern_Flare.png", "filly": false, "eqg": false, "gender": "female", "community": false },
-    { "name": "River Song", "img": "characters/kirin/River_Song.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Blossom Burst", "img": "characters/kirin/Blossom_Burst.png", "filly": false, "eqg": false, "gender": "female", "community": false },
+    { "name": "Fern Flare", "img": "characters/kirin/Fern_Flare.png", "filly": false, "eqg": false, "gender": "female", "community": false },
+    { "name": "Rain Shine", "img": "characters/kirin/Rain_Shine.png", "filly": false, "eqg": false, "gender": "female", "community": false },
+    { "name": "River Song", "img": "characters/kirin/River_Song.png", "filly": false, "eqg": false, "gender": "female", "community": false },
 
     { "name": "Adagio Dazzle", "img": "characters/unsorted/Adagio_Dazzle.png", "filly": false, "eqg": false, "gender": "female", "community": false },
     { "name": "Ahuizotl", "img": "characters/unsorted/Ahuizotl.png", "filly": false, "eqg": false, "gender": "female", "community": false },
