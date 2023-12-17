@@ -8,7 +8,8 @@ class Footer extends React.Component {
                 <p>
                     <a href="https://github.com/EXtremeExploit/ponySmash/releases">{version}</a> /
                     Site by <a href="https://github.com/EXtremeExploit/">EXtremeExploit</a> /
-                    Give me a star on <a href="https://github.com/EXtremeExploit/ponySmash">GitHub</a>
+                    Give me a star on <a href="https://github.com/EXtremeExploit/ponySmash">GitHub</a> /&nbsp;
+                    <a href="https://github.com/EXtremeExploit/ponySmash/blob/master/LICENSE">License</a>
                 </p>
             </footer>
         );
