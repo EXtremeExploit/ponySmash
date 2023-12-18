@@ -5,7 +5,7 @@ Pretty sure you know smash or pass, well this is that but with every character i
 ## Ok but why?
 I was bored tbh
 
-## How do i add a character?
+## How do I add a character?
 ### Rules
 * **No NSFW images**
 * **Image has to clearly indicate the character its refering to**
@@ -62,3 +62,9 @@ I was bored tbh
 * Once its uploaded you need to get the raw URL of the list, usually in the service you have the list you have a "raw" button at the top, if you click it you should only see the list **and nothing else, not even a UI of any sort** (it should look something like: `https://pastebin.com/raw/0gHxT256`)
 * Now you can try to load that URL into the game and see if it works, if it didn't work, you will get an alert telling you what could be the problem.
 * IF you still have problems figuring out how this works, you can check the example list [here](/src/lists/example.json) or make a [new issue](https://github.com/EXtremeExploit/ponySmash/issues/new) explaining your problem
+
+## Contributions/Developers
+* Read [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+## Special thanks
+* @Tanza3D for CSS
