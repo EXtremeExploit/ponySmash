@@ -16,7 +16,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "minor": "npm version minor && git commit -S --amend --noedit",
+    "patch": "npm version patch && git commit -S --amend --noedit",
+    "major": "npm version major && git commit -S --amend --noedit",
+    "updateProd": "git checkout master && git branch -f prod master && git checkout prod && git push --force && git checkout master"
   },
   "browserslist": {
     "production": [
