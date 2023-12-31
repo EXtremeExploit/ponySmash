@@ -121,6 +121,9 @@ function getShameText(smashes: Character[], list: Character[]): string {
     const smashesOnlyWonderbolts = smashes.filter((c) => c.img.startsWith('characters/wonderbolts/'));
     if (smashes.length === smashesOnlyWonderbolts.length) return 'Only the wonderbolts, you are definitely Rainbow Dash';
 
+    const smashesOnlyKirins = smashes.filter((c) => c.img.startsWith('characters/kirin/'));
+    if (smashes.length === smashesOnlyKirins.length) return 'Their silence speaks volumes';
+
     if (smashes.length === list.length - 1) {
         const missingCharacter = list.find((l) => typeof smashes.find((s) => s.name === l.name) == 'undefined');
         return `All of them. Except for ${missingCharacter?.name}... What did ${missingCharacter?.name} even do?`;
