@@ -187,6 +187,13 @@ const Lists = {
             return '';
         }
     },
+    'eqg': {
+        name: 'Equestria Girls',
+        list: DefaultList.filter((c) => c.eqg),
+        filters: {},
+        filterFunc: null,
+        getShameText: () => ''
+    },
 
     // Custom is special, all its props are placeholders
     'custom': {
