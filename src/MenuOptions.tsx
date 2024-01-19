@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { CharListAndNull, List, filterList } from './util.ts';
-import DefaultOptions from './DefaultOptions.tsx';
+import { CharListAndNull, Filters, ListName, filterList } from './util.ts';
+import DynamicOptions from './DynamicOptions.tsx';
 import CustomOptions from './CustomOptions.tsx';
 import './css/MenuOptions.css';
+import Lists from './Lists.ts';
 
 function MenuOptions(props: {
-    FilterProps: {
-        showEqg: boolean, setShowEqg: React.Dispatch<React.SetStateAction<boolean>>,
-        showUnderage: boolean, setShowUnderage: React.Dispatch<React.SetStateAction<boolean>>,
-        showFemales: boolean, setShowFemales: React.Dispatch<React.SetStateAction<boolean>>,
-        showMales: boolean, setShowMales: React.Dispatch<React.SetStateAction<boolean>>,
-        showCommunity: boolean, setShowCommunity: React.Dispatch<React.SetStateAction<boolean>>
-    },
-    listType: List,
+    filters: Filters,
+    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
+    listType: ListName,
     isLoadingList: boolean,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
     OG_LIST: React.MutableRefObject<CharListAndNull>,
@@ -22,7 +18,7 @@ function MenuOptions(props: {
     const [shouldReloadList, setShouldReloadList] = useState(false);
 
     if (shouldReloadList) {
-        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.FilterProps);
+        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters, Lists[props.listType].filterFunc);
         setShouldReloadList(false);
     }
 
@@ -32,8 +28,8 @@ function MenuOptions(props: {
                 {
                     (() => {
                         switch (props.listType) {
-                            case 'default': return (<DefaultOptions FilterProps={props.FilterProps} setShouldReloadList={setShouldReloadList} />);
                             case 'custom': return (<CustomOptions key='customOptions' {...props} />);
+                            default: return (<DynamicOptions key='dynamicOptions' filters={props.filters} setFilters={props.setFilters} setShouldReloadList={setShouldReloadList} />);
                         }
                     })()
                 }

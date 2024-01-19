@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react';
-import { CharListAndNull, Character, GameState, List, filterList } from './util.ts';
+import { CharListAndNull, Character, GameState, ListName, filterList } from './util.ts';
 import CharactersPreviewCount from './CharactersPreviewCount.tsx';
 import ListType from './ListType.tsx';
 import MenuOptions from './MenuOptions.tsx';
-import DefaultList from './lists/default.json';
+import Lists from './Lists.ts';
 import './css/Menu.css';
 
 function Menu(props:
     {
         ListProps: {
-            listType: List,
-            setType: React.Dispatch<React.SetStateAction<List>>,
+            listType: ListName,
+            setType: React.Dispatch<React.SetStateAction<ListName>>,
             list: React.MutableRefObject<Character[]>
         },
         setGameState: React.Dispatch<React.SetStateAction<GameState>>
@@ -19,22 +19,9 @@ function Menu(props:
     const OG_LIST = useRef<CharListAndNull>(null);
     const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
 
+    console.log(Lists[props.ListProps.listType].filters);
 
-    // Options
-    const [showEqg, setShowEqg] = useState(true);
-    const [showUnderage, setShowUnderage] = useState(false);
-    const [showFemales, setShowFemales] = useState(true);
-    const [showMales, setShowMales] = useState(true);
-    const [showCommunity, setShowCommunity] = useState(true);
-
-    const FilterProps = {
-        showEqg: showEqg, setShowEqg: setShowEqg,
-        showUnderage: showUnderage, setShowUnderage: setShowUnderage,
-        showFemales: showFemales, setShowFemales: setShowFemales,
-        showMales: showMales, setShowMales: setShowMales,
-        showCommunity: showCommunity, setShowCommunity: setShowCommunity
-    };
-
+    const [filters, setFilters] = useState(Lists[props.ListProps.listType].filters);
 
     function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
         if (filteredOrderedList != null) {
@@ -44,16 +31,15 @@ function Menu(props:
     }
 
     switch (props.ListProps.listType) {
-        case 'default': {
-            if (OG_LIST.current !== null && filteredOrderedList !== null) break; // List is already loaded
-            if (OG_LIST.current == null) {
-                OG_LIST.current = DefaultList as Character[];
-            }
-            filterList(DefaultList as Character[], setFilteredOrderedList, FilterProps);
+        case 'custom': {
             break;
         }
-        // If more lists get added, this is where they should go
-        case 'custom': {
+        default: {
+            if (OG_LIST.current !== null && filteredOrderedList !== null) break; // List is already loaded
+            if (OG_LIST.current == null) {
+                OG_LIST.current = Lists[props.ListProps.listType].list as Character[];
+            }
+            filterList(Lists[props.ListProps.listType].list as Character[], setFilteredOrderedList, filters, Lists[props.ListProps.listType].filterFunc);
             break;
         }
     }
@@ -71,8 +57,8 @@ function Menu(props:
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setType={props.ListProps.setType} listType={props.ListProps.listType} OG_LIST={OG_LIST} />
-            <MenuOptions key='menu-options' FilterProps={FilterProps} {...MenuOptionsProps} />
+            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setType={props.ListProps.setType} listType={props.ListProps.listType} OG_LIST={OG_LIST} setFilters={setFilters} />
+            <MenuOptions key='menu-options' filters={filters} setFilters={setFilters} {...MenuOptionsProps} />
             <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType} OG_LIST={OG_LIST.current} filteredOrderedList={filteredOrderedList} />
             <br />
             <button id="start" className="start-button" disabled={filteredOrderedList == null || filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>
