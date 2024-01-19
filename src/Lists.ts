@@ -27,7 +27,9 @@ const Lists = {
                 value: true
             }
         } as const satisfies Filters,
-        filterFunc: (character: Character, filters: Filters): boolean => {
+        filterFunc: (character: Character, unTypedFilters: Filters): boolean => {
+            const filters = unTypedFilters as typeof Lists['default']['filters'];
+
             if (character.eqg && !filters['showEQG'].value) return false;
             if (character.filly && !filters['showUnderage'].value) return false;
             if (character.gender === 'female' && !filters['showFemales'].value) return false;
@@ -186,14 +188,15 @@ const Lists = {
 
             return '';
         }
-    },
+    } satisfies List,
+
     'eqg': {
         name: 'Equestria Girls',
-        list: DefaultList.filter((c) => c.eqg),
+        list: DefaultList.filter((c) => c.eqg) as Character[],
         filters: {},
         filterFunc: null,
         getShameText: () => ''
-    },
+    } satisfies List,
 
     // Custom is special, all its props are placeholders
     'custom': {
@@ -202,7 +205,7 @@ const Lists = {
         filters: {}, // This never gets accessed
         filterFunc: null, // This will never run
         getShameText: () => '' // Empty
-    }
+    } satisfies List
 };
 
-export default Lists as Record<keyof typeof Lists, List>;
+export default Lists;

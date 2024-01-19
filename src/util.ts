@@ -51,7 +51,7 @@ export interface List {
     readonly name: string;
     readonly list: Character[];
     readonly filters: Filters;
-    filterFunc: null | ((c: Character, filters: Filters) => boolean);
+    filterFunc: null | ((character: Character, unTypedFilters: Filters) => boolean);
     getShameText: (smashes: Character[], list: Character[]) => string;
 }
 
