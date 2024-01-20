@@ -16,10 +16,10 @@ describe('List tests', () => {
 
             it(`There shouldnt be duplicate images`, () => {
                 const imgs = l[1].list.map((c) => c.img);
-                const dupedImgs = imgs.filter((item, index) => imgs.indexOf(item) !== index)
+                const dupedImgs = imgs.filter((item, index) => imgs.indexOf(item) !== index);
                 assert(dupedImgs.length == 0, `Characters with dupe images: ${dupedImgs.map((n) => `"${n}" `)}`);
             });
-        })
+        });
     });
 
     describe('All characters in default list should have valid png', () => {
@@ -31,15 +31,18 @@ describe('List tests', () => {
     });
 });
 
-const getFiles = source =>
-    readdirSync(source, { withFileTypes: true })
-        .filter(dirent => !dirent.isDirectory())
-        .map(dirent => dirent.name);
+function getFiles(source) {
+    return readdirSync(source, { withFileTypes: true })
+        .filter((dirent) => !dirent.isDirectory())
+        .map((dirent) => dirent.name);
+}
 
-const getDirectories = source =>
-    readdirSync(source, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name);
+
+function getDirectories(source) {
+    return readdirSync(source, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
+}
 
 describe('Filesystem tests', () => {
     it('All pngs should have a character assigned', () => {
@@ -47,7 +50,7 @@ describe('Filesystem tests', () => {
             describe(d, () => {
                 getFiles('./public/characters/' + d).forEach((c) => {
                     it(`${c} Should exist in default list`, () => {
-                        let i = Lists['default'].list.find((e) => e.img == `characters/${d}/${c}`);
+                        const i = Lists['default'].list.find((e) => e.img == `characters/${d}/${c}`);
 
                         assert(typeof i != 'undefined', `Cannot find "characters/${d}/${c}", i: ${i}`);
                     });
