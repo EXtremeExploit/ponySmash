@@ -195,7 +195,7 @@
     { "name": "Blaze", "img": "characters/wonderbolts/Blaze.png", "gender": "female" },
     { "name": "Bloomberg", "img": "characters/unsorted/Bloomberg.png", "gender": null },
     { "name": "Blossomforth", "img": "characters/unsorted/Blossomforth.png", "gender": "female" },
-    { "name": "Blue Bobbin", "img": "characters/unsorted/Blue_bobbin.png", "gender": "female" },
+    { "name": "Blue Bobbin", "img": "characters/unsorted/Blue_Bobbin.png", "gender": "female" },
     { "name": "Boneless", "img": "characters/unsorted/Boneless.png", "gender": null },
     { "name": "Bori", "img": "characters/unsorted/Bori.png", "gender": "female" },
     { "name": "Boulder", "img": "characters/unsorted/Boulder.png", "gender": null },

@@ -3,6 +3,7 @@
   "version": "2.8.0",
   "description": "Smash or Pass for My Little Pony: Fiendship is Magic",
   "main": "src/index.js",
+  "type": "module",
   "author": "EXtremeExploit",
   "license": "AGPL-3.0-only",
   "dependencies": {
@@ -15,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha",
     "eject": "react-scripts eject",
     "minor": "npm version minor && git commit -S --amend --noedit",
     "patch": "npm version patch && git commit -S --amend --noedit",
@@ -37,6 +38,11 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@stylistic/eslint-plugin": "^1.5.0",
-    "eslint": "^8.55.0"
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "chai": "^5.0.0",
+    "eslint": "^8.55.0",
+    "mocha": "^10.2.0",
+    "tsx": "^4.7.0"
   }
 }
