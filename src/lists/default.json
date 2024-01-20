@@ -203,7 +203,6 @@
     { "name": "Boysenberry", "img": "characters/unsorted/Boysenberry.png", "gender": "female", "filly": true },
     { "name": "Braeburn", "img": "characters/unsorted/Braeburn.png", "gender": "male" },
     { "name": "Bright Mac", "img": "characters/unsorted/Bright_Mac.png", "gender": "male" },
-    { "name": "Bubblegum Blossom", "img": "characters/unsorted/Bubblegum_Blossom.png", "gender": "female" },
     { "name": "Bubblegum Brush", "img": "characters/unsorted/Bubblegum_Brush.png", "gender": "female", "filly": true },
     { "name": "Bulk Biceps", "img": "characters/unsorted/Bulk_Biceps.png", "gender": "male" },
     { "name": "Caballeron", "img": "characters/unsorted/Caballeron.png", "gender": "male" },
