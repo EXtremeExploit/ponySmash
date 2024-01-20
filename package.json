@@ -18,9 +18,9 @@
     "build": "react-scripts build",
     "test": "mocha",
     "eject": "react-scripts eject",
-    "minor": "npm version minor && git commit -S --amend --noedit",
-    "patch": "npm version patch && git commit -S --amend --noedit",
-    "major": "npm version major && git commit -S --amend --noedit",
+    "minor": "npm version minor && git commit -S --amend --no-edit",
+    "patch": "npm version patch && git commit -S --amend --no-edit",
+    "major": "npm version major && git commit -S --amend --no-edit",
     "updateProd": "git checkout master && git branch -f prod master && git checkout prod && git push --force && git checkout master"
   },
   "browserslist": {
