@@ -193,8 +193,28 @@ const Lists = {
     'eqg': {
         name: 'Equestria Girls',
         list: DefaultList.filter((c) => c.eqg) as Character[],
-        filters: {},
-        filterFunc: null,
+        filters: {
+            'showUnderage': {
+                text: 'Show underage',
+                value: false
+            },
+            'showFemales': {
+                text: 'Show females',
+                value: true
+            },
+            'showMales': {
+                text: 'Show males',
+                value: true
+            }
+        },
+        filterFunc: (character: Character, unTypedFilters: Filters): boolean => {
+            const filters = unTypedFilters as typeof Lists['eqg']['filters'];
+
+            if (character.filly && !filters['showUnderage'].value) return false;
+            if (character.gender === 'female' && !filters['showFemales'].value) return false;
+            if (character.gender === 'male' && !filters['showMales'].value) return false;
+            return true;
+        },
         getShameText: () => ''
     } satisfies List,
 
