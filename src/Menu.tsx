@@ -19,8 +19,6 @@ function Menu(props:
     const OG_LIST = useRef<CharListAndNull>(null);
     const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
 
-    console.log(Lists[props.ListProps.listType].filters);
-
     const [filters, setFilters] = useState(Lists[props.ListProps.listType].filters);
 
     function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
