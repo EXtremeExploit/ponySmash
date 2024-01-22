@@ -1,11 +1,12 @@
 import { assert } from 'chai';
-import { existsSync, readdirSync } from 'fs';
+import { createHash } from 'crypto';
+import { existsSync, readdirSync, readFileSync } from 'fs';
 
 import Lists from '../src/Lists.ts';
 
 describe('List tests', () => {
     Object.entries(Lists).forEach((l) => {
-        if (l[0] == 'custom') return;
+        if (l[0] == 'custom') return; // Ignore custom as its special
 
         describe(l[0], () => {
             it(`There shouldnt be duplicate names`, () => {
@@ -22,40 +23,48 @@ describe('List tests', () => {
         });
     });
 
-    describe('All characters in default list should have valid png', () => {
+    it('All characters in default list should have valid png', () => {
         Lists['default'].list.forEach((c) => {
-            it(`${c.name} should have a valid png path`, () => {
-                assert(existsSync(`./public/${c.img}`), `${c.name} PNG path is not valid (${c.img})`);
-            });
+            assert(existsSync(`./public/${c.img}`), `${c.name} PNG path is not valid (${c.img})`);
         });
     });
 });
 
 function getFiles(source) {
-    return readdirSync(source, { withFileTypes: true })
+    return readdirSync(source, { withFileTypes: true, recursive: true })
         .filter((dirent) => !dirent.isDirectory())
-        .map((dirent) => dirent.name);
-}
-
-
-function getDirectories(source) {
-    return readdirSync(source, { withFileTypes: true })
-        .filter((dirent) => dirent.isDirectory())
-        .map((dirent) => dirent.name);
+        .map((dirent) => `${dirent.path}/${dirent.name}`);
 }
 
 describe('Filesystem tests', () => {
-    it('All pngs should have a character assigned', () => {
-        getDirectories('./public/characters').forEach((d) => {
-            describe(d, () => {
-                getFiles('./public/characters/' + d).forEach((c) => {
-                    it(`${c} Should exist in default list`, () => {
-                        const i = Lists['default'].list.find((e) => e.img == `characters/${d}/${c}`);
+    const files = getFiles('./public/characters');
 
-                        assert(typeof i != 'undefined', `Cannot find "characters/${d}/${c}", i: ${i}`);
-                    });
-                });
-            });
+    it('Files should be the same length of default list', () => {
+        assert(files.length == Lists['default'].list.length);
+    });
+
+    it('All PNGs should have a character assigned', () => {
+        files.forEach((filename) => {
+            const i = Lists['default'].list.find((character) => character.img == filename.replace('public/', ''));
+            assert(typeof i != 'undefined', `Cannot find "${filename.replace('public/', '')}", i: ${i}`);
+        });
+    });
+
+    it('There shouldnt be any duplicate image hashes', () => {
+        const hashes: string[] = [];
+        files.forEach((file) => {
+            const character = Lists['default'].list.find((c) => c.img == file.replace('public/', ''));
+
+            const blob = readFileSync(file);
+
+            const sha1 = createHash('sha1').update(blob).digest('hex');
+
+            const isDuped = hashes.includes(sha1);
+
+            assert(isDuped == false, `Duplicate SHA1: ${sha1} for character ${character?.name}, img: ${character?.img}`);
+
+            if (!isDuped)
+                hashes.push(sha1);
         });
     });
 });
