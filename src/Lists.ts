@@ -26,7 +26,7 @@ const Lists = {
                 text: 'Show community characters',
                 value: true
             }
-        } as const satisfies Filters,
+        },
         filterFunc: (character: Character, unTypedFilters: Filters): boolean => {
             const filters = unTypedFilters as typeof Lists['default']['filters'];
 
@@ -188,7 +188,7 @@ const Lists = {
 
             return '';
         }
-    } satisfies List,
+    },
 
     'eqg': {
         name: 'Equestria Girls',
@@ -216,7 +216,7 @@ const Lists = {
             return true;
         },
         getShameText: () => ''
-    } satisfies List,
+    },
 
     // Custom is special, all its props are placeholders
     'custom': {
@@ -225,7 +225,7 @@ const Lists = {
         filters: {}, // This never gets accessed
         filterFunc: null, // This will never run
         getShameText: () => '' // Empty
-    } satisfies List
-};
+    }
+} satisfies Record<string, List>;
 
 export default Lists;
