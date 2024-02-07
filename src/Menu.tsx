@@ -37,7 +37,7 @@ function Menu(props:
             if (OG_LIST.current == null) {
                 OG_LIST.current = Lists[props.ListProps.listType].list as Character[];
             }
-            filterList(Lists[props.ListProps.listType].list as Character[], setFilteredOrderedList, filters, Lists[props.ListProps.listType].filterFunc);
+            filterList(Lists[props.ListProps.listType].list as Character[], setFilteredOrderedList, filters);
             break;
         }
     }

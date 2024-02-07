@@ -3,7 +3,6 @@ import { CharListAndNull, Filters, ListName, filterList } from './util.ts';
 import DynamicOptions from './DynamicOptions.tsx';
 import CustomOptions from './CustomOptions.tsx';
 import './css/MenuOptions.css';
-import Lists from './Lists.ts';
 
 function MenuOptions(props: {
     filters: Filters,
@@ -18,7 +17,7 @@ function MenuOptions(props: {
     const [shouldReloadList, setShouldReloadList] = useState(false);
 
     if (shouldReloadList) {
-        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters, Lists[props.listType].filterFunc);
+        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters);
         setShouldReloadList(false);
     }
 
@@ -26,13 +25,9 @@ function MenuOptions(props: {
         <>
             <div id="menu-options">
                 {
-                    (() => {
-                        switch (props.listType) {
-                            case 'custom': return (<CustomOptions key='customOptions' {...props} />);
-                            default: return (<DynamicOptions key='dynamicOptions' filters={props.filters} setFilters={props.setFilters} setShouldReloadList={setShouldReloadList} />);
-                        }
-                    })()
+                    props.listType == 'custom' ? (<CustomOptions key='customOptions' {...props} />) : null
                 }
+                <DynamicOptions key='dynamicOptions' filters={props.filters} setFilters={props.setFilters} setShouldReloadList={setShouldReloadList} />
             </div>
             <br />
         </>

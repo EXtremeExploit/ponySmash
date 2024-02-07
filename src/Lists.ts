@@ -1,5 +1,5 @@
 import DefaultList from './lists/default.json';
-import { Character, Filters, List } from './util.ts';
+import { Character, List } from './util.ts';
 
 const Lists = {
     'default': {
@@ -8,34 +8,49 @@ const Lists = {
         filters: {
             'showEQG': {
                 text: 'Show EQG',
+                logic: {
+                    type: 'equals',
+                    charProp: 'eqg',
+                    against: true
+                },
                 value: true
             },
             'showUnderage': {
                 text: 'Show underage',
+                logic: {
+                    type: 'equals',
+                    charProp: 'filly',
+                    against: true
+                },
                 value: false
             },
             'showFemales': {
                 text: 'Show females',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'female'
+                },
                 value: true
             },
             'showMales': {
                 text: 'Show males',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'male'
+                },
                 value: true
             },
             'showCommunity': {
                 text: 'Show community characters',
+                logic: {
+                    type: 'equals',
+                    charProp: 'community',
+                    against: true
+                },
                 value: true
             }
-        },
-        filterFunc: (character: Character, unTypedFilters: Filters): boolean => {
-            const filters = unTypedFilters as typeof Lists['default']['filters'];
-
-            if (character.eqg && !filters['showEQG'].value) return false;
-            if (character.filly && !filters['showUnderage'].value) return false;
-            if (character.gender === 'female' && !filters['showFemales'].value) return false;
-            if (character.gender === 'male' && !filters['showMales'].value) return false;
-            if (character.community && !filters['showCommunity'].value) return false;
-            return true;
         },
         getShameText: (smashes: Character[], list: Character[]): string => {
             const hasTom = typeof smashes.find((c) => c.name === 'Tom') !== 'undefined';
@@ -196,24 +211,31 @@ const Lists = {
         filters: {
             'showUnderage': {
                 text: 'Show underage',
+                logic: {
+                    type: 'equals',
+                    charProp: 'filly',
+                    against: true
+                },
                 value: false
             },
             'showFemales': {
                 text: 'Show females',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'female'
+                },
                 value: true
             },
             'showMales': {
                 text: 'Show males',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'male'
+                },
                 value: true
             }
-        },
-        filterFunc: (character: Character, unTypedFilters: Filters): boolean => {
-            const filters = unTypedFilters as typeof Lists['eqg']['filters'];
-
-            if (character.filly && !filters['showUnderage'].value) return false;
-            if (character.gender === 'female' && !filters['showFemales'].value) return false;
-            if (character.gender === 'male' && !filters['showMales'].value) return false;
-            return true;
         },
         getShameText: () => ''
     },
@@ -223,7 +245,6 @@ const Lists = {
         name: 'Custom...',
         list: [], // This never gets accessed
         filters: {}, // This never gets accessed
-        filterFunc: null, // This will never run
         getShameText: () => '' // Empty
     }
 } satisfies Record<string, List>;
