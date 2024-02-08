@@ -1,5 +1,5 @@
 import React from 'react';
-import { CharListAndNull, Filters, ListName } from './util.ts';
+import { CharListAndNull, Filters, ListName } from './types.ts';
 import Lists from './Lists.ts';
 
 function ListType(props: {

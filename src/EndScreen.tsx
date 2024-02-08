@@ -1,5 +1,5 @@
 import React from 'react';
-import { Character, ListName } from './util.ts';
+import { Character, ListName } from './types.ts';
 import PonyContainer from './PonyContainer.tsx';
 import Lists from './Lists.ts';
 

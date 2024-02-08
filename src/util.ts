@@ -1,16 +1,5 @@
 import React from 'react';
-import Lists from './Lists.ts';
-
-export interface CORSProxyResponse {
-    contents: string | null;
-    status: {
-        url: string,
-        content_type: string,
-        http_code: number,
-        response_time: number,
-        content_length: number
-    };
-}
+import { CORSProxyResponse, CharListAndNull, Character, Filters, List } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getJSON(url: string, callback: (err: number | null, data: CORSProxyResponse | any) => void) {
@@ -28,64 +17,15 @@ export function getJSON(url: string, callback: (err: number | null, data: CORSPr
 }
 
 
-export interface Character {
-    name: string;
-    img: string;
-    filly?: boolean;
-    eqg?: boolean;
-    gender?: 'female' | 'male' | null;
-    community?: boolean;
-    smashText?: string;
-    passText?: string;
-}
-
-export type CharListAndNull = Character[] | null;
-export type GameState = 'menu' | 'ingame' | 'end';
-
-export interface List {
-    readonly name: string;
-    readonly list: Character[];
-    readonly filters: Filters;
-    getShameText: (smashes: Character[], list: Character[]) => string;
-}
-
-export type FilterLogicTypeNoArg = 'equals' | 'notEquals';
-export type FilterLogicTypeWithArg = 'startsWith' | 'endsWith' | 'includes';
-
-export interface FilterLogicNoArg {
-    charProp: keyof Character;
-    type: FilterLogicTypeNoArg;
-    against: boolean | string | number | null;
-}
-
-
-export interface FilterLogicWithArg {
-    charProp: keyof Character;
-    type: FilterLogicTypeWithArg;
-    arg: string;
-    against: boolean | string | number | null;
-}
-
-
-export interface Filter {
-    readonly text: string;
-    readonly logic: FilterLogicNoArg | FilterLogicWithArg;
-    value: boolean;
-}
-
-export type ListName = keyof (typeof Lists);
-export type Filters = Record<string, Filter>;
-
 export function filterList(data: CharListAndNull, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, filters: Filters) {
     if (data == null) return;
-    setFilteredOrderedList((data as Character[]).filter((character) => {
+    setFilteredOrderedList(data.filter((character) => {
         for (const filterId in filters) {
             let retVal = true;
             const { logic, value } = filters[filterId];
             const charProp = character[logic.charProp];
 
             if (value) continue; // Filter is enabled. Dont check for negative matches
-
             if (typeof charProp == 'undefined') continue; // The prop is undefined. Ignore this pass
 
             switch (logic.type) {
@@ -102,4 +42,23 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: React.
         }
         return true;
     }));
+}
+
+
+export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, setFilters: React.Dispatch<React.SetStateAction<Filters>>) {
+    if (Array.isArray(list)) {
+        console.log(`Loading legacy custom list with ${list.length} characters`);
+        OG_LIST.current = list;
+        setFilteredOrderedList(list);
+    } else {
+        console.log('Loading custom list');
+        switch (list.version ?? 1) {
+            case 1: {
+                OG_LIST.current = list.list;
+                setFilters(list.filters);
+                filterList(OG_LIST.current, setFilteredOrderedList, list.filters);
+                break;
+            }
+        }
+    }
 }

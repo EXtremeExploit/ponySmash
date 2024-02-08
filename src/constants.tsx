@@ -1,3 +1,3 @@
 import pkgJSON from '../package.json';
 
-export const version = `v${pkgJSON.version}`;
+export const version = `v${pkgJSON.version}` as const;

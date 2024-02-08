@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { CORSProxyResponse, CharListAndNull, getJSON } from './util.ts';
+import { CORSProxyResponse, CharListAndNull, Filters } from './types.ts';
+import { getJSON, loadCustomList } from './util.ts';
 
 
-function loadCustomList(props: {
+function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
+    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
     setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
     isLoadingList: boolean
@@ -28,9 +30,7 @@ function loadCustomList(props: {
                         throw 'Content is invalid JSON';
                     }
 
-                    props.OG_LIST.current = JSON.parse(data.contents) as CharListAndNull;
-                    if (props.filteredOrderedList == null)
-                        props.setFilteredOrderedList(JSON.parse(data.contents) as CharListAndNull);
+                    loadCustomList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredOrderedList, props.setFilters);
                 } catch (e) {
                     if (e)
                         alert(e);
@@ -51,12 +51,9 @@ function loadCustomList(props: {
             if (!err?.toString().startsWith('2')) {
                 const errorStr = `HTTP status code: ${err}\n`;
                 alert('Something went wrong... \n' + errorStr);
-            } else {
-                props.OG_LIST.current = data as CharListAndNull;
             }
-            if (data != null && props.filteredOrderedList == null) {
-                props.setFilteredOrderedList(data as CharListAndNull);
-            }
+
+            loadCustomList(data, props.OG_LIST, props.setFilteredOrderedList, props.setFilters);
             props.setIsLoadingList(false);
         });
     }
@@ -67,6 +64,7 @@ function loadCustomList(props: {
 function CustomOptions(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
+    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
     setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
     setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
     isLoadingList: boolean
@@ -79,12 +77,12 @@ function CustomOptions(props: {
         if (ev.repeat)
             return;
         if (ev.key === 'Enter')
-            loadCustomList(props, customListURL, useCORSProxy);
+            customListSubmitHandler(props, customListURL, useCORSProxy);
     }
 
     return (<>
         <input key='input' placeholder="URL to JSON list" id='input' defaultValue={customListURL} onChange={(ev) => setCustomListURL(ev.target.value)} onKeyUp={customListURLKeyUp} />
-        <button onClick={() => loadCustomList(props, customListURL, useCORSProxy)}>Load</button>
+        <button onClick={() => customListSubmitHandler(props, customListURL, useCORSProxy)}>Load</button>
         <br />
         <p title="CORS Proxy is needed for sites that dont allow other sites accessing their data (eg: pastebin). However it comes at the cost of relying on the proxy of actually working">
             <u>Use CORS Proxy?</u>

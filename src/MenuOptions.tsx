@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CharListAndNull, Filters, ListName, filterList } from './util.ts';
+import { CharListAndNull, Filters, ListName } from './types.ts';
+import { filterList } from './util.ts';
 import DynamicOptions from './DynamicOptions.tsx';
 import CustomOptions from './CustomOptions.tsx';
 import './css/MenuOptions.css';

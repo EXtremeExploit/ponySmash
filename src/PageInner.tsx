@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import EndScreen from './EndScreen.tsx';
 import Game from './Game.tsx';
 import Menu from './Menu.tsx';
-import { Character, GameState, ListName } from './util.ts';
+import { Character, GameState, ListName } from './types.ts';
 import './css/PageInner.css';
 
 function PageInner() {

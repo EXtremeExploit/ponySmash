@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filters } from './util.ts';
+import { Filters } from './types.ts';
 
 function DynamicOptions(props: {
     filters: Filters,

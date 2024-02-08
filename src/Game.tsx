@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Character, GameState } from './util.ts';
+import { Character, GameState } from './types.ts';
 import ButtonsHolder from './ButtonsHolder.tsx';
 import './css/Game.css';
 
@@ -21,7 +21,6 @@ function Game(props: {
 
     function smashClick(_ev?: React.MouseEvent<HTMLElement>): boolean {
         props.smashes.current.push(props.list.current[i]);
-        // props.setSmashes(props.smashes);
 
         if (endingHandler()) return false;
         setI(i + 1);

@@ -1,5 +1,5 @@
 import DefaultList from './lists/default.json';
-import { Character, List } from './util.ts';
+import { Character, List } from './types.ts';
 
 const Lists = {
     'default': {

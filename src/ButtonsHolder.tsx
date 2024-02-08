@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Character } from './util';
+import { Character } from './types.ts';
 import './css/ButtonsHolder.css';
 
 function ButtonsHolder(props: {

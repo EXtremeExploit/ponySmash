@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { CharListAndNull, Character, GameState, ListName, filterList } from './util.ts';
+import { CharListAndNull, Character, GameState, ListName } from './types.ts';
+import { filterList } from './util.ts';
 import CharactersPreviewCount from './CharactersPreviewCount.tsx';
 import ListType from './ListType.tsx';
 import MenuOptions from './MenuOptions.tsx';
