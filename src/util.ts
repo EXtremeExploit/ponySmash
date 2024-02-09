@@ -51,12 +51,12 @@ export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableR
         OG_LIST.current = list;
         setFilteredOrderedList(list);
     } else {
-        console.log('Loading custom list');
+        console.log(`Loading custom list with version ${list.version ?? 1}`);
         switch (list.version ?? 1) {
             case 1: {
                 OG_LIST.current = list.list;
                 setFilters(list.filters);
-                filterList(OG_LIST.current, setFilteredOrderedList, list.filters);
+                filterList(list.list, setFilteredOrderedList, list.filters);
                 break;
             }
         }
