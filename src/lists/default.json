@@ -190,7 +190,7 @@
     { "name": "Berry Preppy", "img": "characters/unsorted/Berry_Preppy.png", "gender": "female" },
     { "name": "Berryshine", "img": "characters/unsorted/Berryshine.png", "gender": "female" },
     { "name": "Big McIntosh", "img": "characters/unsorted/Big_McIntosh.png", "gender": "male" },
-    { "name": "Biscuit", "img": "characters/unsorted/Biscuit.png", "gender": "male" },
+    { "name": "Biscuit", "img": "characters/unsorted/Biscuit.png", "filly": true, "gender": "male" },
     { "name": "Bloofy", "img": "characters/unsorted/Bloofy.png", "gender": "male" },
     { "name": "Blaze", "img": "characters/wonderbolts/Blaze.png", "gender": "female" },
     { "name": "Bloomberg", "img": "characters/unsorted/Bloomberg.png", "gender": null },
