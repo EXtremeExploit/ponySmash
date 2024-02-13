@@ -243,8 +243,8 @@ const Lists = {
     // Custom is special, all its props are placeholders
     'custom': {
         name: 'Custom...',
-        list: [], // This never gets accessed
-        filters: {}, // This never gets accessed
+        list: [], // This is a placeholder
+        filters: {}, // This is a placeholder
         getShameText: () => '' // Empty
     }
 } satisfies Record<string, List>;

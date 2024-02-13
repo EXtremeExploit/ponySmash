@@ -16,9 +16,9 @@ function customListSubmitHandler(props: {
     if (props.isLoadingList === true) return; // Load the first list first
     if (useCORSProxy) {
         console.log(`Loading custom list "${customListURL}" with CORS proxy`);
-        getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (err, data: CORSProxyResponse | null) => {
-            if (!err?.toString().startsWith('2')) {
-                const errorStr = `CORS Proxy code: ${err}\n`;
+        getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (status, data: CORSProxyResponse | null) => {
+            if (!status?.toString().startsWith('2')) {
+                const errorStr = `CORS Proxy code: ${status}\n`;
                 alert('Something went wrong... \n' + errorStr);
             } else {
                 try {
@@ -42,14 +42,14 @@ function customListSubmitHandler(props: {
         });
     } else {
         console.log(`Loading custom list "${customListURL}" without CORS proxy`);
-        getJSON(customListURL, (err, data) => {
-            if (err === 0 && data === '') {
+        getJSON(customListURL, (status, data) => {
+            if (status === 0 && data === '') {
                 alert('Request failed (probably blocked by CORS)\nEnable CORS Proxy just in case');
                 props.setIsLoadingList(false);
                 return;
             }
-            if (!err?.toString().startsWith('2')) {
-                const errorStr = `HTTP status code: ${err}\n`;
+            if (!status?.toString().startsWith('2')) {
+                const errorStr = `HTTP status code: ${status}\n`;
                 alert('Something went wrong... \n' + errorStr);
             }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { CORSProxyResponse, CharListAndNull, Character, Filters, List } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function getJSON(url: string, callback: (err: number | null, data: CORSProxyResponse | any) => void) {
+export function getJSON(url: string, callback: (status: number | null, data: CORSProxyResponse | any) => void) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
