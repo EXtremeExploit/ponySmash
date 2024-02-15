@@ -37,6 +37,7 @@ I was bored tbh
 
 ## Contributions/Developers
 * Read [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+* Changes from the `master` branch are available [here](https://master.ponysmash.pages.dev/)
 
 ## Special thanks
 * @Tanza3D for CSS
