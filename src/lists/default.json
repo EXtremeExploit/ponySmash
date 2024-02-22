@@ -65,6 +65,7 @@
     { "name": "Wallflower Blush (EQG)", "img": "characters/eqg/Wallflower_Blush.png", "eqg": true, "gender": "female" },
     { "name": "Zephyr Breeze (EQG)", "img": "characters/eqg/Zephyr_Breeze.png", "eqg": true, "gender": "male" },
 
+    { "name": "Blackjack (Community)", "img": "characters/community/Blackjack.png", "gender": "female", "community": true },
     { "name": "Cream Heart (Community)", "img": "characters/community/Cream_Heart.png", "gender": "female", "community": true },
     { "name": "Fluffle Puff (Community)", "img": "characters/community/Fluffle_Puff.png", "gender": "female", "community": true },
     { "name": "Littlepip (Community)", "img": "characters/community/Littlepip.png", "gender": "female", "community": true },
