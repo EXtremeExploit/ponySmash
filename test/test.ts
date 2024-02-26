@@ -20,12 +20,12 @@ describe('List tests', () => {
                 const dupedImgs = imgs.filter((item, index) => imgs.indexOf(item) !== index);
                 assert(dupedImgs.length == 0, `Characters with dupe images: ${dupedImgs.map((n) => `"${n}" `)}`);
             });
-        });
-    });
 
-    it('All characters in default list should have valid png', () => {
-        Lists['default'].list.forEach((c) => {
-            assert(existsSync(`./public/${c.img}`), `${c.name} PNG path is not valid (${c.img})`);
+            it('All characters should have an existing valid PNG', () => {
+                l[1].list.forEach((c) => {
+                    assert(existsSync(`./public/${c.img}`), `${c.name} PNG path is not valid (${c.img})`);
+                });
+            });
         });
     });
 });
@@ -39,32 +39,35 @@ function getFiles(source) {
 describe('Filesystem tests', () => {
     const files = getFiles('./public/characters');
 
-    it('Files should be the same length of default list', () => {
-        assert(files.length == Lists['default'].list.length);
-    });
-
-    it('All PNGs should have a character assigned', () => {
+    it('All PNGs should have a character assigned to any list', () => {
         files.forEach((filename) => {
-            const i = Lists['default'].list.find((character) => character.img == filename.replace('public/', ''));
-            assert(typeof i != 'undefined', `Cannot find "${filename.replace('public/', '')}", i: ${i}`);
+            let found = false;
+            Object.entries(Lists).every((l) => {
+                const i = l[1].list.find((character) => character.img == filename.replace('public/', ''));
+                if (typeof i !== 'undefined') {
+                    found = true;
+                    return false;
+                }
+                return true;
+            });
+            assert(found, `Cannot find "${filename.replace('public/', '')}"`);
         });
     });
 
     it('There shouldnt be any duplicate image hashes', () => {
-        const hashes: string[] = [];
+        const hashes: { path: string, hash: string }[] = [];
         files.forEach((file) => {
-            const character = Lists['default'].list.find((c) => c.img == file.replace('public/', ''));
-
             const blob = readFileSync(file);
-
             const sha1 = createHash('sha1').update(blob).digest('hex');
 
-            const isDuped = hashes.includes(sha1);
+            const foundHash = hashes.find((h) => h.hash === sha1);
 
-            assert(isDuped == false, `Duplicate SHA1: ${sha1} for character ${character?.name}, img: ${character?.img}`);
+            if (typeof foundHash != 'undefined') {
+                assert(false, `Duplicate SHA1: ${sha1} for character paths "${file}" and "${foundHash.path}"`);
+            }
 
-            if (!isDuped)
-                hashes.push(sha1);
+            if (typeof foundHash == 'undefined')
+                hashes.push({ path: file, hash: sha1 });
         });
     });
 });
