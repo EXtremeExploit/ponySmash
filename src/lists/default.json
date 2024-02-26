@@ -67,9 +67,11 @@
 
     { "name": "Blackjack (Community)", "img": "characters/community/Blackjack.png", "gender": "female", "community": true },
     { "name": "Cream Heart (Community)", "img": "characters/community/Cream_Heart.png", "gender": "female", "community": true },
+    { "name": "Fausticorn (Community)", "img": "characters/community/Fausticorn.png", "gender": "female", "community": true },
     { "name": "Fluffle Puff (Community)", "img": "characters/community/Fluffle_Puff.png", "gender": "female", "community": true },
     { "name": "Littlepip (Community)", "img": "characters/community/Littlepip.png", "gender": "female", "community": true },
     { "name": "Littleshy (Community)", "img": "characters/community/Littleshy.png", "gender": "male", "community": true },
+    { "name": "Milky Way (Community)", "img": "characters/community/Milky_Way.png", "gender": "female", "community": true },
     { "name": "Surprise (Community)", "img": "characters/community/Surprise.png", "gender": "female", "community": true },
     { "name": "Sweetie Bot (Community)", "img": "characters/community/Sweetie_Bot.png", "filly": true, "gender": "female", "community": true },
 
@@ -206,6 +208,7 @@
     { "name": "Bright Mac", "img": "characters/unsorted/Bright_Mac.png", "gender": "male" },
     { "name": "Bubblegum Brush", "img": "characters/unsorted/Bubblegum_Brush.png", "gender": "female", "filly": true },
     { "name": "Bulk Biceps", "img": "characters/unsorted/Bulk_Biceps.png", "gender": "male" },
+    { "name": "Bubutton Mash", "img": "characters/unsorted/Button_Mash.png", "gender": "male", "filly": true },
     { "name": "Caballeron", "img": "characters/unsorted/Caballeron.png", "gender": "male" },
     { "name": "Capper", "img": "characters/unsorted/Capper.png", "gender": "male" },
     { "name": "Captain Celaeno", "img": "characters/unsorted/Captain_Celaeno.png", "gender": "female" },
