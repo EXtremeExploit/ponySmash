@@ -6,7 +6,7 @@
 
 .button {
     background-color: rgb(70, 70, 70);
-    font-size: 3vh;
+    font-size: 2.94vh;
     padding: 5px;
     font-weight: 700;
     text-align: center;
@@ -14,9 +14,14 @@
     cursor: pointer;
     flex: 1;
     border-bottom: 10px solid white;
-    height: 7.5vh;
+    height: 10.5vh;
     padding: 1.5vh;
     touch-action: manipulation;
+}
+
+.button-combo {
+    color: white;
+    font-weight: normal;
 }
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Character } from './types.ts';
 import './css/ButtonsHolder.css';
 
@@ -10,6 +10,8 @@ function ButtonsHolder(props: {
     const [smashButtonAnimated, setSmashButtonAnimated] = useState(false);
     const [passButtonAnimated, setPassButtonAnimated] = useState(false);
 
+    const smashStreak = useRef(0);
+    const passStreak = useRef(0);
 
     function smashClick(ev?: React.MouseEvent<HTMLElement>) {
         if (props.smashClick(ev)) {
@@ -17,6 +19,8 @@ function ButtonsHolder(props: {
             setTimeout(() => {
                 setSmashButtonAnimated(true);
             }, 0);
+            smashStreak.current++;
+            passStreak.current = 0;
         }
     }
 
@@ -26,6 +30,8 @@ function ButtonsHolder(props: {
             setTimeout(() => {
                 setPassButtonAnimated(true);
             }, 0);
+            passStreak.current++;
+            smashStreak.current = 0;
         }
     }
 
@@ -52,9 +58,11 @@ function ButtonsHolder(props: {
         <div id="buttons-holder">
             <div className={'button smash-button ' + (smashButtonAnimated ? 'smash-button-anim' : '')} onClick={smashClick}>
                 {props.Character.smashText ?? (props.Character.filly ? 'Cute!' : 'SMASH!')} (←)
+                <div className='button-combo'>{smashStreak.current}x</div>
             </div>
             <div className={'button pass-button ' + (passButtonAnimated ? 'pass-button-anim' : '')} onClick={passClick}>
                 {props.Character.passText ?? (props.Character.filly ? 'Not cute' : 'Pass')} (→)
+                <div className='button-combo'>{passStreak.current}x</div>
             </div>
         </div>
     );
