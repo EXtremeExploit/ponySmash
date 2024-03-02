@@ -20,7 +20,6 @@ function ButtonsHolder(props: {
                 setSmashButtonAnimated(true);
             }, 0);
             smashStreak.current++;
-            passStreak.current = 0;
         }
     }
 
@@ -31,7 +30,6 @@ function ButtonsHolder(props: {
                 setPassButtonAnimated(true);
             }, 0);
             passStreak.current++;
-            smashStreak.current = 0;
         }
     }
 
