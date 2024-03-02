@@ -9,6 +9,10 @@
 
 .pony-name {
     font-size: 5vh;
-    margin-top: 5vh;
+    margin-top: 2vh;
     text-align: center;
+}
+
+.progress-display {
+    font-size: 2vh;
 }

@@ -35,7 +35,8 @@ function Game(props: {
 
     return (<>
         <ButtonsHolder Character={props.list.current[i]} smashClick={smashClick} passClick={passClick} />
-
+        <br></br>
+        <div className='progress-display'>{i+1}/{props.list.current.length}</div>
         <p className='pony-name'>{props.list.current[i].name}</p>
         <img className='game-img' alt={props.list.current[i].name} src={props.list.current[i].img}></img>
         {
