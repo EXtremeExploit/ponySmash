@@ -208,7 +208,7 @@
     { "name": "Bright Mac", "img": "characters/unsorted/Bright_Mac.png", "gender": "male" },
     { "name": "Bubblegum Brush", "img": "characters/unsorted/Bubblegum_Brush.png", "gender": "female", "filly": true },
     { "name": "Bulk Biceps", "img": "characters/unsorted/Bulk_Biceps.png", "gender": "male" },
-    { "name": "Bubutton Mash", "img": "characters/unsorted/Button_Mash.png", "gender": "male", "filly": true },
+    { "name": "Button Mash", "img": "characters/unsorted/Button_Mash.png", "gender": "male", "filly": true },
     { "name": "Caballeron", "img": "characters/unsorted/Caballeron.png", "gender": "male" },
     { "name": "Capper", "img": "characters/unsorted/Capper.png", "gender": "male" },
     { "name": "Captain Celaeno", "img": "characters/unsorted/Captain_Celaeno.png", "gender": "female" },
