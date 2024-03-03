@@ -100,6 +100,7 @@
     { "name": "Caramel Apple", "img": "characters/background/Caramel_Apple.png", "gender": "female" },
     { "name": "Cherry Fizzy", "img": "characters/background/Cherry_Fizzy.png", "gender": "male" },
     { "name": "Cherry Gold", "img": "characters/background/Cherry_Gold.png", "gender": "male" },
+    { "name": "Cloud Kicker", "img": "characters/background/Cloud_Kicker.png", "gender": "female" },
     { "name": "Coco Crusoe", "img": "characters/background/Coco_Crusoe.png", "gender": "male" },
     { "name": "Count Caesar", "img": "characters/background/Count_Caesar.png", "gender": "male" },
     { "name": "Crimson Gala", "img": "characters/background/Crimson_Gala.png", "gender": "female" },
