@@ -9,6 +9,7 @@ function Game(props: {
     smashes: React.MutableRefObject<Character[]>
 }) {
     const [i, setI] = useState(0);
+    const IMG_CACHE_SIZE = 20;
 
     // Return true if there is no next character
     function endingHandler(): boolean {
@@ -36,14 +37,12 @@ function Game(props: {
     return (<>
         <ButtonsHolder Character={props.list.current[i]} smashClick={smashClick} passClick={passClick} />
         <br></br>
-        <div className='progress-display'>{i+1}/{props.list.current.length}</div>
+        <div className='progress-display'>{i + 1}/{props.list.current.length}</div>
         <p className='pony-name'>{props.list.current[i].name}</p>
-        <img className='game-img' alt={props.list.current[i].name} src={props.list.current[i].img}></img>
+        <img className='game-img' alt={props.list.current[i].name} src={props.list.current[i].img} fetchPriority='high'></img>
         {
-            props.list.current.slice(i, i + 20).map((c) => (
-                <img key={c.name} src={c.img} alt="" style={
-                    { visibility: 'hidden', display: 'flex', width: '1px', height: '1px' }
-                }></img>
+            props.list.current.slice(i + 1, i + 1 + IMG_CACHE_SIZE).map((c, ci) => (
+                <img key={c.name} src={c.img} alt='' className='cached-img' fetchPriority={ci == 0 ? 'high' : 'low'} ></img>
             ))
         }
     </>);

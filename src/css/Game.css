@@ -16,3 +16,10 @@
 .progress-display {
     font-size: 2vh;
 }
+
+.cached-img {
+    visibility: hidden;
+    display: flex;
+    width: 1px;
+    height: 1px;
+}
