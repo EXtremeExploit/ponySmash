@@ -1,6 +1,6 @@
 {
   "name": "ponysmash",
-  "version": "2.10.2",
+  "version": "2.10.3",
   "description": "Smash or Pass for My Little Pony: Fiendship is Magic",
   "main": "src/index.js",
   "type": "module",
