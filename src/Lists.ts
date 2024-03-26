@@ -1,10 +1,16 @@
 import DefaultList from './lists/default.json';
+import AppleFamily from './lists/appleFamily.json';
 import { Character, List } from './types.ts';
+
+const All = [
+    ...DefaultList,
+    ...AppleFamily
+];
 
 const Lists = {
     'default': {
         name: 'Default',
-        list: DefaultList as Character[],
+        list: All as Character[],
         filters: {
             'showEQG': {
                 text: 'Show EQG',
@@ -205,9 +211,53 @@ const Lists = {
         }
     },
 
+    'apples': {
+        name: 'Apple Family',
+        list: AppleFamily as Character[],
+        filters: {
+            'showEQG': {
+                text: 'Show EQG',
+                logic: {
+                    type: 'equals',
+                    charProp: 'eqg',
+                    against: true
+                },
+                value: true
+            },
+            'showUnderage': {
+                text: 'Show underage',
+                logic: {
+                    type: 'equals',
+                    charProp: 'filly',
+                    against: true
+                },
+                value: false
+            },
+            'showFemales': {
+                text: 'Show females',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'female'
+                },
+                value: true
+            },
+            'showMales': {
+                text: 'Show males',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'male'
+                },
+                value: true
+            }
+        },
+        getShameText: () => ''
+    },
+
     'eqg': {
         name: 'Equestria Girls',
-        list: DefaultList.filter((c) => c.eqg) as Character[],
+        list: All.filter((c) => c.eqg) as Character[],
         filters: {
             'showUnderage': {
                 text: 'Show underage',
