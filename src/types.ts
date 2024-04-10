@@ -30,6 +30,8 @@ export interface Character {
     passText?: string;
 }
 
+export type StateSet<T> = React.Dispatch<React.SetStateAction<T>>;
+
 export type CharListAndNull = Character[] | null;
 export type GameState = 'menu' | 'ingame' | 'end';
 

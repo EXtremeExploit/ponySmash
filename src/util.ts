@@ -1,5 +1,5 @@
 import React from 'react';
-import { CORSProxyResponse, CharListAndNull, Character, Filters, List } from './types';
+import { CORSProxyResponse, CharListAndNull, Character, Filters, List, StateSet } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getJSON(url: string, callback: (status: number | null, data: CORSProxyResponse | any) => void) {
@@ -17,7 +17,7 @@ export function getJSON(url: string, callback: (status: number | null, data: COR
 }
 
 
-export function filterList(data: CharListAndNull, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, filters: Filters) {
+export function filterList(data: CharListAndNull, setFilteredOrderedList: StateSet<CharListAndNull>, filters: Filters) {
     if (data == null) return;
     setFilteredOrderedList(data.filter((character) => {
         for (const filterId in filters) {
@@ -45,7 +45,7 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: React.
 }
 
 
-export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>, setFilters: React.Dispatch<React.SetStateAction<Filters>>) {
+export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: StateSet<CharListAndNull>, setFilters: StateSet<Filters>) {
     if (Array.isArray(list)) {
         console.log(`Loading legacy custom list with ${list.length} characters`);
         OG_LIST.current = list;

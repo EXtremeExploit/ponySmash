@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { CharListAndNull, Character, GameState, ListName } from './types.ts';
+import { CharListAndNull, Character, GameState, ListName, StateSet } from './types.ts';
 import { filterList } from './util.ts';
 import CharactersPreviewCount from './CharactersPreviewCount.tsx';
 import ListType from './ListType.tsx';
@@ -11,10 +11,10 @@ function Menu(props:
     {
         ListProps: {
             listType: ListName,
-            setType: React.Dispatch<React.SetStateAction<ListName>>,
+            setType: StateSet<ListName>,
             list: React.MutableRefObject<Character[]>
         },
-        setGameState: React.Dispatch<React.SetStateAction<GameState>>
+        setGameState: StateSet<GameState>
     }) {
     const [isLoadingList, setIsLoadingList] = useState(false);
     const OG_LIST = useRef<CharListAndNull>(null);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CharListAndNull, Filters, ListName } from './types.ts';
+import { CharListAndNull, Filters, ListName, StateSet } from './types.ts';
 import { filterList } from './util.ts';
 import DynamicOptions from './DynamicOptions.tsx';
 import CustomOptions from './CustomOptions.tsx';
@@ -7,10 +7,10 @@ import './css/MenuOptions.css';
 
 function MenuOptions(props: {
     filters: Filters,
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
+    setFilters: StateSet<Filters>,
     listType: ListName,
     isLoadingList: boolean,
-    setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
+    setIsLoadingList: StateSet<boolean>,
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList,
     setFilteredOrderedList

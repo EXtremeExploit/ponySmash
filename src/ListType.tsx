@@ -1,12 +1,12 @@
 import React from 'react';
-import { CharListAndNull, Filters, ListName } from './types.ts';
+import { CharListAndNull, Filters, ListName, StateSet } from './types.ts';
 import Lists from './Lists.ts';
 
 function ListType(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
-    setType: React.Dispatch<React.SetStateAction<ListName>>,
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
+    setFilteredOrderedList: StateSet<CharListAndNull>,
+    setType: StateSet<ListName>,
+    setFilters: StateSet<Filters>,
     listType: ListName
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {

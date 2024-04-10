@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { CORSProxyResponse, CharListAndNull, Filters } from './types.ts';
+import { CORSProxyResponse, CharListAndNull, Filters, StateSet } from './types.ts';
 import { getJSON, loadCustomList } from './util.ts';
 
 
 function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
-    setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
-    setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
+    setFilters: StateSet<Filters>,
+    setFilteredOrderedList: StateSet<CharListAndNull>,
+    setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
 }, customListURL: string, useCORSProxy: boolean) {
     props.OG_LIST.current = null;
@@ -64,9 +64,9 @@ function customListSubmitHandler(props: {
 function CustomOptions(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filteredOrderedList: CharListAndNull,
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
-    setFilteredOrderedList: React.Dispatch<React.SetStateAction<CharListAndNull>>,
-    setIsLoadingList: React.Dispatch<React.SetStateAction<boolean>>,
+    setFilters: StateSet<Filters>,
+    setFilteredOrderedList: StateSet<CharListAndNull>,
+    setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
 },
 ) {

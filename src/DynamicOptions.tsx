@@ -1,10 +1,10 @@
 import React from 'react';
-import { Filters } from './types.ts';
+import { Filters, StateSet } from './types.ts';
 
 function DynamicOptions(props: {
     filters: Filters,
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>,
-    setShouldReloadList: React.Dispatch<React.SetStateAction<boolean>>
+    setFilters: StateSet<Filters>,
+    setShouldReloadList: StateSet<boolean>
 }) {
     return (<>
         {
