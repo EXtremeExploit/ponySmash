@@ -1,7 +1,5 @@
 import Lists from './Lists.ts';
 
-import { AriaAttributes, DOMAttributes } from 'react';
-
 declare module 'react' {
     interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
         fetchPriority?: 'high' | 'low' | 'auto';
@@ -47,24 +45,29 @@ export type FilterLogicTypeNoArg = 'equals' | 'notEquals';
 export type FilterLogicTypeWithArg = 'startsWith' | 'endsWith' | 'includes';
 
 export interface FilterLogicNoArg {
-    charProp: keyof Character;
     type: FilterLogicTypeNoArg;
+    charProp: keyof Character;
     against: boolean | string | number | null;
 }
 
 
 export interface FilterLogicWithArg {
-    charProp: keyof Character;
     type: FilterLogicTypeWithArg;
+    charProp: keyof Character;
     arg: string;
     against: boolean | string | number | null;
 }
 
+export interface FilterLogicInList {
+    type: 'inList';
+    charProp: keyof Character;
+    against: string; // TODO: Make this a type of ListName without circular dependency
+}
 
 export interface Filter {
     readonly text: string;
-    readonly logic: FilterLogicNoArg | FilterLogicWithArg;
-    value: boolean;
+    readonly logic: FilterLogicNoArg | FilterLogicWithArg | FilterLogicInList;
+    value: boolean; // Enabled or disabled
 }
 
 export type ListName = keyof (typeof Lists);

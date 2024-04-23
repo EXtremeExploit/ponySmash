@@ -1,5 +1,6 @@
 import React from 'react';
-import { CORSProxyResponse, CharListAndNull, Character, Filters, List, StateSet } from './types';
+import { CORSProxyResponse, CharListAndNull, Character, Filters, List, StateSet, ListName } from './types';
+import Lists from './Lists.ts';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getJSON(url: string, callback: (status: number | null, data: CORSProxyResponse | any) => void) {
@@ -34,6 +35,20 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: StateS
                 case 'startsWith': retVal = (charProp == null) ? true : (charProp.toString().startsWith(logic.arg) == logic.against); break;
                 case 'endsWith': retVal = (charProp == null) ? true : (charProp.toString().endsWith(logic.arg) == logic.against); break;
                 case 'includes': retVal = (charProp == null) ? true : (charProp.toString().includes(logic.arg) == logic.against); break;
+                case 'inList': {
+                    if (!Object.keys(Lists).includes(logic.against)) {
+                        const msg = `List "${logic.against}" not found in filter "${filterId}". Ignoring filter`;
+                        alert(msg);
+                        console.warn(msg);
+                        // Mark the filter as "enabled" so it gets ignored
+                        filters[filterId].value = true;
+                        return true;
+                    }
+                    const i = Lists[logic.against as ListName].list.findIndex((bc) => bc[logic.charProp] === charProp);
+
+                    const isInList = i >= 0;
+                    retVal = isInList;
+                }
             }
 
             retVal = !retVal;
