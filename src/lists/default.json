@@ -312,7 +312,7 @@
     { "name": "Mr. Hoofington", "img": "characters/unsorted/Mr._Hoofington.png", "gender": "male" },
     { "name": "Mr. Shy", "img": "characters/unsorted/Mr._Shy.png", "gender": "male" },
     { "name": "Mr. Stripes", "img": "characters/unsorted/Mr._Stripes.png", "gender": "male" },
-    { "name": "Mrs. Cake", "img": "characters/unsorted/Mrs._Cake.png", "gender": "male" },
+    { "name": "Mrs. Cake", "img": "characters/unsorted/Mrs._Cake.png", "gender": "female" },
     { "name": "Mrs. Hoofington", "img": "characters/unsorted/Mrs._Hoofington.png", "gender": "female" },
     { "name": "Mrs. Shy", "img": "characters/unsorted/Mrs._Shy.png", "gender": "female" },
     { "name": "Ms. Harshwhinny", "img": "characters/unsorted/Ms._Harshwhinny.png", "gender": "female" },
