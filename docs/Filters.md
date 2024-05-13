@@ -20,6 +20,7 @@ There are 2 kinds of logics:
 | :--: | ----------- | ------- |
 | **equals** | Checks wherever the character property equals something | ```logic: { "type": "equals", "charProp": "gender", "against": "female" } ```.<br>In this case we can see that it checks if the property "gender" of a character is equal against the "female" string |
 | **notEquals** | Checks wherever the character property DOES NOT equal something | Same as above but inverted |
+| **inList** | Checks whetever a character is in another (**builtin**) list using the specified charProp, being able to switch the character(s) on/off | ```logic: { "type": "inList", "charProp": "name", "against": "eqg" } ```<br>Here we are checking if a character with the same property in `"name"` is already in the list `"eqg"`, If it is we are able to switch this character on/off</br> |
 
 ## With Argument
 * Filters with arguments are just like the ones without arguments, just with the only difference is that they need an extra key value pair. the `arg` key. These are also a bit more advanced, meaning they 
@@ -65,7 +66,7 @@ There are 2 kinds of logics:
             "logic": {
                 "type": "endsWith",
                 "charProp": "img",
-                "arg": "Rainbow_Dash.png"
+                "arg": "Rainbow_Dash.png",
                 "against": true
             },
             "value": true
