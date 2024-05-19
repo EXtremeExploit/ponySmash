@@ -18,9 +18,10 @@ export function getJSON(url: string, callback: (status: number | null, data: COR
 }
 
 
-export function filterList(data: CharListAndNull, setFilteredOrderedList: StateSet<CharListAndNull>, filters: Filters) {
-    if (data == null) return;
-    setFilteredOrderedList(data.filter((character) => {
+export function filterList(data: CharListAndNull, setFilteredOrderedList: StateSet<CharListAndNull> | null, filters: Filters) {
+    if (data == null) return null;
+
+    const filteredOrderedList = data.filter((character) => {
         for (const filterId in filters) {
             let retVal = true;
             const { logic, value } = filters[filterId];
@@ -56,7 +57,11 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: StateS
             if (retVal == false) return false;
         }
         return true;
-    }));
+    });
+
+    if (setFilteredOrderedList)
+        setFilteredOrderedList(filteredOrderedList);
+    return filteredOrderedList;
 }
 
 

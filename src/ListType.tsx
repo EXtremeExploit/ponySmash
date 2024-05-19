@@ -1,6 +1,7 @@
 import React from 'react';
 import { CharListAndNull, Filters, ListName, Ref, StateSet } from './types.ts';
 import Lists from './Lists.ts';
+import { filterList } from './util.ts';
 
 function ListType(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
@@ -9,10 +10,10 @@ function ListType(props: {
     listType: Ref<ListName>
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
-        props.OG_LIST.current = null;
         props.listType.current = ev.target.value as ListName;
+        props.OG_LIST.current = Lists[ev.target.value as ListName].list;
         props.filters.current = Lists[ev.target.value as ListName].filters ?? {};
-        props.setFilteredOrderedList(null);
+        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters.current);
     }
 
     return (

@@ -16,29 +16,15 @@ function Menu(props:
         setGameState: StateSet<GameState>
     }) {
     const [isLoadingList, setIsLoadingList] = useState(false);
-    const OG_LIST = useRef<CharListAndNull>(null);
-    const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
+    const OG_LIST = useRef<CharListAndNull>(Lists[props.ListProps.listType.current].list);
 
     const filters = useRef(Lists[props.ListProps.listType.current].filters);
+    const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(filterList(OG_LIST.current, null, filters.current));
 
     function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
         if (filteredOrderedList != null) {
             props.ListProps.list.current = filteredOrderedList.sort((_a, _b) => 0.5 - Math.random());
             props.setGameState('ingame');
-        }
-    }
-
-    switch (props.ListProps.listType.current) {
-        case 'custom': {
-            break;
-        }
-        default: {
-            if (OG_LIST.current !== null && filteredOrderedList !== null) break; // List is already loaded
-            if (OG_LIST.current == null) {
-                OG_LIST.current = Lists[props.ListProps.listType.current].list as Character[];
-            }
-            filterList(Lists[props.ListProps.listType.current].list as Character[], setFilteredOrderedList, filters.current);
-            break;
         }
     }
 
