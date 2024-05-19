@@ -60,7 +60,7 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: StateS
 }
 
 
-export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: StateSet<CharListAndNull>, setFilters: StateSet<Filters>) {
+export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: StateSet<CharListAndNull>, filters: React.MutableRefObject<Filters>) {
     if (Array.isArray(list)) {
         console.log(`Loading legacy custom list with ${list.length} characters`);
         OG_LIST.current = list;
@@ -70,8 +70,8 @@ export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableR
         switch (list.version ?? 1) {
             case 1: {
                 OG_LIST.current = list.list;
-                setFilters(list.filters);
-                filterList(list.list, setFilteredOrderedList, list.filters);
+                filters.current = list.filters ?? {};
+                filterList(list.list, setFilteredOrderedList, filters.current);
                 break;
             }
         }

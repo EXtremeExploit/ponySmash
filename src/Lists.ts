@@ -294,8 +294,7 @@ const Lists = {
     'custom': {
         name: 'Custom...',
         list: [], // This is a placeholder
-        filters: {}, // This is a placeholder
-        getShameText: () => '' // Empty
+        filters: {} // This is a placeholder
     }
 } satisfies Record<string, List>;
 

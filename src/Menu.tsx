@@ -20,7 +20,7 @@ function Menu(props:
     const OG_LIST = useRef<CharListAndNull>(null);
     const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(null);
 
-    const [filters, setFilters] = useState(Lists[props.ListProps.listType].filters);
+    const filters = useRef(Lists[props.ListProps.listType].filters);
 
     function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
         if (filteredOrderedList != null) {
@@ -38,7 +38,7 @@ function Menu(props:
             if (OG_LIST.current == null) {
                 OG_LIST.current = Lists[props.ListProps.listType].list as Character[];
             }
-            filterList(Lists[props.ListProps.listType].list as Character[], setFilteredOrderedList, filters);
+            filterList(Lists[props.ListProps.listType].list as Character[], setFilteredOrderedList, filters.current);
             break;
         }
     }
@@ -56,8 +56,8 @@ function Menu(props:
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setType={props.ListProps.setType} listType={props.ListProps.listType} OG_LIST={OG_LIST} setFilters={setFilters} />
-            <MenuOptions key='menu-options' filters={filters} setFilters={setFilters} {...MenuOptionsProps} />
+            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} setType={props.ListProps.setType} listType={props.ListProps.listType} OG_LIST={OG_LIST} filters={filters} />
+            <MenuOptions key='menu-options' filters={filters} {...MenuOptionsProps} />
             <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType} OG_LIST={OG_LIST.current} filteredOrderedList={filteredOrderedList} />
             <br />
             <button id="start" className="start-button" disabled={filteredOrderedList == null || filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>

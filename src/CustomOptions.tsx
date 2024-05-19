@@ -5,8 +5,7 @@ import { getJSON, loadCustomList } from './util.ts';
 
 function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    filteredOrderedList: CharListAndNull,
-    setFilters: StateSet<Filters>,
+    filters: React.MutableRefObject<Filters>,
     setFilteredOrderedList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
@@ -30,7 +29,7 @@ function customListSubmitHandler(props: {
                         throw 'Content is invalid JSON';
                     }
 
-                    loadCustomList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredOrderedList, props.setFilters);
+                    loadCustomList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredOrderedList, props.filters);
                 } catch (e) {
                     if (e)
                         alert(e);
@@ -53,7 +52,7 @@ function customListSubmitHandler(props: {
                 alert('Something went wrong... \n' + errorStr);
             }
 
-            loadCustomList(data, props.OG_LIST, props.setFilteredOrderedList, props.setFilters);
+            loadCustomList(data, props.OG_LIST, props.setFilteredOrderedList, props.filters);
             props.setIsLoadingList(false);
         });
     }
@@ -63,8 +62,7 @@ function customListSubmitHandler(props: {
 
 function CustomOptions(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    filteredOrderedList: CharListAndNull,
-    setFilters: StateSet<Filters>,
+    filters: React.MutableRefObject<Filters>,
     setFilteredOrderedList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean

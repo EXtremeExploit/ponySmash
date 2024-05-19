@@ -1,10 +1,11 @@
 import React from 'react';
-import { Character, ListName } from './types.ts';
+import { Character, List, ListName } from './types.ts';
 import PonyContainer from './PonyContainer.tsx';
 import Lists from './Lists.ts';
 
 function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: React.MutableRefObject<Character[]>, listType: ListName }) {
-    const shameText = Lists[props.listType].getShameText(props.smashes.current, props.list.current);
+    const list = Lists[props.listType] as List;
+    const shameText = list.getShameText?.(props.smashes.current, props.list.current);
 
     return (
         <>
@@ -16,7 +17,7 @@ function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: 
                         default: {
                             return (<>
                                 {
-                                    shameText !== '' ? (<>
+                                    shameText !== '' && typeof shameText != 'undefined' && shameText != null ? (<>
                                         <p className='pony-name'>{shameText}</p>
                                         <br /></>) : null}
                                 <p>If you want to add a character or contribute, read the README on GitHub (its at the bottom of the page)</p>

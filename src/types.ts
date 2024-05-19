@@ -36,8 +36,8 @@ export type GameState = 'menu' | 'ingame' | 'end';
 export interface List {
     readonly name: string;
     readonly list: Character[];
-    readonly filters: Filters;
-    getShameText: (smashes: Character[], list: Character[]) => string;
+    readonly filters?: Filters;
+    getShameText?: (smashes: Character[], list: Character[]) => string;
     version?: number;
 }
 

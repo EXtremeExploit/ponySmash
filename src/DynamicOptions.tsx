@@ -1,20 +1,20 @@
 import React from 'react';
-import { Filters, StateSet } from './types.ts';
+import { CharListAndNull, Filters, StateSet } from './types.ts';
+import { filterList } from './util.ts';
 
 function DynamicOptions(props: {
-    filters: Filters,
-    setFilters: StateSet<Filters>,
-    setShouldReloadList: StateSet<boolean>
+    filters: React.MutableRefObject<Filters>,
+    OG_LIST: React.MutableRefObject<CharListAndNull>,
+    setFilteredOrderedList: StateSet<CharListAndNull>
 }) {
     return (<>
         {
-            Object.entries(props.filters).map((f) => (
+            Object.entries(props.filters.current).map((f) => (
                 <p key={f[0] + '-p'} className='menu-option'>
                     {f[1].text}
                     <input key={f[0] + '-input'} type='checkbox' className='menu-checkbox' id={f[0]} checked={f[1].value} onChange={(ev) => {
-                        props.filters[ev.target.id].value = !props.filters[ev.target.id].value;
-                        props.setFilters(props.filters);
-                        props.setShouldReloadList(true);
+                        props.filters.current[ev.target.id].value = !props.filters.current[ev.target.id].value;
+                        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters.current);
                     }} />
                 </p>
             ))

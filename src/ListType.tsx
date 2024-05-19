@@ -6,14 +6,14 @@ function ListType(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     setFilteredOrderedList: StateSet<CharListAndNull>,
     setType: StateSet<ListName>,
-    setFilters: StateSet<Filters>,
+    filters: React.MutableRefObject<Filters>,
     listType: ListName
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
         props.OG_LIST.current = null;
         props.setFilteredOrderedList(null);
         props.setType(ev.target.value as ListName);
-        props.setFilters(Lists[ev.target.value as ListName].filters);
+        props.filters.current = Lists[ev.target.value as ListName].filters ?? {};
     }
 
     return (
