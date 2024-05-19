@@ -29,6 +29,7 @@ export interface Character {
 }
 
 export type StateSet<T> = React.Dispatch<React.SetStateAction<T>>;
+export type Ref<T> = React.MutableRefObject<T>;
 
 export type CharListAndNull = Character[] | null;
 export type GameState = 'menu' | 'ingame' | 'end';

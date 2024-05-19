@@ -1,10 +1,14 @@
 import React from 'react';
-import { Character, List, ListName } from './types.ts';
+import { Character, List, ListName, Ref } from './types.ts';
 import PonyContainer from './PonyContainer.tsx';
 import Lists from './Lists.ts';
 
-function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: React.MutableRefObject<Character[]>, listType: ListName }) {
-    const list = Lists[props.listType] as List;
+function EndScreen(props: {
+    smashes: React.MutableRefObject<Character[]>,
+    list: React.MutableRefObject<Character[]>,
+    listType: Ref<ListName>
+}) {
+    const list = Lists[props.listType.current] as List;
     const shameText = list.getShameText?.(props.smashes.current, props.list.current);
 
     return (
@@ -12,7 +16,7 @@ function EndScreen(props: { smashes: React.MutableRefObject<Character[]>, list: 
             <p className='pony-name'>Its over!, You would smash{props.smashes.current.filter((e) => e.filly === true).length > 0 ? ' or call cute ' : ''} {props.smashes.current.length} out of {props.list.current.length} characters.</p>
             {
                 (() => {
-                    switch (props.listType) {
+                    switch (props.listType.current) {
                         case 'custom': return null;
                         default: {
                             return (<>

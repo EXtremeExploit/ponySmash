@@ -10,12 +10,12 @@ function PageInner() {
     const [gameState, setGameState] = useState<GameState>('menu');
 
     // Lists
-    const [listType, setType] = useState<ListName>('default');
+    // const [listType, setType] = useState<ListName>('default');
+    const listType = useRef<ListName>('default');
     const list = useRef<Character[]>([]);
 
     const ListsProps = {
         listType: listType,
-        setType: setType,
         list
     };
 

@@ -19,7 +19,13 @@ function getCharsCount(isLoadingList: boolean, listType: ListName, OG_LIST: Char
     }
 }
 
-export function CharactersPreviewCount(props: { isLoadingList: boolean, listType: ListName, OG_LIST: CharListAndNull, filteredOrderedList: CharListAndNull }) {
+export function CharactersPreviewCount(props:
+    {
+        isLoadingList: boolean,
+        listType: ListName,
+        OG_LIST: CharListAndNull,
+        filteredOrderedList: CharListAndNull
+    }) {
     return (
         <>
             <p id="characters-preview-count">Characters: {getCharsCount(props.isLoadingList, props.listType, props.OG_LIST, props.filteredOrderedList)}</p>
