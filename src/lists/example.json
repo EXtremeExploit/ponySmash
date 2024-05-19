@@ -1,26 +1,26 @@
 [
     {
         "name": "Applejack",
-        "img": "characters/mane6/Applejack.png"
+        "img": "characters/mane6/Applejack.webp"
     },
     {
         "name": "Fluttershy",
-        "img": "characters/mane6/Fluttershy.png"
+        "img": "characters/mane6/Fluttershy.webp"
     },
     {
         "name": "Pinkie Pie",
-        "img": "characters/mane6/Pinkie_Pie.png"
+        "img": "characters/mane6/Pinkie_Pie.webp"
     },
     {
         "name": "Rainbow Dash",
-        "img": "characters/mane6/Rainbow_Dash.png"
+        "img": "characters/mane6/Rainbow_Dash.webp"
     },
     {
         "name": "Rarity",
-        "img": "characters/mane6/Rarity.png"
+        "img": "characters/mane6/Rarity.webp"
     },
     {
         "name": "Twilight Sparkle",
-        "img": "characters/mane6/Twilight_Sparkle.png"
+        "img": "characters/mane6/Twilight_Sparkle.webp"
     }
 ]

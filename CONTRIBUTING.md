@@ -7,6 +7,10 @@ Yay, you want to contribute!. If you are here, then that means that your contrib
 * Once it's done installing, you can run `npm start` to start serving the site, and your browser will open. Whatever changes you make to the project while the site is opened will be immediately reflected in your browser. There is no need to reload.
 * If you want to build a production-ready static site, you can use `npm run build`. The resulted build will end up in the `build` directory
 
+## Images should be in the WebP format
+* To convert the png files over the WebP without quality loss, use this command:
+* `parallel cwebp {} -z 9 -o {.}.webp ::: *.png`
+
 ## Actually coding
 * This project uses ESLint for linting. If your IDE/Editor doesn't support it by default, you should try installing an extension that enables this functionality, this is required for maintaining consistency among the repo and having things look nice. If there is no such extension, you can just run `npx eslint .` in a terminal to check for eslint rules manually.
 * You can code now, or refactor. Whatever, as long as it's good code and improves stuff its welcome
