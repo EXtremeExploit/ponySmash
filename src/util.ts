@@ -1,6 +1,7 @@
 import React from 'react';
 import { CORSProxyResponse, CharListAndNull, Character, Filters, List, StateSet, ListName } from './types';
 import Lists from './Lists.ts';
+import { LIST_LATEST_VERSION } from './constants.tsx';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getJSON(url: string, callback: (status: number | null, data: CORSProxyResponse | any) => void) {
@@ -18,10 +19,10 @@ export function getJSON(url: string, callback: (status: number | null, data: COR
 }
 
 
-export function filterList(data: CharListAndNull, setFilteredOrderedList: StateSet<CharListAndNull> | null, filters: Filters) {
+export function filterList(data: CharListAndNull, setFilteredList: StateSet<CharListAndNull> | null, filters: Filters) {
     if (data == null) return null;
 
-    const filteredOrderedList = data.filter((character) => {
+    const filteredList = data.filter((character) => {
         for (const filterId in filters) {
             let retVal = true;
             const { logic, value } = filters[filterId];
@@ -59,26 +60,43 @@ export function filterList(data: CharListAndNull, setFilteredOrderedList: StateS
         return true;
     });
 
-    if (setFilteredOrderedList)
-        setFilteredOrderedList(filteredOrderedList);
-    return filteredOrderedList;
+    if (setFilteredList)
+        setFilteredList(filteredList);
+    return filteredList;
 }
 
-
-export function loadCustomList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredOrderedList: StateSet<CharListAndNull>, filters: React.MutableRefObject<Filters>) {
+/**
+ * Loads a list object/array and filters if filters apply
+ * @param list List object or character array
+ * @param OG_LIST OG_LIST ref
+ * @param setFilteredList filtered list setter
+ * @param filters Filters REF
+ * @param listType List key type
+ */
+export function loadList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredList: StateSet<CharListAndNull>, filters: React.MutableRefObject<Filters>, listType?: ListName) {
     if (Array.isArray(list)) {
         console.log(`Loading legacy custom list with ${list.length} characters`);
         OG_LIST.current = list;
-        setFilteredOrderedList(list);
-    } else {
-        console.log(`Loading custom list with version ${list.version ?? 1}`);
-        switch (list.version ?? 1) {
-            case 1: {
-                OG_LIST.current = list.list;
-                filters.current = list.filters ?? {};
-                filterList(list.list, setFilteredOrderedList, filters.current);
-                break;
-            }
+        setFilteredList(list);
+        return;
+    }
+
+    if (listType != 'custom' && !list.version)
+        list.version = LIST_LATEST_VERSION; // Assume builtin lists are latest version
+    console.log(`Loading list "${listType}" with version ${list.version ?? 1}`);
+    switch (list.version ?? 1) {
+        case 1: {
+            OG_LIST.current = list.list;
+            filters.current = list.filters ?? {};
+            filterList(OG_LIST.current, setFilteredList, filters.current);
+            break;
+        }
+        default: {
+            console.warn(`Invalid version "${list.version}" for list "${listType}"`);
+            alert(`Invalid list version: ${list.version}`);
+            OG_LIST.current = [];
+            filters.current = {};
+            filterList(OG_LIST.current, setFilteredList, filters.current);
         }
     }
 }

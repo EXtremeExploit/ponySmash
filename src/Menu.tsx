@@ -19,11 +19,11 @@ function Menu(props:
     const OG_LIST = useRef<CharListAndNull>(Lists[props.ListProps.listType.current].list);
 
     const filters = useRef(Lists[props.ListProps.listType.current].filters);
-    const [filteredOrderedList, setFilteredOrderedList] = useState<CharListAndNull>(filterList(OG_LIST.current, null, filters.current));
+    const [filteredList, setFilteredList] = useState<CharListAndNull>(filterList(OG_LIST.current, null, filters.current));
 
     function startButtonClick(_ev: React.MouseEvent<HTMLButtonElement>) {
-        if (filteredOrderedList != null) {
-            props.ListProps.list.current = filteredOrderedList.sort((_a, _b) => 0.5 - Math.random());
+        if (filteredList != null) {
+            props.ListProps.list.current = filteredList.sort((_a, _b) => 0.5 - Math.random());
             props.setGameState('ingame');
         }
     }
@@ -33,19 +33,19 @@ function Menu(props:
         isLoadingList: isLoadingList,
         setIsLoadingList: setIsLoadingList,
         OG_LIST: OG_LIST,
-        filteredOrderedList: filteredOrderedList,
-        setFilteredOrderedList: setFilteredOrderedList
+        filteredList: filteredList,
+        setFilteredList: setFilteredList
     };
 
     return (
         <>
             <p className="title">MLP: FiM Smash or Pass</p>
 
-            <ListType key='listType' setFilteredOrderedList={setFilteredOrderedList} listType={props.ListProps.listType} OG_LIST={OG_LIST} filters={filters} />
+            <ListType key='listType' setFilteredList={setFilteredList} listType={props.ListProps.listType} OG_LIST={OG_LIST} filters={filters} />
             <MenuOptions key='menu-options' filters={filters} {...MenuOptionsProps} />
-            <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType.current} OG_LIST={OG_LIST.current} filteredOrderedList={filteredOrderedList} />
+            <CharactersPreviewCount isLoadingList={isLoadingList} listType={props.ListProps.listType.current} OG_LIST={OG_LIST.current} filteredList={filteredList} />
             <br />
-            <button id="start" className="start-button" disabled={filteredOrderedList == null || filteredOrderedList.length === 0} onClick={startButtonClick}>Start</button>
+            <button id="start" className="start-button" disabled={filteredList == null || filteredList.length === 0} onClick={startButtonClick}>Start</button>
         </>
     );
 }

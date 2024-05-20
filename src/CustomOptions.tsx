@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { CORSProxyResponse, CharListAndNull, Filters, StateSet } from './types.ts';
-import { getJSON, loadCustomList } from './util.ts';
+import { getJSON, loadList } from './util.ts';
 
 
 function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filters: React.MutableRefObject<Filters>,
-    setFilteredOrderedList: StateSet<CharListAndNull>,
+    setFilteredList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
 }, customListURL: string, useCORSProxy: boolean) {
     props.OG_LIST.current = null;
-    props.setFilteredOrderedList(null);
+    props.setFilteredList(null);
     if (props.isLoadingList === true) return; // Load the first list first
     if (useCORSProxy) {
         console.log(`Loading custom list "${customListURL}" with CORS proxy`);
@@ -29,7 +29,7 @@ function customListSubmitHandler(props: {
                         throw 'Content is invalid JSON';
                     }
 
-                    loadCustomList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredOrderedList, props.filters);
+                    loadList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredList, props.filters);
                 } catch (e) {
                     if (e)
                         alert(e);
@@ -52,7 +52,7 @@ function customListSubmitHandler(props: {
                 alert('Something went wrong... \n' + errorStr);
             }
 
-            loadCustomList(data, props.OG_LIST, props.setFilteredOrderedList, props.filters);
+            loadList(data, props.OG_LIST, props.setFilteredList, props.filters);
             props.setIsLoadingList(false);
         });
     }
@@ -63,7 +63,7 @@ function customListSubmitHandler(props: {
 function CustomOptions(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     filters: React.MutableRefObject<Filters>,
-    setFilteredOrderedList: StateSet<CharListAndNull>,
+    setFilteredList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
 },

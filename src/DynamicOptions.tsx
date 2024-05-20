@@ -5,7 +5,7 @@ import { filterList } from './util.ts';
 function DynamicOptions(props: {
     filters: React.MutableRefObject<Filters>,
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    setFilteredOrderedList: StateSet<CharListAndNull>
+    setFilteredList: StateSet<CharListAndNull>
 }) {
     return (<>
         {
@@ -14,7 +14,7 @@ function DynamicOptions(props: {
                     {f[1].text}
                     <input key={f[0] + '-input'} type='checkbox' className='menu-checkbox' id={f[0]} checked={f[1].value} onChange={(ev) => {
                         props.filters.current[ev.target.id].value = !props.filters.current[ev.target.id].value;
-                        filterList(props.OG_LIST.current, props.setFilteredOrderedList, props.filters.current);
+                        filterList(props.OG_LIST.current, props.setFilteredList, props.filters.current);
                     }} />
                 </p>
             ))

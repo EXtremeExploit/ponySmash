@@ -10,8 +10,8 @@ function MenuOptions(props: {
     isLoadingList: boolean,
     setIsLoadingList: StateSet<boolean>,
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    filteredOrderedList: CharListAndNull,
-    setFilteredOrderedList: StateSet<CharListAndNull>
+    filteredList: CharListAndNull,
+    setFilteredList: StateSet<CharListAndNull>
 }) {
     return (
         <>
