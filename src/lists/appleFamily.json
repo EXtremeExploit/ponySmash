@@ -9,6 +9,7 @@
     { "name": "Apple Dumpling", "img": "characters/apples/Apple_Dumpling.webp", "gender": "female" },
     { "name": "Apple Fritter", "img": "characters/apples/Apple_Fritter.webp", "gender": "female" },
     { "name": "Apple Honey", "img": "characters/apples/Apple_Honey.webp", "gender": "female" },
+    { "name": "Applejack", "img": "characters/mane6/Applejack.webp", "gender": "female" },
     { "name": "Applejack (EQG)", "img": "characters/apples/Applejack.webp", "eqg": true, "gender": "female" },
     { "name": "Apple Leaves", "img": "characters/apples/Apple_Leaves.webp", "gender": "female" },
     { "name": "Apple Munchies", "img": "characters/apples/Apple_Munchies.webp", "gender": "female" },

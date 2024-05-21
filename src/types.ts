@@ -38,6 +38,11 @@ export interface List {
     readonly name: string;
     readonly list: Character[];
     readonly filters?: Filters;
+    /**
+     * @param smashes Array of characters the user chose smash
+     * @param list Array of characters of the list, excluding filtered ones
+     * @returns A text to display at game's end screen
+     */
     getShameText?: (smashes: Character[], list: Character[]) => string;
     version?: number;
 }

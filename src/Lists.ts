@@ -2,10 +2,13 @@ import DefaultList from './lists/default.json';
 import AppleFamily from './lists/appleFamily.json';
 import { Character, List } from './types.ts';
 
-const All = [
+let All = [
     ...DefaultList,
     ...AppleFamily
 ];
+
+// Remove duplicates using img property, order doesnt matter
+All = [...new Map(All.map((v) => [v.img, v])).values()];
 
 const Lists = {
     'default': {
@@ -58,7 +61,7 @@ const Lists = {
                 value: true
             }
         },
-        getShameText: (smashes: Character[], list: Character[]): string => {
+        getShameText: (smashes, list): string => {
             const hasTom = typeof smashes.find((c) => c.name === 'Tom') !== 'undefined';
             const hasBoulder = typeof smashes.find((c) => c.name === 'Boulder') !== 'undefined';
             const hasBloomberg = typeof smashes.find((c) => c.name === 'Bloomberg') !== 'undefined';
@@ -293,8 +296,7 @@ const Lists = {
     // Custom is special, all its props are placeholders
     'custom': {
         name: 'Custom...',
-        list: [], // This is a placeholder
-        filters: {} // This is a placeholder
+        list: [] // This is a placeholder
     }
 } satisfies Record<string, List>;
 
