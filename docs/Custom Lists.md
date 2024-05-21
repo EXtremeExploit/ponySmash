@@ -12,19 +12,19 @@
 [
    {
       "name": "Applejack",
-      "img": "characters/mane6/Applejack.png"
+      "img": "characters/mane6/Applejack.webp"
    },
    { "name": "Fluttershy", "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="},
-   { "name": "Pinkie Pie", "img": "characters/mane6/Pinkie_Pie.png"},
-   { "name": "Rainbow Dash", "img": "characters/mane6/Rainbow_Dash.png"},
-   { "name": "Rarity", "img": "characters/mane6/Rarity.png"},
-   { "name": "Twilight Sparkle", "img": "characters/mane6/Twilight_Sparkle.png"}
+   { "name": "Pinkie Pie", "img": "characters/mane6/Pinkie_Pie.webp"},
+   { "name": "Rainbow Dash", "img": "characters/mane6/Rainbow_Dash.webp"},
+   { "name": "Rarity", "img": "characters/mane6/Rarity.webp"},
+   { "name": "Twilight Sparkle", "img": "characters/mane6/Twilight_Sparkle.webp"}
 ]
 ```
 ### Explanation
 * As you can see above, the JSON above consits of a list/array (indicated by the usage of `[` and `]` at the start and the end). this array consists of objects that consists of multiple keys and values:
    1. The `"name"` property is the text that appears above the character
-   2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like gyazo or the base64 of an image (not really friendly)
+   2. The `"img"` property is the src of the image, it can be a relative path to the same domain of ponysmash (reusing characters from MLP: FiM), an absolute path to an external site like gyazo or the base64 of an image (not really friendly as they can be VERY long)
    3. The `"filly"` property (optional) sets if the character is underage (`true`/`false`), this will make it so that the buttons say "Cute!" and "Not cute" in the case this property is `true`,
    3. The `"smashText"` property (optional) sets the text for the smash button. Example : `"smashText": "Smash head with hammer"`,
    3. The `"passText"` property (optional) sets the text for the pass button. Example : `"passText": "Not even if equestria depended on it"`,
@@ -39,28 +39,28 @@
     "list": [
         {
             "name": "Adagio Dazzle (EQG)",
-            "img": "characters/eqg/Adagio_Dazzle.png",
+            "img": "characters/eqg/Adagio_Dazzle.webp",
             "gender": "female"
         },
         {
             "name": "Apple Bloom (EQG)",
-            "img": "characters/eqg/Apple_Bloom.png",
+            "img": "characters/eqg/Apple_Bloom.webp",
             "filly": true,
             "gender": "female"
         },
         {
             "name": "Applejack (EQG)",
-            "img": "characters/eqg/Applejack.png",
+            "img": "characters/eqg/Applejack.webp",
             "gender": "female"
         },
         {
             "name": "Aria Blaze (EQG)",
-            "img": "characters/eqg/Aria_Blaze.png",
+            "img": "characters/eqg/Aria_Blaze.webp",
             "gender": "female"
         },
         {
             "name": "Big McIntosh (EQG)",
-            "img": "characters/eqg/Big_McIntosh.png",
+            "img": "characters/eqg/Big_McIntosh.webp",
             "gender": "male"
         }
     ],

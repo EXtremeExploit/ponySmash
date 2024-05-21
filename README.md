@@ -13,14 +13,14 @@ I was bored tbh
 * **Style has to be the same as other images (2D, same style as the show/2017 movie), OCs are the only exceptions but it's preferable**
 * **Name has to be correct (duh)**
 * **Resolution has to be decent (AT LEAST 256x256), if a higher quality version exists please use it**
-* **File format has to be `png` (lowercase extension)**
+* **File format has to be `webp` (lowercase extension)**
 
 ### Instructions
 * EASY! :D
 * First you want to fork this repository
 * Clone your fork (you can do this an the rest of the steps easily with [GitHub Desktop](https://desktop.github.com/) if you dont know much about git)
 * Create a new branch with the name you want
-* Add the **PNG** to `public/characters` folder, you are free to put it in the respective folder it should go to, but if you are unsure put it in `unsorted`
+* Add the **WebP** ([how do i convert png to webp?](./CONTRIBUTING.md#images-should-be-in-the-webp-format)) to `public/characters` folder, you are free to put it in the respective folder it should go to, but if you are unsure put it in `unsorted`
 * Add the character to the list inside `src/lists/default.json`
    *  `name`: This is what appears above the image
    *  `img`: The path to the image, **ITS CASE SENSITIVE**

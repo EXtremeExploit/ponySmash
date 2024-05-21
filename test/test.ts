@@ -21,9 +21,9 @@ describe('List tests', () => {
                 assert(dupedImgs.length == 0, `Characters with dupe images: ${dupedImgs.map((n) => `"${n}" `)}`);
             });
 
-            it('All characters should have an existing valid PNG', () => {
+            it('All characters should have an existing valid WebP', () => {
                 l[1].list.forEach((c) => {
-                    assert(existsSync(`./public/${c.img}`), `${c.name} PNG path is not valid (${c.img})`);
+                    assert(existsSync(`./public/${c.img}`), `${c.name} WebP path is not valid (${c.img})`);
                 });
             });
         });
@@ -39,7 +39,7 @@ function getFiles(source) {
 describe('Filesystem tests', () => {
     const files = getFiles('./public/characters');
 
-    it('All PNGs should have a character assigned to any list', () => {
+    it('All WebPs should have a character assigned to any list', () => {
         files.forEach((filename) => {
             let found = false;
             Object.entries(Lists).every((l) => {

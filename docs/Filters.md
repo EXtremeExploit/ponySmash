@@ -29,7 +29,7 @@ There are 2 kinds of logics:
 | Name | Argument | Description | Example |
 | :--: | -------- | ----------- | ------- |
 | **startsWith** | The text to check it starts with | Checks whetever the property of a character stars with a specific text in particular (the argument), this check later gets checked with `against`. This check only makes sense to check against `true` or `false` | ```logic: { "type": "startsWith", "charProp": "img", "arg": "characters/mane6", "against": true } ```.<br>In this case we can see that it checks if the property "img" starts with the text `"characters/mane6"` and that check is true(meaning it in fact does). If it was false the check would apply to characters which property img **does not** start with the specified text |
-| **endsWith** | The text to check it ends with | Checks whetever the property of a character ends with a specific text in particular (the argument), this check later gets checked with `against`. This check only makes sense to check against `true` or `false` | ```logic: { "type": "endsWith", "charProp": "img", "arg": "Applejack.png", "against": true } ```.<br>In this case we can see that it checks if the property "img" ends with the text `"Applejack.png"` (useful to check if a character is X regardless of its origin (EQG or FiM)) and that check is true (meaning it in fact does end with it). If it was false the check would apply to characters which property img **does not** end with the specified text |
+| **endsWith** | The text to check it ends with | Checks whetever the property of a character ends with a specific text in particular (the argument), this check later gets checked with `against`. This check only makes sense to check against `true` or `false` | ```logic: { "type": "endsWith", "charProp": "img", "arg": "Applejack.webp", "against": true } ```.<br>In this case we can see that it checks if the property "img" ends with the text `"Applejack.webp"` (useful to check if a character is X regardless of its origin (EQG or FiM)) and that check is true (meaning it in fact does end with it). If it was false the check would apply to characters which property img **does not** end with the specified text |
 | **includes** | The text to check is contained ANYWHERE on the property | Checks whetever the property of a character includes a specific text in particular (the argument) ANYWHERE ON THE PROPERTY, this check later gets checked with `against`. This check only makes sense to check against `true` or `false` | ```logic: { "type": "includes", "charProp": "tags", "arg": "unicorn", "against": true } ```.<br>In this case we can see that it checks if the property "tags" (probably custom defined) contains the text `"unicorn"` and that check is true (meaning it in fact does contain the text). If it was false the check would apply to characters which the property `tags` **does not** contain the specified text in it | 
 
 # Extras
@@ -66,7 +66,7 @@ There are 2 kinds of logics:
             "logic": {
                 "type": "endsWith",
                 "charProp": "img",
-                "arg": "Rainbow_Dash.png",
+                "arg": "Rainbow_Dash.webp",
                 "against": true
             },
             "value": true

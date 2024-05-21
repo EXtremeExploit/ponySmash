@@ -10,6 +10,7 @@ Yay, you want to contribute!. If you are here, then that means that your contrib
 ## Images should be in the WebP format
 * To convert the png files over the WebP without quality loss, use this command:
 * `parallel cwebp {} -z 9 -o {.}.webp ::: *.png`
+* This will convert all the png files to webp in the current standing directory
 
 ## Actually coding
 * This project uses ESLint for linting. If your IDE/Editor doesn't support it by default, you should try installing an extension that enables this functionality, this is required for maintaining consistency among the repo and having things look nice. If there is no such extension, you can just run `npx eslint .` in a terminal to check for eslint rules manually.
