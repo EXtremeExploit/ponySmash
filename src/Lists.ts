@@ -296,7 +296,8 @@ const Lists = {
     // Custom is special, all its props are placeholders
     'custom': {
         name: 'Custom...',
-        list: [] // This is a placeholder
+        list: [], // This is a placeholder
+        filters: {} // Placeholder
     }
 } satisfies Record<string, List>;
 

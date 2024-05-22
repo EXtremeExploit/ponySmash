@@ -6,6 +6,8 @@ declare module 'react' {
     }
 }
 
+export type EventDecorations = 'none' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear';
+
 export interface CORSProxyResponse {
     contents: string | null;
     status: {
