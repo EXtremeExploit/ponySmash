@@ -2,3 +2,4 @@ User-agent: *
 Disallow: 
 Crawl-delay: 5
 Disallow: /characters/
+Disallow: /images/
