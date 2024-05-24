@@ -1,6 +1,6 @@
 import React from 'react';
 import { version } from './constants.tsx';
-import { EventDecorations, EventEastersData } from './types.ts';
+import { EventDecorations, EventEastersData, EventStarWarsData } from './types.ts';
 
 
 function GetCredits(props:
@@ -17,6 +17,12 @@ function GetCredits(props:
         case 'newYear': creditsUrl = 'https://www.deviantart.com/ironm17/art/New-Year-722220054'; break;
         case 'bday': creditsUrl = 'https://derpibooru.org/images/2185632'; break;
         case 'valentines': creditsUrl = 'https://derpibooru.org/images/212580'; break;
+        case 'starWars': {
+            switch ((props.eventData as EventStarWarsData).imgName) {
+                case 'fluttershy': creditsUrl = 'https://derpibooru.org/images/1078924'; break;
+                case 'starlight': creditsUrl = 'https://derpibooru.org/images/1017669'; break;
+            }
+        }
         case 'easters': {
             switch ((props.eventData as EventEastersData).imgNum) {
                 case 0: creditsUrl = 'https://www.deviantart.com/up1ter/art/Derpy-Easter-Bunny-294745771'; break;

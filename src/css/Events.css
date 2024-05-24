@@ -15,6 +15,19 @@
     pointer-events: none;
 }
 
+
+.starWars {
+    height: auto;
+    max-height: 50%;
+    width: auto;
+    max-width: 100vw;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: -999;
+    pointer-events: painted;
+}
+
 .valentines {
     height: auto;
     max-height: 50%;

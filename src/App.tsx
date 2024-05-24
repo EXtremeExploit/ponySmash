@@ -6,6 +6,7 @@ import { EasterDate } from './util.ts';
 
 import { AprilFools } from './events/AprilFools.tsx';
 import { Halloween } from './events/Halloween.tsx';
+import { StarWars } from './events/StarWars.tsx';
 import { Christmas } from './events/Christmas.tsx';
 import { NewYear } from './events/NewYear.tsx';
 import { BDay } from './events/BDay.tsx';
@@ -39,6 +40,9 @@ function App() {
     if ((date.getMonth() == 1 && date.getDate() == 14))
         eventDecoration = 'valentines';
 
+    if ((date.getMonth() == 4 && date.getDate() == 4))
+        eventDecoration = 'starWars';
+
     const ed = EasterDate(date.getFullYear());
     if ((date.getMonth() + 1 == ed.month && date.getDate() == ed.day)) {
         eventDecoration = 'easters';
@@ -58,6 +62,7 @@ function App() {
                         case 'bday': return <BDay />;
                         case 'valentines': return <Valentines />;
                         case 'easters': return <Easters dataSet={eventDataSet} />;
+                        case 'starWars': return <StarWars dataSet={eventDataSet} />;
                         case 'none': return <></>;
                     }
                 })()

@@ -6,7 +6,7 @@ declare module 'react' {
     }
 }
 
-export type EventDecorations = 'none' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters';
+export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters';
 
 export interface CORSProxyResponse {
     contents: string | null;
@@ -32,6 +32,10 @@ export interface Character {
 
 export interface EventEastersData {
     imgNum: number;
+}
+
+export interface EventStarWarsData {
+    imgName: string;
 }
 
 export type StateSet<T> = React.Dispatch<React.SetStateAction<T>>;
