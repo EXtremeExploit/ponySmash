@@ -6,7 +6,6 @@ declare module 'react' {
     }
 }
 
-export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters';
 
 export interface CORSProxyResponse {
     contents: string | null;
@@ -29,6 +28,8 @@ export interface Character {
     smashText?: string;
     passText?: string;
 }
+
+export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters';
 
 export interface EventEastersData {
     imgNum: number;

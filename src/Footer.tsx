@@ -1,6 +1,6 @@
 import React from 'react';
 import { version } from './constants.tsx';
-import { EventDecorations, EventEastersData, EventStarWarsData } from './types.ts';
+import { EventDecorations, EventEastersData, EventStarWarsData, Ref } from './types.ts';
 
 
 function GetCredits(props:
@@ -46,7 +46,7 @@ function GetCredits(props:
 }
 
 export function Footer(props: {
-    event: EventDecorations,
+    event: Ref<EventDecorations>,
     eventData: object
 }) {
     return (
@@ -56,7 +56,7 @@ export function Footer(props: {
                 Site by <a href="https://github.com/EXtremeExploit/">EXtremeExploit</a> /
                 Give me a star on <a href="https://github.com/EXtremeExploit/ponySmash">GitHub</a> /&nbsp;
                 <a href="https://github.com/EXtremeExploit/ponySmash/blob/master/LICENSE">License</a>
-                <GetCredits event={props.event} eventData={props.eventData} />
+                <GetCredits event={props.event.current} eventData={props.eventData} />
             </p>
         </footer>
     );

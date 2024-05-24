@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { EventStarWarsData, StateSet } from '../types';
 
 export function StarWars(props: {
-    dataSet: StateSet<EventStarWarsData>
+    dataSet: StateSet<object | EventStarWarsData>
 }) {
     const imgList = [
         'fluttershy',

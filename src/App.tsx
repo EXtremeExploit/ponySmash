@@ -1,72 +1,19 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+
+import { EventDecorations } from './types.ts';
+import { Events } from './Events.tsx';
 import PageInner from './PageInner.tsx';
 import { Footer } from './Footer.tsx';
-import { EventDecorations } from './types.ts';
-import { EasterDate } from './util.ts';
 
-import { AprilFools } from './events/AprilFools.tsx';
-import { Halloween } from './events/Halloween.tsx';
-import { StarWars } from './events/StarWars.tsx';
-import { Christmas } from './events/Christmas.tsx';
-import { NewYear } from './events/NewYear.tsx';
-import { BDay } from './events/BDay.tsx';
-import { Easters } from './events/Easters.tsx';
 
 import './css/Events.css';
-import { Valentines } from './events/Valentines.tsx';
-
 function App() {
-    const date = new Date();
-    let eventDecoration: EventDecorations = 'none';
-
-    if ((date.getMonth() == 3 && date.getDate() == 1))
-        eventDecoration = 'aprilFools';
-
-    if ((date.getMonth() == 9 && date.getDate() == 31))
-        eventDecoration = 'halloween';
-
-    if (date.getMonth() == 11 && (date.getDate() == 24 || date.getDate() == 25))
-        eventDecoration = 'xmas';
-
-    if ((date.getMonth() == 11 && date.getDate() == 31) || (date.getMonth() == 0 && date.getDate() == 1))
-        eventDecoration = 'newYear';
-
-    if ((date.getMonth() == 9 && date.getDate() == 10))
-        eventDecoration = 'bday';
-
-    if ((date.getMonth() == 9 && date.getDate() == 10))
-        eventDecoration = 'bday';
-
-    if ((date.getMonth() == 1 && date.getDate() == 14))
-        eventDecoration = 'valentines';
-
-    if ((date.getMonth() == 4 && date.getDate() == 4))
-        eventDecoration = 'starWars';
-
-    const ed = EasterDate(date.getFullYear());
-    if ((date.getMonth() + 1 == ed.month && date.getDate() == ed.day)) {
-        eventDecoration = 'easters';
-    }
-
+    const eventDecoration = useRef<EventDecorations>('none');
     const [eventData, eventDataSet] = useState<object>({});
 
     return (
         <>
-            {
-                (() => {
-                    switch (eventDecoration) {
-                        case 'aprilFools': return <AprilFools />;
-                        case 'halloween': return <Halloween />;
-                        case 'xmas': return <Christmas />;
-                        case 'newYear': return <NewYear />;
-                        case 'bday': return <BDay />;
-                        case 'valentines': return <Valentines />;
-                        case 'easters': return <Easters dataSet={eventDataSet} />;
-                        case 'starWars': return <StarWars dataSet={eventDataSet} />;
-                        case 'none': return <></>;
-                    }
-                })()
-            }
+            <Events key='events' eventDecoration={eventDecoration} eventDataSet={eventDataSet} />
             <PageInner key='page-inner' />
             <Footer key='footer' event={eventDecoration} eventData={eventData} />
         </>

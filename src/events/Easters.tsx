@@ -3,7 +3,7 @@ import { NUM_EASTER_IMGS } from '../constants.tsx';
 import { EventEastersData, StateSet } from '../types.ts';
 
 export function Easters(props: {
-    dataSet: StateSet<EventEastersData>
+    dataSet: StateSet<object | EventEastersData>
 }) {
     const img = useMemo(() => {
         return Math.floor(Math.random() * NUM_EASTER_IMGS);
