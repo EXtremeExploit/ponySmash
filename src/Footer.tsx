@@ -23,6 +23,12 @@ function GetCredits(props:
                 case 'starlight': creditsUrl = 'https://derpibooru.org/images/1017669'; break;
             }
         }
+        case 'blazeIt': {
+            switch ((props.eventData as EventStarWarsData).imgName) {
+                case 'blazeIt1': creditsUrl = 'https://derpibooru.org/images/2819742'; break;
+                case 'blazeIt2': creditsUrl = 'https://derpibooru.org/images/1086556'; break;
+            }
+        }
         case 'easters': {
             switch ((props.eventData as EventEastersData).imgNum) {
                 case 0: creditsUrl = 'https://www.deviantart.com/up1ter/art/Derpy-Easter-Bunny-294745771'; break;

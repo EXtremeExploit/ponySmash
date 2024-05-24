@@ -11,6 +11,7 @@ import { NewYear } from './events/NewYear.tsx';
 import { BDay } from './events/BDay.tsx';
 import { Easters } from './events/Easters.tsx';
 import { Valentines } from './events/Valentines.tsx';
+import { BlazeIt } from './events/BlazeIt.tsx';
 
 
 export function Events(props: {
@@ -40,6 +41,9 @@ export function Events(props: {
     if ((date.getMonth() == 4 && date.getDate() == 4))
         props.eventDecoration.current = 'starWars';
 
+    if ((date.getMonth() == 3 && date.getDate() == 20))
+        props.eventDecoration.current = 'blazeIt';
+
     const ed = EasterDate(date.getFullYear());
     if ((date.getMonth() + 1 == ed.month && date.getDate() == ed.day)) {
         props.eventDecoration.current = 'easters';
@@ -58,6 +62,7 @@ export function Events(props: {
                         case 'valentines': return <Valentines />;
                         case 'easters': return <Easters dataSet={props.eventDataSet} />;
                         case 'starWars': return <StarWars dataSet={props.eventDataSet} />;
+                        case 'blazeIt': return <BlazeIt dataSet={props.eventDataSet} />;
                         case 'none': return <></>;
                     }
                 })()

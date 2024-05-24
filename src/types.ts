@@ -29,7 +29,7 @@ export interface Character {
     passText?: string;
 }
 
-export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters';
+export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters' | 'blazeIt';
 
 export interface EventEastersData {
     imgNum: number;
