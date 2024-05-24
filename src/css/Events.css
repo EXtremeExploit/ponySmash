@@ -15,6 +15,31 @@
     pointer-events: none;
 }
 
+.valentines {
+    height: auto;
+    max-height: 50%;
+    width: auto;
+    max-width: 100vw;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: -999;
+    pointer-events: painted;
+}
+
+.easter-pony {
+    height: auto;
+    max-height: 45%;
+    width: auto;
+    max-width: 100vw;
+    transform: scaleX(-1);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: -999;
+    pointer-events: painted;
+}
+
 .xmas-tree {
     height: auto;
     max-height: 45%;
@@ -33,6 +58,16 @@
     position: absolute;
     bottom: 0px;
     right: 0px;
+    z-index: -999;
+    pointer-events: painted;
+}
+
+.bday {
+    height: 50%;
+    width: max-content;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
     z-index: -999;
     pointer-events: painted;
 }
@@ -70,6 +105,8 @@ path {
 #top {
     stroke-width: 2px;
 }
+
+/* Snowflakes */
 
 .snowflake {
     color: #fff;
@@ -216,6 +253,158 @@ path {
 }
 
 .snowflake:nth-of-type(11) {
+    left: 65%;
+    animation-delay: 2.5s
+}
+
+/* Ballons */
+
+@keyframes balloons-fall {
+    0% {
+        transform: translateY(110vh)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes balloons-shake {
+
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    50% {
+        transform: translateX(30px)
+    }
+}
+
+.balloon {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+}
+
+.balloon,
+.balloon .inner {
+    animation-iteration-count: infinite;
+    animation-play-state: running
+}
+
+
+.balloon {
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    animation-name: balloons-shake;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out
+}
+
+.balloon .inner {
+    animation-duration: 10s;
+    animation-name: balloons-fall;
+    animation-timing-function: linear
+}
+
+.balloon:nth-of-type(0) {
+    left: 1%;
+    animation-delay: 0s
+}
+
+.balloon:nth-of-type(0) .inner {
+    animation-delay: 0s
+}
+
+.balloon:first-of-type {
+    left: 10%;
+    animation-delay: 1s
+}
+
+.balloon:first-of-type .inner,
+.balloon:nth-of-type(8) .inner {
+    animation-delay: 1s
+}
+
+.balloon:nth-of-type(2) {
+    left: 20%;
+    animation-delay: .5s
+}
+
+.balloon:nth-of-type(2) .inner,
+.balloon:nth-of-type(6) .inner {
+    animation-delay: 6s
+}
+
+.balloon:nth-of-type(3) {
+    left: 30%;
+    animation-delay: 2s
+}
+
+.balloon:nth-of-type(11) .inner,
+.balloon:nth-of-type(3) .inner {
+    animation-delay: 4s
+}
+
+.balloon:nth-of-type(4) {
+    left: 40%;
+    animation-delay: 2s
+}
+
+.balloon:nth-of-type(10) .inner,
+.balloon:nth-of-type(4) .inner {
+    animation-delay: 2s
+}
+
+.balloon:nth-of-type(5) {
+    left: 50%;
+    animation-delay: 3s
+}
+
+.balloon:nth-of-type(5) .inner {
+    animation-delay: 8s
+}
+
+.balloon:nth-of-type(6) {
+    left: 60%;
+    animation-delay: 2s
+}
+
+.balloon:nth-of-type(7) {
+    left: 70%;
+    animation-delay: 1s
+}
+
+.balloon:nth-of-type(7) .inner {
+    animation-delay: 2.5s
+}
+
+.balloon:nth-of-type(8) {
+    left: 80%;
+    animation-delay: 0s
+}
+
+.balloon:nth-of-type(9) {
+    left: 90%;
+    animation-delay: 1.5s
+}
+
+.balloon:nth-of-type(9) .inner {
+    animation-delay: 3s
+}
+
+.balloon:nth-of-type(10) {
+    left: 25%;
+    animation-delay: 0s
+}
+
+.balloon:nth-of-type(11) {
     left: 65%;
     animation-delay: 2.5s
 }
