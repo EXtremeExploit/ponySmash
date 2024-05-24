@@ -40,7 +40,7 @@ function App() {
         eventDecoration = 'valentines';
 
     const ed = EasterDate(date.getFullYear());
-    if ((date.getMonth() == ed.month && date.getDate() == ed.day)) {
+    if ((date.getMonth() + 1 == ed.month && date.getDate() == ed.day)) {
         eventDecoration = 'easters';
     }
 
