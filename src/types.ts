@@ -45,10 +45,18 @@ export type Ref<T> = React.MutableRefObject<T>;
 export type CharListAndNull = Character[] | null;
 export type GameState = 'menu' | 'ingame' | 'end';
 
-export interface List {
+export interface ListExtension {
+    list: string;
+    filters?: FiltersAlwaysOff;
+}
+
+export type ListExtensions = Record<string, ListExtension>;
+
+export interface List extends ListProps {
     readonly name: string;
     readonly list: Character[];
-    readonly filters?: Filters;
+    // readonly filters?: Filters;
+    // readonly extensions?: ListExtensions;
     /**
      * @param smashes Array of characters the user chose smash
      * @param list Array of characters of the list, excluding filtered ones
@@ -87,5 +95,12 @@ export interface Filter {
     value: boolean; // Enabled or disabled
 }
 
+export interface ListProps {
+    filters: Filters;
+    extensions: ListExtensions;
+}
+
 export type ListName = keyof (typeof Lists);
 export type Filters = Record<string, Filter>;
+
+export type FiltersAlwaysOff = Record<string, Omit<Filter, 'value'> & { value: false }>;

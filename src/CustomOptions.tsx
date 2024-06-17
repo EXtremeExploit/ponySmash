@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { CORSProxyResponse, CharListAndNull, Filters, StateSet } from './types.ts';
+import { CORSProxyResponse, CharListAndNull, ListProps, StateSet } from './types.ts';
 import { getJSON, loadList } from './util.ts';
 
 
 function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    filters: React.MutableRefObject<Filters>,
+    listProps: React.MutableRefObject<ListProps>,
     setFilteredList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean
@@ -29,7 +29,7 @@ function customListSubmitHandler(props: {
                         throw 'Content is invalid JSON';
                     }
 
-                    loadList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredList, props.filters);
+                    loadList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredList, props.listProps);
                 } catch (e) {
                     if (e)
                         alert(e);
@@ -52,7 +52,7 @@ function customListSubmitHandler(props: {
                 alert('Something went wrong... \n' + errorStr);
             }
 
-            loadList(data, props.OG_LIST, props.setFilteredList, props.filters);
+            loadList(data, props.OG_LIST, props.setFilteredList, props.listProps);
             props.setIsLoadingList(false);
         });
     }
@@ -62,7 +62,7 @@ function customListSubmitHandler(props: {
 
 function CustomOptions(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
-    filters: React.MutableRefObject<Filters>,
+    listProps: React.MutableRefObject<ListProps>,
     setFilteredList: StateSet<CharListAndNull>,
     setIsLoadingList: StateSet<boolean>,
     isLoadingList: boolean

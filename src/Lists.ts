@@ -1,7 +1,9 @@
 import DefaultList from './lists/default.json';
 import AppleFamily from './lists/appleFamily.json';
+import Community from './lists/community.json';
 import { Character, List } from './types.ts';
 
+// This is only useful for the eqg list, i dont like this
 let All = [
     ...DefaultList,
     ...AppleFamily
@@ -13,14 +15,24 @@ All = [...new Map(All.map((v) => [v.img, v])).values()];
 const Lists = {
     'default': {
         name: 'Default',
-        list: All as Character[],
+        list: DefaultList as Character[],
+        extensions: {
+            'appleFamily': {
+                list: 'apples',
+                filters: {}
+            },
+            'community': {
+                list: 'community',
+                filters: {}
+            }
+        },
         filters: {
             'showEQG': {
                 text: 'Show EQG',
                 logic: {
-                    type: 'equals',
-                    charProp: 'eqg',
-                    against: true
+                    type: 'inList',
+                    charProp: 'name',
+                    against: 'eqg'
                 },
                 value: true
             },
@@ -54,9 +66,9 @@ const Lists = {
             'showCommunity': {
                 text: 'Show community characters',
                 logic: {
-                    type: 'equals',
-                    charProp: 'community',
-                    against: true
+                    type: 'inList',
+                    charProp: 'name',
+                    against: 'community'
                 },
                 value: true
             }
@@ -217,6 +229,7 @@ const Lists = {
     'apples': {
         name: 'Apple Family',
         list: AppleFamily as Character[],
+        extensions: {},
         filters: {
             'showEQG': {
                 text: 'Show EQG',
@@ -261,6 +274,43 @@ const Lists = {
     'eqg': {
         name: 'Equestria Girls',
         list: All.filter((c) => c.eqg) as Character[],
+        extensions: {},
+        filters: {
+            'showUnderage': {
+                text: 'Show underage',
+                logic: {
+                    type: 'equals',
+                    charProp: 'filly',
+                    against: true
+                },
+                value: false
+            },
+            'showFemales': {
+                text: 'Show females',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'female'
+                },
+                value: true
+            },
+            'showMales': {
+                text: 'Show males',
+                logic: {
+                    type: 'equals',
+                    charProp: 'gender',
+                    against: 'male'
+                },
+                value: true
+            }
+        },
+        getShameText: () => ''
+    },
+
+    'community': {
+        name: 'Community',
+        list: Community as Character[],
+        extensions: {},
         filters: {
             'showUnderage': {
                 text: 'Show underage',
@@ -297,7 +347,8 @@ const Lists = {
     'custom': {
         name: 'Custom...',
         list: [], // This is a placeholder
-        filters: {} // Placeholder
+        extensions: {},
+        filters: {}
     }
 } satisfies Record<string, List>;
 

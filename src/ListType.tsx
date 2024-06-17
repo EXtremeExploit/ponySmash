@@ -1,17 +1,17 @@
 import React from 'react';
-import { CharListAndNull, Filters, ListName, Ref, StateSet } from './types.ts';
+import { CharListAndNull, ListName, ListProps, Ref, StateSet } from './types.ts';
 import Lists from './Lists.ts';
 import { loadList } from './util.ts';
 
 function ListType(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
     setFilteredList: StateSet<CharListAndNull>,
-    filters: React.MutableRefObject<Filters>,
+    listProps: React.MutableRefObject<ListProps>,
     listType: Ref<ListName>
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
         props.listType.current = ev.target.value as ListName;
-        loadList(Lists[ev.target.value as ListName], props.OG_LIST, props.setFilteredList, props.filters, props.listType.current);
+        loadList(Lists[ev.target.value as ListName], props.OG_LIST, props.setFilteredList, props.listProps);
     }
 
     return (

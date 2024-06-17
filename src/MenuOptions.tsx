@@ -1,11 +1,11 @@
 import React from 'react';
-import { CharListAndNull, Filters, ListName, Ref, StateSet } from './types.ts';
+import { CharListAndNull, ListName, ListProps, Ref, StateSet } from './types.ts';
 import DynamicOptions from './DynamicOptions.tsx';
 import CustomOptions from './CustomOptions.tsx';
 import './css/MenuOptions.css';
 
 function MenuOptions(props: {
-    filters: React.MutableRefObject<Filters>,
+    listProps: React.MutableRefObject<ListProps>,
     listType: Ref<ListName>,
     isLoadingList: boolean,
     setIsLoadingList: StateSet<boolean>,

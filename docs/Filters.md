@@ -12,7 +12,7 @@ There are 2 kinds of logics:
 ## Without Arguments
 * These filters are very simple, they consist of 3 key value pairs.
   * `type`: What filter to use. has to be one of the possible values in the column **`Name`** from below
-  * `charProp`: What property of a character to check for. Could literally be any valid key value pair in your character list. For example the `filly` property in [Customs lists modern format documentation](https://github.com/EXtremeExploit/ponySmash/wiki/Custom-Lists#modern-format-please-use-this)
+  * `charProp`: What property of a character to check for. Could literally be any valid key value pair in your character list. For example the `filly` property in [Customs lists modern format documentation](./Custom%20Lists.md#modern-format-please-use-this)
   * `against`: What to check the filter against.
 
 ### Available filters

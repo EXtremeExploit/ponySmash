@@ -1,5 +1,5 @@
 import React from 'react';
-import { CORSProxyResponse, CharListAndNull, Character, Filters, List, StateSet, ListName } from './types';
+import { CORSProxyResponse, CharListAndNull, Character, List, StateSet, ListName, ListProps } from './types';
 import Lists from './Lists.ts';
 import { LIST_LATEST_VERSION } from './constants.tsx';
 
@@ -18,9 +18,10 @@ export function getJSON(url: string, callback: (status: number | null, data: COR
     xhr.send();
 }
 
-
-export function filterList(data: CharListAndNull, setFilteredList: StateSet<CharListAndNull> | null, filters: Filters) {
+export function filterList(data: CharListAndNull, setFilteredList: StateSet<CharListAndNull> | null, listProps: ListProps) {
     if (data == null) return null;
+
+    const filters = listProps.filters;
 
     const filteredList = data.filter((character) => {
         for (const filterId in filters) {
@@ -70,15 +71,16 @@ export function filterList(data: CharListAndNull, setFilteredList: StateSet<Char
  * @param list List object or character array
  * @param OG_LIST OG_LIST ref
  * @param setFilteredList filtered list setter
- * @param filters Filters REF
+ * @param listProps List properties
  * @param listType List key type
  */
-export function loadList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredList: StateSet<CharListAndNull>, filters: React.MutableRefObject<Filters>, listType?: ListName) {
+export function loadList(list: Character[] | List, OG_LIST: React.MutableRefObject<CharListAndNull>, setFilteredList: StateSet<CharListAndNull> | null, listProps: React.MutableRefObject<ListProps>, listType?: ListName) {
     if (Array.isArray(list)) {
         console.log(`Loading legacy custom list with ${list.length} characters`);
         OG_LIST.current = list;
-        setFilteredList(list);
-        return;
+        if (setFilteredList != null)
+            setFilteredList(list);
+        return list;
     }
 
     if (listType != 'custom' && !list.version)
@@ -86,23 +88,66 @@ export function loadList(list: Character[] | List, OG_LIST: React.MutableRefObje
     console.log(`Loading list "${listType}" with version ${list.version ?? 1}`);
     switch (list.version ?? 1) {
         case 1: {
-            OG_LIST.current = list.list;
-            filters.current = list.filters ?? {};
-            filterList(OG_LIST.current, setFilteredList, filters.current);
-            break;
+            listProps.current.filters = list.filters ?? {};
+            listProps.current.extensions = list.extensions ?? {};
+            let listExtended = processListExtensions(list.list, listProps.current);
+            listExtended = [...new Map(listExtended.map((v) => [v.img, v])).values()];
+
+            OG_LIST.current = listExtended;
+
+            const filteredList = filterList(OG_LIST.current, setFilteredList, listProps.current);
+            return filteredList;
         }
         default: {
             console.warn(`Invalid version "${list.version}" for list "${listType}"`);
             alert(`Invalid list version: ${list.version}`);
             OG_LIST.current = [];
-            filters.current = {};
-            filterList(OG_LIST.current, setFilteredList, filters.current);
+            listProps.current.filters = {};
+            listProps.current.extensions = {};
+            const filteredList = filterList(OG_LIST.current, setFilteredList, listProps.current);
+            return filteredList;
         }
     }
 }
 
+function processListExtensions(base: Character[], listProps: ListProps) {
+    for (const extId in listProps.extensions) {
+        const ext = listProps.extensions[extId];
+        const extList = ext.list as ListName;
+        if (extList == 'custom') {
+            const msg = `Extension list cannot be "${extList}". Ignoring filter`;
+            alert(msg);
+            console.warn(msg);
+            continue;
+        }
+
+        if (!Object.keys(Lists).includes(extList)) {
+            const msg = `List "${extList}" not found in extension "${extId}". Ignoring extension`;
+            alert(msg);
+            console.warn(msg);
+            continue;
+        }
+
+        const refList = Lists[extList];
+        let refListList = refList.list;
+
+        const refListProps: ListProps = {
+            extensions: refList.extensions,
+            filters: ext.filters ?? {}
+        };
+
+        if (Object.keys(refList.extensions).length != 0)
+            refListList = processListExtensions(refListList, refListProps);
+
+        const refListFiltered = filterList(refListList, null, refListProps);
+
+        base = base.concat(refListFiltered as Character[]);
+    }
+    return base;
+}
+
 // https://stackoverflow.com/a/1284335/9421414
-export function EasterDate(Y) {
+export function EasterDate(Y: number) {
     const C = Math.floor(Y / 100);
     const N = Y - 19 * Math.floor(Y / 19);
     const K = Math.floor((C - 17) / 25);
@@ -115,5 +160,5 @@ export function EasterDate(Y) {
     const M = 3 + Math.floor((L + 40) / 44);
     const D = L + 28 - 31 * Math.floor(M / 4);
 
-    return { month: M, day: D };
+    return { month: M, day: D } as const;
 }

@@ -3,7 +3,7 @@ import { Character } from './types.ts';
 import './css/ButtonsHolder.css';
 
 function ButtonsHolder(props: {
-    Character: Character,
+    character: Character,
     smashClick: (ev?: React.MouseEvent<HTMLElement>) => boolean,
     passClick: (ev?: React.MouseEvent<HTMLElement>) => boolean
 }) {
@@ -55,11 +55,11 @@ function ButtonsHolder(props: {
     return (
         <div id="buttons-holder">
             <div className={'button smash-button ' + (smashButtonAnimated ? 'smash-button-anim' : '')} onClick={smashClick}>
-                {props.Character.smashText ?? (props.Character.filly ? 'Cute!' : 'SMASH!')} (←)
+                {props.character.smashText ?? (props.character.filly ? 'Cute!' : 'SMASH!')} (←)
                 <div className='button-combo'>{smashStreak.current}x</div>
             </div>
             <div className={'button pass-button ' + (passButtonAnimated ? 'pass-button-anim' : '')} onClick={passClick}>
-                {props.Character.passText ?? (props.Character.filly ? 'Not cute' : 'Pass')} (→)
+                {props.character.passText ?? (props.character.filly ? 'Not cute' : 'Pass')} (→)
                 <div className='button-combo'>{passStreak.current}x</div>
             </div>
         </div>

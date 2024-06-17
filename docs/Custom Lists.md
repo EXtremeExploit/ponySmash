@@ -64,6 +64,21 @@
             "gender": "male"
         }
     ],
+    "extensions": {
+        "appleFamily": {
+            "list": "apples",
+            "filters": {
+                "noEqg": {
+                    "logic": {
+                        "type": "inList",
+                        "charProp": "name",
+                        "against": "eqg"
+                    },
+                    "value": false
+                }
+            }
+        }
+    },
     "filters": {
         "showUnderage": {
             "text": "Show underage",
@@ -98,7 +113,8 @@
 * This time however the list itself is an object (`{` and `}`). This object has 2 key values.
   * `version`: This is a number that specifies what version of customs list the list is using. This is optional, but if its missing it will get treated as if its value was 1
   * `list`: This is where the contents of a [Legacy formatted list](#legacy-format) would go in. You can add more key value pairs to each character, like in the list above, some have the `"filly"` key
-  * `filters`: This is the custom filters of the list. Its an object in which each property is a filter, you can name them whatever you want, but the values should follow specific rules. For more information read the [Filters Documentation](https://github.com/EXtremeExploit/ponySmash/wiki/Filters)
+  * `extensions`: This is used to make the custom list depend on another (built-in) list. Useful for expanding built-in lists or saving the work of having to add characters already in the game by hand in the list. For more information read the [Extensions Documentation](./Extensions.md)
+  * `filters`: This is the custom filters of the list. Its an object in which each property is a filter, you can name them whatever you want, but the values should follow specific rules. For more information read the [Filters Documentation](./Filters.md)
 
  
 # General tips (applies to both kinds of lists)
