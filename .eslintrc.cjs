@@ -83,7 +83,11 @@ module.exports = {
         }],
         '@stylistic/rest-spread-spacing': ['error', 'never'],
         '@stylistic/space-before-blocks': ['error', 'always'],
-        '@stylistic/space-before-function-paren': ['error', 'never'],
+        '@stylistic/space-before-function-paren': ['error', {
+            'anonymous': 'never',
+            'named': 'never',
+            'asyncArrow': 'always'
+        }],
         '@stylistic/space-in-parens': ['error', 'never'],
         '@stylistic/spaced-comment': ['error', 'always'],
         '@stylistic/switch-colon-spacing': ['error', { before: false, after: true }],

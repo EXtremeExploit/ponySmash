@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CORSProxyResponse, CharListAndNull, ListProps, StateSet } from './types.ts';
 import { getJSON, loadList } from './util.ts';
-
+import ReactGA from 'react-ga4';
 
 function customListSubmitHandler(props: {
     OG_LIST: React.MutableRefObject<CharListAndNull>,
@@ -13,6 +13,11 @@ function customListSubmitHandler(props: {
     props.OG_LIST.current = null;
     props.setFilteredList(null);
     if (props.isLoadingList === true) return; // Load the first list first
+
+    (async () => {
+        ReactGA.event('load_custom_list', { url: customListURL, cors: useCORSProxy });
+    })();
+
     if (useCORSProxy) {
         console.log(`Loading custom list "${customListURL}" with CORS proxy`);
         getJSON(`https://api.allorigins.win/get?url=${encodeURIComponent(customListURL)}`, (status, data: CORSProxyResponse | null) => {

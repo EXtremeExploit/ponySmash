@@ -25,7 +25,7 @@ function PageInner() {
                 (() => {
                     switch (gameState) {
                         case 'menu': return (<Menu key='menu' setGameState={setGameState} ListProps={ListsProps} />);
-                        case 'ingame': return (<Game key='game' list={list} setGameState={setGameState} smashes={smashes} />);
+                        case 'ingame': return (<Game key='game' list={list} setGameState={setGameState} smashes={smashes} listName={listType.current} />);
                         case 'end': return (<EndScreen key='endscreen' smashes={smashes} list={list} listType={listType} />);
                     }
                 })()

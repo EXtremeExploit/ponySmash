@@ -1,10 +1,13 @@
-import initReactFastclick from 'react-fastclick';
 
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './css/index.css';
 import App from './App.tsx';
 
+import ReactGA from 'react-ga4';
+ReactGA.initialize('G-R47V0VDB3D');
+
+import initReactFastclick from 'react-fastclick';
 initReactFastclick();
 
 const rootElement = document.getElementById('root');
