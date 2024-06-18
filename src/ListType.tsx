@@ -11,7 +11,7 @@ function ListType(props: {
 }) {
     function changedList(ev: React.ChangeEvent<HTMLSelectElement>) {
         props.listType.current = ev.target.value as ListName;
-        loadList(Lists[ev.target.value as ListName], props.OG_LIST, props.setFilteredList, props.listProps);
+        loadList(Lists[ev.target.value as ListName], props.OG_LIST, props.setFilteredList, props.listProps, props.listType.current);
     }
 
     return (

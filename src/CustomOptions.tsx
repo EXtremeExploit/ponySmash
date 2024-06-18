@@ -34,7 +34,7 @@ function customListSubmitHandler(props: {
                         throw 'Content is invalid JSON';
                     }
 
-                    loadList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredList, props.listProps);
+                    loadList(JSON.parse(data.contents), props.OG_LIST, props.setFilteredList, props.listProps, 'custom');
                 } catch (e) {
                     if (e)
                         alert(e);
@@ -57,7 +57,7 @@ function customListSubmitHandler(props: {
                 alert('Something went wrong... \n' + errorStr);
             }
 
-            loadList(data, props.OG_LIST, props.setFilteredList, props.listProps);
+            loadList(data, props.OG_LIST, props.setFilteredList, props.listProps, 'custom');
             props.setIsLoadingList(false);
         });
     }
