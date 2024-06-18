@@ -1,16 +1,24 @@
 import React, { useEffect, useMemo } from 'react';
-import { NUM_EASTER_IMGS } from '../constants.tsx';
 import { EventEastersData, StateSet } from '../types.ts';
 
 export function Easters(props: {
     dataSet: StateSet<object | EventEastersData>
 }) {
-    const img = useMemo(() => {
-        return Math.floor(Math.random() * NUM_EASTER_IMGS);
-    }, [NUM_EASTER_IMGS]);
+    const imgList = [
+        'applejack',
+        'derpy',
+        'fluttershy2',
+        'fluttershy',
+        'pinkie',
+        'rainbow',
+        'rarity',
+        'twilight'
+    ];
+
+    const img = useMemo(() => imgList[Math.floor(Math.random() * imgList.length)], []);
 
     useEffect(() => {
-        props.dataSet({ imgNum: img });
+        props.dataSet({ imgName: img });
     }, [img]);
 
     return (<>

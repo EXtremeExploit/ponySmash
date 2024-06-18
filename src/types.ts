@@ -32,7 +32,7 @@ export interface Character {
 export type EventDecorations = 'none' | 'starWars' | 'valentines' | 'aprilFools' | 'xmas' | 'halloween' | 'newYear' | 'bday' | 'easters' | 'blazeIt';
 
 export interface EventEastersData {
-    imgNum: number;
+    imgName: string;
 }
 
 export interface EventStarWarsData {
