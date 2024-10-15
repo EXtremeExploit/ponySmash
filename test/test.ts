@@ -33,7 +33,7 @@ describe('List tests', () => {
 function getFiles(source) {
     return readdirSync(source, { withFileTypes: true, recursive: true })
         .filter((dirent) => !dirent.isDirectory())
-        .map((dirent) => `${dirent.path}/${dirent.name}`);
+        .map((dirent) => `${dirent.parentPath}/${dirent.name}`);
 }
 
 describe('Filesystem tests', () => {
