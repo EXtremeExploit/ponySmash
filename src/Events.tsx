@@ -20,27 +20,35 @@ export function Events(props: {
 }) {
     const date = new Date();
 
+    // April 1
     if ((date.getMonth() == 3 && date.getDate() == 1))
         props.eventDecoration.current = 'aprilFools';
 
+    // October 31
     if ((date.getMonth() == 9 && date.getDate() == 31))
         props.eventDecoration.current = 'halloween';
 
+    // December 25
     if (date.getMonth() == 11 && (date.getDate() == 24 || date.getDate() == 25))
         props.eventDecoration.current = 'xmas';
 
+    // December 31 / January 1
     if ((date.getMonth() == 11 && date.getDate() == 31) || (date.getMonth() == 0 && date.getDate() == 1))
         props.eventDecoration.current = 'newYear';
 
+    // October 10
     if ((date.getMonth() == 9 && date.getDate() == 10))
         props.eventDecoration.current = 'bday';
 
+    // February 14
     if ((date.getMonth() == 1 && date.getDate() == 14))
         props.eventDecoration.current = 'valentines';
 
+    // May 4
     if ((date.getMonth() == 4 && date.getDate() == 4))
         props.eventDecoration.current = 'starWars';
 
+    // April 20
     if ((date.getMonth() == 3 && date.getDate() == 20))
         props.eventDecoration.current = 'blazeIt';
 
