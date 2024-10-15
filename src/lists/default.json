@@ -234,6 +234,7 @@
     { "name": "Flim", "img": "characters/unsorted/Flim.webp", "gender": "male" },
     { "name": "Flitter", "img": "characters/unsorted/Flitter.webp", "gender": "female" },
     { "name": "Flurry Heart", "img": "characters/unsorted/Flurry_Heart.webp", "filly": true, "gender": "female" },
+    { "name": "Flutterbat", "img": "characters/unsorted/Flutterbat.webp", "gender": "female" },
     { "name": "Four Step", "img": "characters/unsorted/Four_Step.webp", "gender": "female" },
     { "name": "Gabby", "img": "characters/unsorted/Gabby.webp", "gender": "female" },
     { "name": "Gallic", "img": "characters/unsorted/Gallic.webp", "gender": "female" },
