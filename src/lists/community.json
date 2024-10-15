@@ -1,5 +1,6 @@
 [
     { "name": "4everfreebrony (Community)", "img": "characters/community/4everfreebrony.webp", "gender": "male", "community": true },
+    { "name": "Anonfilly (Community)", "img": "characters/community/Anonfilly.webp", "gender": "female", "filly": true, "community": true },
     { "name": "Apogee (Community)", "img": "characters/community/Apogee.webp", "gender": "female", "filly": true, "community": true },
     { "name": "Blackjack (Community)", "img": "characters/community/Blackjack.webp", "gender": "female", "community": true },
     { "name": "Cream Heart (Community)", "img": "characters/community/Cream_Heart.webp", "gender": "female", "community": true },
