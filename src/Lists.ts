@@ -137,7 +137,7 @@ const Lists = {
                 if (smashes[0].name === 'King Sombra') return 'Last night he treated you like you were made of crystal. This morning, you were his prince.';
                 if (smashes[0].name === 'Autumn Blaze') return `She doesn't shut up. it was a good smash, but you finished with your ears ringing and with a headache, you still can hear her voice in your head`;
                 if (smashes[0].name === 'Sweetie Bot (Community)') return 'You approach her, she makes a lot of sounds that resemble of her CPU scanning you, you pet her and you call her cute, she replies with 01010100 01101000 01100001 01101110 01101011 00100000 01111001 01101111 01110101 00100000 01100110 01101111 01110010 00100000 01100011 01100001 01101100 01101100 01101001 01101110 01100111 00100000 01101101 01100101 00100000 01100011 01110101 01110100 01100101 00100000 00111010 01000100 while overheating';
-                if (smashes[0].name === 'Fluffle Puff (Community)') return 'For some reason you had to wear a Chrysalis costume just forher to even notice you. It was the softest creature you ever touched';
+                if (smashes[0].name === 'Fluffle Puff (Community)') return 'For some reason you had to wear a Chrysalis costume just for her to even notice you. It was the softest creature you ever touched';
                 if (hasCadance) return `You didn't think you'd ever see anyone literally get heart-eyes. You now stand corrected.`;
                 if (smashes[0].name === 'Lord Tirek') return 'Not only he drained your magic but he drained your balls better than a succubus would. He also left you to rot on the ground without any magic, you died some hours later tho';
                 return `You are loyal to ${smashes[0].name}... I like it.`;
