@@ -24,8 +24,8 @@ export function Events(props: {
     if ((date.getMonth() == 3 && date.getDate() == 1))
         props.eventDecoration.current = 'aprilFools';
 
-    // October 31
-    if ((date.getMonth() == 9 && date.getDate() == 31))
+    // October 1-November 1
+    if ((date.getMonth() == 9) || (date.getMonth() == 10 && date.getDate() == 1))
         props.eventDecoration.current = 'halloween';
 
     // December 25
